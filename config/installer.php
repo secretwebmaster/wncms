@@ -14,7 +14,7 @@ return [
     */
     'version'=>'4.0.0',
     'core' => [
-        'minPhpVersion' => '8.2.0',
+        'minPhpVersion' => '8.2.0+',
     ],
     'final' => [
         'key' => true,
@@ -33,6 +33,11 @@ return [
         'apache' => [
             'mod_rewrite',
         ],
+        'php_functions' => [
+            'putenv',
+            'symlink',
+            'proc_open',
+        ]
     ],
 
     /*

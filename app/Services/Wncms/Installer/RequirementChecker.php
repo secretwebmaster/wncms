@@ -50,6 +50,17 @@ class RequirementChecker
                         }
                     }
                     break;
+                case 'php_functions':
+                    foreach ($requirements[$type] as $requirement) {
+                        // if function doesn't exist we can't check apache modules
+                        if (function_exists($requirement)) {
+                            $results['requirements'][$type][$requirement] = true;
+                        }else{
+                            $results['requirements'][$type][$requirement] = false;
+                            $results['errors'] = true;
+                        }
+                    }
+                    break;
             }
         }
 

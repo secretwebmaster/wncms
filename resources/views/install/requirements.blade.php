@@ -14,12 +14,20 @@
     @foreach($requirements['requirements'] as $type => $requirement)
         <ul class="list">
             <li class="list__item list__title {{ $phpSupportInfo['supported'] ? 'success' : 'error' }}">
-                <strong>{{ ucfirst($type) }}</strong>
+                <strong>{{ $type }}</strong>
                 @if($type == 'php')
                     <strong>
-                        <small>
-                            (version {{ $phpSupportInfo['minimum'] }} @lang('word.is_reuired'))
-                        </small>
+                        <small>(version {{ $phpSupportInfo['minimum'] }} @lang('word.is_reuired'))</small>
+                    </strong>
+                    <span class="float-right">
+                        <strong>
+                            {{ $phpSupportInfo['current'] }}
+                        </strong>
+                        <i class="fa fa-fw fa-{{ $phpSupportInfo['supported'] ? 'check-circle-o' : 'exclamation-circle' }} row-icon" aria-hidden="true"></i>
+                    </span>
+                @elseif($type == 'php_functions')
+                    <strong>
+                        <small>(@lang('installer_messages.please_enable_these_php_functions'))</small>
                     </strong>
                     <span class="float-right">
                         <strong>
@@ -29,6 +37,7 @@
                     </span>
                 @endif
             </li>
+
             @foreach($requirements['requirements'][$type] as $extention => $enabled)
                 <li class="list__item {{ $enabled ? 'success' : 'error' }}">
                     {{ $extention }}

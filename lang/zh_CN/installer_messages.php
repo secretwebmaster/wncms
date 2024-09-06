@@ -255,4 +255,6 @@ return [
             'success_message' => '文尼CMS已成功更新于 ',
         ],
     ],
+
+    'please_enable_these_php_functions' => '请确定一下PHP函数为启用'
 ];
