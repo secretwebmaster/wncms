@@ -41,8 +41,8 @@ class CreateThemeFile extends Command
         $viewsSource = resource_path("views/frontend/theme/starter");
         $viewsDestination = resource_path("views/frontend/theme/{$themeName}");
     
-        $langsSource = resource_path("lang/zh_TW/starter.php");
-        $langsDestination = resource_path("lang/zh_TW/{$themeName}.php");
+        $langsSource = base_path("lang/zh_TW/starter.php");
+        $langsDestination = base_path("lang/zh_TW/{$themeName}.php");
     
         // Copy the files and directories
         if (File::exists($configSource)) {
