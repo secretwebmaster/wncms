@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('website_id')->constrained()->cascadeOnDelete();
             $table->string('status'); // active | paused | suspended
-            $table->datetime('expired_at');
+            $table->datetime('expired_at')->nullable();
             $table->json('name')->nullable();
             $table->string('type'); // text | image | card | script
             $table->string('cta_text')->nullable();
@@ -29,9 +29,6 @@ return new class extends Migration
             $table->text('style')->nullable();
             $table->string('position')->nullable();
             $table->integer('order')->nullable();
-            
-            $table->datetime('expired_at')->nullable()->change();
-            
             $table->timestamps();
         });
     }
