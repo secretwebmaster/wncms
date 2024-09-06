@@ -111,7 +111,8 @@ class WebsiteController extends Controller
             );
         }
         
-        wncms()->cache()->flush(['websites']);
+        // wncms()->cache()->flush(['websites']);
+        cache()->flush();
 
         return redirect()->route('websites.index')->with([
             'status' => 'success',

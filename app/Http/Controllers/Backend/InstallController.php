@@ -131,6 +131,8 @@ class InstallController extends Controller
         //install composer files
         $this->install_composer_files();
 
+        cache()->flush();
+
         return response()->json([
             'status' => 'success',
             'message' => __('word.started_installation'),
