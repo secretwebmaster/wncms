@@ -1,25 +1,15 @@
 <?php
 
 return [
-
-    /*
-     *
-     * 共享翻译。
-     *
-     */
     'title' => '文尼CMS安装向导',
     'next' => '下一步',
     'back' => '上一步',
     'finish' => '安装',
+
     'forms' => [
         'errorTitle' => '以下错误发生：',
     ],
 
-    /*
-     *
-     * 首页翻译。
-     *
-     */
     'welcome' => [
         'templateTitle' => '文尼CMS安装向导',
         'title'   => '文尼CMS安装向导',
@@ -27,33 +17,18 @@ return [
         'next'    => '检查环境',
     ],
 
-    /*
-     *
-     * 环境需求翻译。
-     *
-     */
     'requirements' => [
         'templateTitle' => '步骤 1 | 环境要求',
         'title' => '环境要求',
         'next'    => '检查权限',
     ],
 
-    /*
-     *
-     * 权限翻译。
-     *
-     */
     'permissions' => [
         'templateTitle' => '步骤 2 | 权限',
         'title' => '权限',
         'next' => '设定系统基本配置',
     ],
 
-    /*
-     *
-     * 环境设定翻译。
-     *
-     */
     'environment' => [
         'menu' => [
             'templateTitle' => '步骤 3 | 系统基本配置',
@@ -180,20 +155,10 @@ return [
 
     'install' => '安装',
 
-    /*
-     *
-     * 安装纪录翻译。
-     *
-     */
     'installed' => [
         'success_log_message' => '文尼CMS安装程式成功安装于 ',
     ],
 
-    /*
-     *
-     * 最终页面翻译。
-     *
-     */
     'final' => [
         'title' => '安装完成',
         'templateTitle' => '安装完成',
@@ -205,46 +170,20 @@ return [
         'exit' => '点击这裡退出',
     ],
 
-
-    /*
- *
- * 更新特定翻译
- *
- */
     'updater' => [
-    /*
-     *
-     * 共享翻译。
-     *
-     */
         'title' => '文尼CMS更新程序',
 
-    /*
-     *
-     * 更新功能的欢迎页面翻译。
-     *
-     */
         'welcome' => [
             'title'   => '欢迎使用更新程序',
             'message' => '欢迎使用更新向导。',
         ],
 
-    /*
-     *
-     * 更新功能的概览页面翻译。
-     *
-     */
         'overview' => [
             'title'   => '概览',
             'message' => '有 1 个更新。|有 :number 个更新。',
             'install_updates' => '安装更新',
         ],
 
-    /*
-     *
-     * 最终页面的翻译。
-     *
-     */
         'final' => [
             'title' => '完成',
             'finished' => '应用程序的数据库已成功更新。',

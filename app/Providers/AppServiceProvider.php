@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         try{
-            \URL::forceScheme('https');
+            // \URL::forceScheme('https');
 
             $wncms = wncms();
             view()->share('wncms', $wncms);

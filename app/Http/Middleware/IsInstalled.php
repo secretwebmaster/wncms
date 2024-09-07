@@ -15,18 +15,18 @@ class IsInstalled
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $filename = storage_path("installed");
-        if (file_exists($filename)) {
-            if(str(request()->path())->startsWith('install')){
+        $installation_mark = storage_path("installed");
+        
+        if (file_exists($installation_mark)) {
+            if(request()->routeIs('installer.*')){
                 return redirect()->route('login');
             }
-            return $next($request);
         } else {
-            //Not installed Yet
-            if(!str(request()->path())->startsWith('install')){
-                return redirect('/install');
+            if(!request()->routeIs('installer.*')){
+                return redirect()->route('installer.welcome');
             }
-            return $next($request);
         }
+
+        return $next($request);
     }
 }
