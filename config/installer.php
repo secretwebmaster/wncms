@@ -37,6 +37,7 @@ return [
             'putenv',
             'symlink',
             'proc_open',
+            'exec',
         ]
     ],
 

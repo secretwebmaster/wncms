@@ -10,6 +10,8 @@
         <link rel="shortcut icon" href="{{ $website?->site_favicon ?? asset('wncms/images/logos/favicon.png') }}">
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        {{-- CSS --}}
         <link rel="stylesheet" href="{{ asset('wncms/plugins/global/plugins.bundle.css') }}" type="text/css">
         <link rel="stylesheet" href="{{ asset('wncms/plugins/global/plugins-custom.bundle.css') }}" type="text/css">
         <link rel="stylesheet" href="{{ asset('wncms/css/style.bundle.css') }}" type="text/css">
@@ -26,6 +28,11 @@
                 box-shadow: 0px 3px 10px 2px #0000003b;
             }
         </style>
+        @stack('head_css')
+        <link rel="stylesheet" href="{{ asset('wncms/css/custom.css?v=' . $wncms->getVersion('css')) }}" type="text/css">
+
+        {{-- JS --}}
+        @stack('head_js')
     </head>
 
     <body id="wncms_body" class="bg-body" data-kt-name="wncms">
@@ -42,7 +49,7 @@
                     </div>
 
                     {{-- Footer --}}
-                    <div class="d-flex flex-center flex-wrap px-5">
+                    <div class="d-flex flex-center flex-wrap px-5" id="auth-footer">
                         <div class="d-flex flex-wrap justify-content-center fw-bold fs-base">
                             <a href="https://3dayseo.com" target="_blank" class="link-light px-3 mb-3">@lang('word.wn_official_website')</a>
                             <a href="https://wncms.cc" target="_blank" class="link-light px-3 mb-3">@lang('word.wncms_official_website')</a>
