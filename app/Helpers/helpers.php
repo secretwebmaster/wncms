@@ -39,7 +39,11 @@ if (!function_exists('wncms')) {
 if (!function_exists('gss')) {
     function gss($key, $fallback = null, $fromCache = true)
     {
-        return wncms()->setting()->get($key, $fallback, $fromCache);
+        try{
+            return wncms()->setting()->get($key, $fallback, $fromCache);
+        }catch(\Exception $e){
+            logger()->error("Call gss error. key: $key");
+        }
     }
 }
 

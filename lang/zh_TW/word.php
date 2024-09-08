@@ -1,8 +1,7 @@
 <?php
 
 $words = [
-
-    //analytics
+    // analytics
     'analytics_management' => '統計數據',
     'traffic' => '來路',
     'traffics' => '來路',
@@ -33,10 +32,8 @@ $words = [
     'view_month' => '本月瀏覽',
     'view_year' => '本年瀏覽',
     'view_total' => '總瀏覽',
-    
 
-
-    //admin
+    // admin
     'check_beta_functions' => '檢視Beta開發中的項目',
     'show_developer_hints' => '顯示開發者提示',
     'default_traffic_order' => '預設連結排序依據',
@@ -46,14 +43,12 @@ $words = [
     'update_management' => '更新管理',
     'zip' => '壓縮',
     'num_of_websites' => ':count 個網站',
-    
-    
-    //api_tokens
+
+    // api_tokens
     'api_tokens' => 'API TOKEN',
     'token' => '密匙',
 
-
-    //auth
+    // auth
     'email_or_username' => 'Email 或 用戶名',
     'enter_email' => '輸入Email',
     'enter_email_or_username' => '輸入Email 或 用戶名',
@@ -81,9 +76,8 @@ $words = [
     'login_to_continue' => '登入以繼續',
     'field_should_be_email' => '必須為Email',
     'send_reset_password_request' => '發送忘記密碼Email',
-    
-    
-    //banner
+
+    // banner
     'banner' => 'Banner',
     'banners' => 'Banner',
     'banner_management' => 'Banner管理',
@@ -123,10 +117,8 @@ $words = [
     'contain' => '包含',
     'auto' => '自動',
     'please_upload_an_image' => '請上傳圖片',
-    
-    
-    
-    //chat
+
+    // chat
     'chat' => 'Chat',
     'chats' => 'Chat',
     'chat_topic' => '對話主題',
@@ -149,8 +141,7 @@ $words = [
     'topic_wull_be_store_as_chat_name' => '主題會作為對話名稱儲存在對話列表，方便日後繼續對話',
     'online_now' => '在線上',
 
-
-    //collect_source
+    // collect_source
     'vod_id' => '影片ID',
     'vod_name' => '影片名稱',
     'type_id' => '分類ID',
@@ -182,8 +173,7 @@ $words = [
     'bind_keywords' => '綁定關鍵字',
     'bind_keyword' => '綁定關鍵字',
 
-
-    //common
+    // common
     'wncms' => '文尼CMS',
     'powered_by' => '系統提供',
     'id' => 'ID',
@@ -311,8 +301,7 @@ $words = [
     'header' => '頁首',
     'oops' => '噢!',
 
-
-    //contact_form
+    // contact_form
     'contact_form' => '聯絡表單',
     'contact_forms' => '聯絡表單',
     'contact_form_id' => '聯絡表單ID',
@@ -327,7 +316,6 @@ $words = [
     'contact_email' => '電子郵件',
     'contact_address' => '聯絡地址',
     'consultation_content' => '諮詢內容',
-    'contact_email' => '電子郵件',
     'verification_code' => '驗證碼',
     'click_to_change_verification_code' => '點擊更換驗證碼',
     'consultation' => '諮詢',
@@ -354,30 +342,25 @@ $words = [
     'city' => '城市',
     'call_function' => '調用表單',
 
-
-    //contact_form_option
+    // contact_form_option
     'contact_form_option' => '聯絡表單遺項',
     'contact_form_options' => '聯絡表單遺項',
 
-
-    //contact_form_submission
+    // contact_form_submission
     'contact_form_submission' => '聯絡表單提交',
     'contact_form_submissions' => '聯絡表單提交',
 
-    
-    //credit_record
+    // credit_record
     'credit_record_list' => '積分紀錄',
     'credit_record_id' => '紀錄ID',
-    
-    
-    //dashboard
+
+    // dashboard
     'welcome_back' => '歡迎回來',
     'you_have' => '您有',
     'pick_a_service_to_start' => '選擇一項服務，開始您今天的旅程吧',
     'ai_writing' => 'AI寫作',
-    
-    
-    //document
+
+    // document
     'document' => '文件',
     'documents' => '文件',
     'document_name' => '文件名稱',
@@ -386,8 +369,7 @@ $words = [
     'result' => '結果',
     'document_count' => '文件數量',
 
-
-    //email
+    // email
     'the_following_advertisements_are_going_to_expire_soon' => '下列廣告即將到期',
     'email_management' => 'Email管理',
     'email_list' => 'Email列表',
@@ -400,16 +382,14 @@ $words = [
     'make_sure_your_account_balance_has_at_least' => '請確保帳戶內有最少 :amount 的餘額',
     'test_mail_title' => '這是測試郵件標題',
 
-    
-    //form
+    // form
     'label_is_not_set' => '標籤未設定',
     'text' => '文字',
     'textarea' => '文字區塊',
     'number' => '數字',
     'select' => '選擇',
-    
 
-    //image
+    // image
     'images' => '圖片',
     'generate' => '生成',
     'generating' => '生成中',
@@ -452,14 +432,12 @@ $words = [
     'generate_image' => '生成圖片',
     'start_to_generate_image' => 'AI生成圖片',
 
-    
-    //invoice
+    // invoice
     'invoice' => '帳單',
     'invoice_id' => '帳單編號',
     'user_invoices' => '帳單',
-    
 
-    //install
+    // install
     'step_no' => '第:step步',
     'back' => '返回',
     'next_step' => '下一步',
@@ -479,14 +457,12 @@ $words = [
     'php_extension' => 'PHP擴展',
     'this_field_is_required' => '此項目為必填',
     'remove_storage_installed_to_reinstall' => '如要重新安裝，請先移除 /storage/installed，重新安裝會移除網站上所有資料，請慎用。',
-    
 
-    //keyword_research
+    // keyword_research
     'keyword_research' => '關鍵字研究',
     'get_started' => '立即開始',
 
-
-    //language
+    // language
     'lang_zh_TW' => '繁體中文（台灣）',
     'lang_zh_CN' => '簡體中文（中國大陸）',
     'lang_en' => '英文',
@@ -525,8 +501,7 @@ $words = [
     'lang_tr' => '土耳其文',
     'lang_vi' => '越南文',
 
-
-    //link
+    // link
     'link' => '連結',
     'link_id' => '連結ID',
     'links' => '連結',
@@ -566,7 +541,6 @@ $words = [
     'get_site_detail' => '一鍵獲取網站資訊',
     'bulk_create_link' => '批量新增連結',
     'bulk_delete' => '批量刪除',
-    'bulk_create_link' => '批量新增連結',
     'move_link' => '轉移連結',
     'clone_link' => '複製連結',
     'clone_website' => '整站複製',
@@ -603,9 +577,8 @@ $words = [
     'belongs_to_website' => '所屬網站',
     'recheck_all_description' => '重新檢查所有鏈需要一段時間，視乎網站連結數量而定，提交後5分鐘內會開始檢查，請稍後再回來查看。',
     'bulk_site_data_input' => '批量輸入鏈結資料',
-    
-    
-    //payment_gateway
+
+    // payment_gateway
     'payment_gateway' => '支付通道',
     'payment_gateway_logo' => '支付通道LOGO',
     'instruction' => '指示',
@@ -626,8 +599,7 @@ $words = [
     'send_payment_prove_to_cs' => '發送支付截圖給客服',
     'i_already_paid_for_invoice' => '我已支付帳單 #:iid ，金額為 :amount ，通道為 :payment_gateway_name',
 
-    
-    //pages
+    // pages
     'page_title_not_set' => '標題未設定',
     'page' => '頁面',
     'page_management' => '頁面管理',
@@ -648,8 +620,7 @@ $words = [
     'plain' => '簡單',
     'builder' => '建築器',
 
-
-    //permissions
+    // permissions
     'permission' => '權限',
     'permissions' => '權限',
     'single_permission' => '單一權限',
@@ -657,8 +628,7 @@ $words = [
     'existing_permission' => '已有權限',
     'permission_already_exists' => '權限已存在',
 
-    
-    //plan
+    // plan
     'plan' => '方案',
     'plans' => '方案',
     'free_plan' => '免費方案',
@@ -697,13 +667,11 @@ $words = [
     'trial_ends_at' => '試用到期日',
     'ends_at' => '完結於',
 
-
-    //plugin
+    // plugin
     'plugin' => '插件',
     'plugins' => '插件',
 
-
-    //posts
+    // posts
     'latest_posts' => '最新文章',
     'read_more' => '閱讀更多',
     'back_to_archive' => '返回列表',
@@ -735,17 +703,15 @@ $words = [
     'post_count' => '文章數據',
     'post_view_count' => '文章瀏覽量',
 
-
-    //roles
+    // roles
     'role' => '角色',
     'roles' => '角色',
     'role_name' => '角色名稱',
     'role_already_exist' => '角色 :role_name 已存在',
     'bulk_assign_roles' => '批量指派角色',
     'bulk_remove_roles' => '批量取消角色',
-    
-    
-    //recharge
+
+    // recharge
     'user_recharge' => '用戶充值',
     'you_can_buy_extra_credit' => '你可以購買額外的 Token 去兌換字數額度，圖片額度等',
     'services_can_be_purchased_by_credit' => '可使用Token的服務',
@@ -756,16 +722,13 @@ $words = [
     'event_price' => '期間限定',
     'confirm_order' => '確認訂單',
 
-
-    //record
+    // record
     'record' => '紀錄',
 
-
-    //search
+    // search
     'search_result_of' => ':keyword 的搜索結果',
-    
-    
-    //setting
+
+    // setting
     'basic_setting' => '基礎設定',
     'smtp_setting' => 'SMTP設定',
     'page_setting' => '頁面設定',
@@ -819,14 +782,12 @@ $words = [
     'test_setting' => '測試設定',
     'test_field' => '測試欄位',
 
-        
-    //search_keywords
+    // search_keywords
     'keywords' => "關鍵字",
     'search_keyword' => "熱門關鍵字",
     'search_keywords' => "熱門關鍵字",
-    
 
-    //server
+    // server
     'server' => "服務器",
     'servers' => "服務器",
     'panel_port' => "服務器",
@@ -837,8 +798,7 @@ $words = [
     'server_is_not_available_at_the_moment' => "伺服器目前無法使用",
     'default_domain' => "預設域名",
 
-    //services
-    //extra_services
+    // services
     'purchase' => "購買",
     'confirm_purchase' => "確認購買",
     'pay' => "支付",
@@ -851,9 +811,8 @@ $words = [
     'discount' => "折扣",
     'purchase_more' => "購買更多",
     'successfully_bought' => "成功購買",
-    
-    
-    //smtp
+
+    // smtp
     'enable_smtp' => '啟用SMTP',
     'smtp' => 'SMTP',
     'mail_driver' => "SMTP Driver",
@@ -863,15 +822,13 @@ $words = [
     'smtp_username' => "SMTP 用戶名",
     'smtp_password' => "SMTP 密碼",
     'smtp_from_name' => "SMTP 寄件人名稱",
-    
 
-    //subscription
+    // subscription
     'payment_gateway_subscription_id' => "支付通道訂閱ID",
     'renewed_at' => "上次續費日期",
     'is_cancelling' => "正在取消",
 
-
-    //tags
+    // tags
     'tag' => '標籤',
     'tags' => '標籤',
     'category_management' => '分類管理',
@@ -907,8 +864,8 @@ $words = [
     'auto_generate_tag' => '自動生標題',
     'create_tag_type' => '新增分類法',
     'tag_keywords_are_updated' => '成功更新關鍵字',
-    
-    //templates
+
+    // templates
     'template' => '文章範本',
     'templates' => '文章範本',
     'advanced' => '進階',
@@ -917,7 +874,6 @@ $words = [
     'language' => '語言',
     'creativity' => '創意',
     'variation' => '變化',
-    'advanced' => '進階',
     'generating_content_please_wait' => '生成內容中，請稍等..',
     'fill_in_form_to_stert_generating_content' => '填寫表單開始生成內容',
     'short' => '短',
@@ -944,8 +900,7 @@ $words = [
     'please_upgrade_or_recharge' => '請升級方案 或 購買TOKEN兌換額外字數',
     'purchase_extra_credit' => '購買:credit_name',
 
-
-    //template_option
+    // template_option
     'template_option' => '範本選項',
     'template_options' => '範本選項',
     'options' => '選項',
@@ -961,8 +916,7 @@ $words = [
     'masculine' => '男性的',
     'feminine' => '女性的',
 
-
-    //themes
+    // themes
     'themes' => '主題',
     'theme_list' => '主題列表',
     'theme_name' => '主題名稱',
@@ -986,17 +940,15 @@ $words = [
     'demo_url' => '演示地址',
     'clone_theme_options_from_another_website' => '複製其他主題設定',
     'no_other_websites_using_this_theme' => '你沒有其他正在使用此主題的網站',
-    
 
-    //transaction
+    // transaction
     'transaction' => '轉帳統錄',
     'user_transactions' => '轉帳統錄',
     'transaction_id' => '紀錄ID',
     'transaction_list' => '轉帳統錄',
     'go_to_pay' => '前往支付',
 
-
-    //update
+    // update
     'add' => '新增',
     'fix' => '修復',
     'improve' => '優化',
@@ -1009,8 +961,7 @@ $words = [
     'no_update_yet' => '暫無更新',
     'core' => '核心',
 
-    
-    //user_order
+    // user_order
     'user_order' => '訂單',
     'user_order_id' => '訂單ID',
     'completed_at' => '完成日期',
@@ -1026,7 +977,7 @@ $words = [
     'thankyou_for_your_subscription' => '感謝你的訂購',
     'start_from_the_followig' => '馬上開始體驗平台的強大功能吧!',
 
-    //users
+    // users
     'user_management' => '用戶管理',
     'user_list' => '用戶列表',
     'create_user' => '新增用戶',
@@ -1073,7 +1024,6 @@ $words = [
     'email_verified_at' => "Email驗證於",
     'locale' => "語言地區",
     'timezone' => "時區",
-    'locale' => "界面語言",
     'billing_information' => "帳單資訊",
     'default_variations' => "預設文案生成數",
     'default_creativity' => "預設創意",
@@ -1124,8 +1074,7 @@ $words = [
     'num_of_users' => ':count 個用戶',
     'found_account_on_other_websites_of_this_group_apply_merging' => '已在站群中註冊帳號，是否申請合併帳號? <a href="javascript:;" class="btn-apply-merge-account">點擊申請</a>',
 
-
-    //websites
+    // websites
     'website_management' => '網站管理',
     'website_list' => '網站列表',
     'create_website' => '新增網站',
@@ -1162,8 +1111,7 @@ $words = [
     'website_ids_is_required' => '必需輸入網站id',
     'website_is_not_selected' => '未選擇網站',
 
-
-    //memeber
+    // memeber
     'member_management' => '會員管理',
     'member' => '會員',
     'members' => '會員',
@@ -1188,8 +1136,7 @@ $words = [
     'avatar' => '頭像',
     'user_role_dashboard' => ':role面版',
 
-
-    //menu 
+    // menu 
     'menu' => '菜單',
     'menu_management' => '菜單管理',
     'menu_list' => '菜單列表',
@@ -1204,7 +1151,6 @@ $words = [
     'menu_id' => '菜單ID',
     'name_is_not_set' => '名稱未設定',
     'edit_menu_item' => '編輯菜單項目',
-    
     'menu_id' => '選單ID',
     'menu_item_type' => '菜單項目類型',
     'menu_item_model_type' => '模組類型',
@@ -1214,9 +1160,7 @@ $words = [
     'menu_item_icon' => '圖標',
     'current_thumbnail' => '當前圖片',
 
-
-        
-    //message
+    // message
     'success' => '成功',
     'successfully_deleted' => '成功刪除',
     'successfully_deleted_all' => '成功刪除所有項目',
@@ -1255,8 +1199,7 @@ $words = [
     'successfully_dispatch_import_job' => '成功創建匯入排程',
     'successfully_dispatch_job' => '成功建立排程任務',
 
-
-    //model
+    // model
     'model_management' => ':model_name管理',
     'model_select' => '選擇:model_name',
     'model_screenshot' => ':model_name預覽圖',
@@ -1277,12 +1220,10 @@ $words = [
     'ids_is_empty' => 'ID為空',
     'model_class_is_not_found' => '找不到模組Class',
 
-
-    //online
+    // online
     'online' => '在線看',
-    
 
-    //video
+    // video
     'video_management' => '影片管理',
     'video_list' => '影片列表',
     'create_video' => '新增影片',
@@ -1458,9 +1399,8 @@ $words = [
     'all_time' => "所有時間",
     'most_liked_videos' => "最多讚好影片",
     'most_fav_videos' => "最多收藏影片",
-    
-    
-    //workspace
+
+    // workspace
     'workspace' => "工作空間",
     'workspaces' => "工作空間",
     'admin_url' => "管理員登陸接口",
@@ -1483,9 +1423,8 @@ $words = [
     'login_to_backend' => "登入後台",
     'deleting' => "刪除中",
     'successfully_dispatched_delete_job' => "成功新增排程任務",
-    
-    
-    //v 1.1.3
+
+    // v 1.1.3
     'links_will_be_import_to_destination_and_marked_as_demo' => '此功能會匯入隨機連結到你的網站，並會於「備註」中標記為演示連結。連結在前台顯示無異於一般連結，作用為在網站初期填充空間用，待你的真實連結達到一定數量後，你可以將這些連結批量下架。',
     'please_select_website' => '請選擇網站',
     'please_select_count' => '請選擇數量',
@@ -1493,7 +1432,7 @@ $words = [
     'bulk_clone' => '批量複製',
     'banners_will_be_cloned' => '橫幅會被複製至目標網站',
 
-    //v1.1.6
+    // v1.1.6
     'bulk_edit_link' => '批量更新連結',
     'links_not_found' => '找不到連結',
     'please_edit_link_content' => '請填寫需要更新項目',
@@ -1503,23 +1442,19 @@ $words = [
     'bulk_delete_demo' => '批量刪除Demo',
     'demo_links_will_be_moved' => '刪除連結會按照連結的備註進行刪除，如連結經由系統一鍵匯入，預設備註為「這是演示連結」，此操作將會刪除所有備註為「這是演示連結」的項目',
     'enter_demo_remark' => '如果你的備註為其他文字，可於下方修改',
-    
 
-    //v1.1.7
+    // v1.1.7
     'show_traffic' => '顯示流量',
     'found_error_when_scraping_target_site' => '爬取對方網站資料時，返回錯誤代碼 :status_code，可能有防爬機制防止機器人訪問，請手動添加資料。',
-    
 
-    //v1.1.8
+    // v1.1.8
     'your_version' => '你的版本',
-    
 
-    //1.1.9
+    // 1.1.9
     'get_site_detail_description' => '如果對方使用了跳轉頁，可以先貼上目標地址，獲取完資訊後，再改回跳轉頁',
     'successfully_initialed_demo_importing_queue' => '成功創建匯入Demo隊列，匯入工作會在背景進行，可以幾分鐘後回來查看',
 
-
-    //1.2.0
+    // 1.2.0
     'traffic_recently' => '最新來路',
     'site_slug_description' => '留空則自動按域名生成 https://example.com -> example-com',
     'site_slug' => '代稱',
@@ -1558,9 +1493,8 @@ $words = [
     'system_is_updating_in_the_background' => '系統在背景更新中，可以離開頁面，稍後再回來查看，一般升級會在數分鐘內完成。',
     'cache_cleared' => '成功清理緩存',
     'cache_not_cleared' => '清理緩存失敗，可能是並未找到緩存key',
-    
 
-    //wncms 2.0
+    // wncms 2.0
     'tag_type' => '分類法類型',
     'post_category' => '文章分類',
     'post_tag' => '文章標籤',
@@ -1638,7 +1572,7 @@ $words = [
     'loaded_templtes' => '加載了 :count 個模版',
     'hover_to_view' => '懸停查看',
 
-    //wncms 3.0
+    // wncms 3.0
     'latest_version' => '最新版本',
     'wn_official_website' => '文尼先生官網',
     'wncms_official_website' => 'WNCMS官網',
@@ -1651,13 +1585,13 @@ $words = [
     'system_keyword' => '系統關鍵字',
     'system_meta' => '系統META',
     'view_is_not_found' => '模版不存在',
-    
-    //wncms 3.0.6
+
+    // wncms 3.0.6
     'join' => '加入',
     'enter' => '進入',
     'logged_in' => '已登入',
 
-    //wncms 3.0.7
+    // wncms 3.0.7
     'start' => '開始',
     'stop' => '停止',
     'model_ids_are_not_found' => '找不到模組ID，請確定模組紀錄是否存在，或有否發送',
@@ -1686,14 +1620,14 @@ $words = [
     'website_id' => "網站ID",
     'website_is_undergoing_maintainacne' => "網站維護中",
     'default_maintenance_text' => "我們的網站正在進行升級和優化，以呈現全新的外觀和內容。在此期間，暫時無法訪問，但我們將為您帶來更好的瀏覽體驗。謝謝您的耐心等待！",
-    
-    //wncms 3.0.8
+
+    // wncms 3.0.8
     'start_to_install' => "開始安裝",
     'installing' => "安裝中",
     'successfully_installed' => "成功安裝",
     'install_again' => "重新安裝",
 
-    //wncms 3.1.1
+    // wncms 3.1.1
     'use_custom_admin_dashbaord' => "使用自訂管理員控制台",
     'use_custom_user_dashbaord' => "使用自訂會員控制台",
     'hide_default_admin_dashboard_items' => "隱藏預設管理員控制台項目",
@@ -1703,14 +1637,14 @@ $words = [
     'site_seo_keywords' => "網站SEO關鍵字",
     'enabled_page_cache' => "啟用頁面緩存",
     'enabled_data_cache' => "啟用數據緩存",
-    
-    //wncms 3.1.2
+
+    // wncms 3.1.2
     'thunbnail_of' => ":name的封面圖片",
     'localize_post_image' => "本地化內文圖片",
     'post_info' => "文章資訊",
     'cache_flushed' => "已清理緩存，如果緩存較大，可能需要幾分鐘才生效",
 
-    //wncms 3.1.3
+    // wncms 3.1.3
     'updating' => "更新中",
     'theme_page' => "主題頁面",
     'custom_page' => "自訂頁面",
@@ -1728,12 +1662,12 @@ $words = [
     'fetch_tag_languages' => '獲取Tag多國語言',
     'api_type' => 'API類型',
 
-    //wncms 3.1.4
+    // wncms 3.1.4
     'show_hidden' => '顯示隱藏',
     'successfully_record' => '成功紀錄',
     'successfully_fetch' => '成功獲取',
 
-    //wncms 3.1.5
+    // wncms 3.1.5
     'theme_template_options' => '主題模版選項',
     'available_theme_template' => '可供使用的主題模版',
     'not_using_theme_template' => '不使用',
@@ -1771,7 +1705,7 @@ $words = [
     'view_count_cooldown' => '瀏覽計量間隔',
     'other_count_cooldown' => '其他計量間隔',
 
-    //3.1.7
+    // 3.1.7
     'bulk_set_website' => '批量指派網站',
     'all_rights_reserved' => '版權所有',
     'successfully_updated_count' => '成功更新:count個項目',
@@ -1781,8 +1715,8 @@ $words = [
     'confirm' => '確認',
     'rank_index' => '排名',
     'rank' => '排行榜',
-    
-    //3.1.8
+
+    // 3.1.8
     'started_installation' => '開始安裝',
     'available' => '可供使用',
     'used' => '已使用',
@@ -1796,7 +1730,7 @@ $words = [
     'the_uploaded_theme_is_valid_but_with_the_same_version' => '您已安裝相同版本的主題，如要重新安裝，請解壓主題包到網站根目錄',
     'installed_at' => '安裝日期',
 
-    //3.1.9
+    // 3.1.9
     'faqs' => '常見問題',
     'answer' => '回答',
     'faq_tag' => '常見問題標籤',
@@ -1804,7 +1738,7 @@ $words = [
     'tag_with_same_name_already_exists' => '相同名稱的分類法項目已經存在',
     'tag_thumbnail' => '分類圖片',
 
-    //3.1.10
+    // 3.1.10
     'option_type_text' => '文字',
     'option_type_textarea' => '文字區塊',
     'option_type_number' => '數字',
@@ -1814,7 +1748,6 @@ $words = [
     'option_type_country' => '國家',
     'option_type_city' => '城市',
     'option_type_language' => '語言',
-    'content_setting' => '內容模組設定',
     'content_setting' => '內容模組設定',
     'restore_trashed_content_to_published' => '還原已回收的項目至已發佈',
     'restore_trashed_content_to_published_description' => '設定可回收的內容，在還原時的狀態，開啟時還原至「已發佈」，關閉時還原至「草犒」',
@@ -1833,20 +1766,18 @@ $words = [
     'contact_form_is_received_from_domain' => '收到了來自 :domain 的用戶提交表單',
     'the_following_is_the_submission_content' => '以下為表單內容',
 
-        
-    //3.1.11
+    // 3.1.11
     'option_type_hidden' => '隱藏',
     'option_type_utm_trackers' => 'UTM追蹤參數',
     'advertisement_category' => '廣告分類',
     'advertisement_tag' => '廣告標籤',
 
-    //3.1.12
+    // 3.1.12
     'no_search_result_for' => '暫無與 :keyword 的相關搜索結果',
     'convert_thumbnail_to_webp' => '上傳封面圖片時轉換為webp',
     'hide_title' => '隱藏標題',
 
-    
-    //3.1.13
+    // 3.1.13
     'switched_website_id_to' => '成功切換當前網站ID為 :website_id',
     'switched_domain_to' => '成功切換當前域名為 :domain',
     'theme_template_list_will_be_shown_after_saving' => '如選擇範本類型，需要先保存一次才會顯示選項',
@@ -1858,13 +1789,13 @@ $words = [
     'export_current_all' => '匯出所有',
     'model_name_or_export_route_is_not_set' => '未設定模組名稱或匯出路徑',
 
-    //3.1.14
+    // 3.1.14
     'export_selected' => '匯出已勾選',
     'bulk_clone_posts' => '批量複製文章',
     'successfully_dispatched_job' => '成功發佈排程隊列 Job',
     'successfully_fetched_updating_progress' => '成功獲取更新進度',
 
-    //3.1.15
+    // 3.1.15
     'search_result' => '搜索結果',
     'popular' => '熱門',
     'random_posts' => '隨機文章',
@@ -1879,24 +1810,22 @@ $words = [
     'page_detail' => '頁面內容',
     'keyword_is_empty' => '關鍵字為空',
     'view_all' => '查看全部',
-    
-    //3.2.1
+
+    // 3.2.1
     'clone_menu' => '複製菜單',
     'select_options' => '選項',
     'select_websites' => '選擇網站',
     'clear_all' => '清理全部',
     'test' => '測試',
-    
-    //! 4.0.0
+
+    // ! 4.0.0
     'website_is_already_exist' => '網站已存在',
     'login_successed_redirecting' => '成功登入，正在跳轉',
     'maintenance' => '維護',
     'invalid_password' => '無效密碼',
-    
+    'disable_registration' => '關閉註冊',
 ];
-
 
 require "custom.php";
 $words = array_merge($words, $custom_words);
-
 return $words;

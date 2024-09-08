@@ -102,6 +102,7 @@ class Setting extends Model
         [
             'tab_name' => 'user',
             'tab_content' => [
+                ['type' => 'switch', 'name' => 'disable_registration'],
                 ['type' => 'switch', 'name' => 'send_user_welcom_email'],
                 ['type' => 'switch', 'name' => 'allow_merge_account'],
                 ['type' => 'switch', 'name' => 'use_custom_user_dashbaord'],

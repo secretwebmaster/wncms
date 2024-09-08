@@ -36,9 +36,11 @@
         </div>
         
         {{-- 註冊 --}}
-        <div class="text-gray-500 text-center fw-semibold fs-6">
-            @lang('word.no_account_yet') ? <a href="{{ route('register') }}" class="link-light fw-bold">@lang('word.go_to_register')</a>
-        </div>
+        @if(!gss('disable_registration'))
+            <div class="text-gray-500 text-center fw-semibold fs-6">
+                @lang('word.no_account_yet') ? <a href="{{ route('register') }}" class="link-light fw-bold">@lang('word.go_to_register')</a>
+            </div>
+        @endif
 
         @if(gss('allow_google_login'))
             {{-- Separator --}}

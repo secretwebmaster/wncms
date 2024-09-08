@@ -14,6 +14,14 @@ use Illuminate\Support\Str;
 
 class RegisteredUserController extends Controller
 {
+    public function __construct()
+    {
+        if(gss('disable_registration')){
+            echo __('word.disable_registration');
+            die;
+        }
+    }
+    
     /**
      * Display the registration view.
      *
