@@ -65,12 +65,12 @@
                 
                 {{-- Theme --}}
                 <div class="row mb-6">
-                    <label class="col-lg-4 col-form-label  fw-bold fs-6">@lang('word.theme')</label>
-                    <div class="col-lg-8 fv-row">
-                        <select name="theme" class="form-select form-select-lg">
+                    <label class="col-lg-3 col-form-label  fw-bold fs-6">@lang('word.theme')</label>
+                    <div class="col-lg-9 fv-row">
+                        <select name="theme" class="form-select form-select-sm">
                             <option value="">@lang('word.please_select_theme')</option>
                             @foreach($themes as $theme)
-                                <option value="{{ str_replace('frontend/theme/','',$theme) }}" {{ str_replace('frontend/theme/','',$theme) === ($website->theme ?? 'default' ?? old('theme')) ? 'selected' : '' }}><b>{{ str_replace('frontend/theme/','',$theme) }}</b></option>
+                                <option value="{{ str_replace('frontend/theme/','',$theme) }}" {{ str_replace('frontend/theme/','',$theme) === ($website->theme ?? old('theme')) ? 'selected' : '' }}><b>{{ str_replace('frontend/theme/','',$theme) }}</b></option>
                             @endforeach
                         </select>
                     </div>
