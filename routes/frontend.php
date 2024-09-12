@@ -59,7 +59,9 @@ Route::name('frontend.')->middleware('full_page_cache')->group(function () {
 
 
     //custom frontend route
-    include __DIR__ . '/custom_frontend.php';
+    if (file_exists(__DIR__ . '/custom_frontend.php')) {
+        include __DIR__ . '/custom_frontend.php';
+    }
 
     
     //page

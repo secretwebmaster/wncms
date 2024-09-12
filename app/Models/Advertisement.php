@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Traits\CustomAdvertisementTraits;
-use App\Traits\WnTagTraits;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Wncms\Tags\HasTags;
@@ -18,7 +17,6 @@ class Advertisement extends Model implements HasMedia
     use InteractsWithMedia;
     use HasTranslations;
     use CustomAdvertisementTraits;
-    use WnTagTraits;
 
     protected $guarded = [];
 

@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\OwnModelTrait;
 use App\Traits\WnContentModelTraits;
-use App\Traits\WnTagTraits;
 use Wncms\Tags\HasTags;
 use Wncms\Translatable\Traits\HasTranslations;
 
@@ -17,7 +16,6 @@ class Faq extends Model
     use OwnModelTrait;
     use HasTags;
     use HasTranslations;
-    use WnTagTraits;
     use WnContentModelTraits;
 
     protected $guarded = [];

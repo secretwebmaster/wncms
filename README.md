@@ -2,6 +2,11 @@
 
 ## 更新日誌
 
+### v4.2.0 2024-09-13
+- remove WnTagTraits.php
+
+### v4.1.0 2024-09-07
+
 ### v4.0.0 2024-08-03
 #### 新增
 - php requirement from 7.2+ to 8.2+
