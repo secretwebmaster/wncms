@@ -3503,16 +3503,16 @@
         },
         {
             "name": "secretwebmaster/wncms-tags",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/secretwebmaster/wncms-tags.git",
-                "reference": "2318f450a17c4e820f679d24b9f65963099ec798"
+                "reference": "de668e159497ff89a302aec38f50f9346ff45529"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/secretwebmaster/wncms-tags/zipball/2318f450a17c4e820f679d24b9f65963099ec798",
-                "reference": "2318f450a17c4e820f679d24b9f65963099ec798",
+                "url": "https://api.github.com/repos/secretwebmaster/wncms-tags/zipball/de668e159497ff89a302aec38f50f9346ff45529",
+                "reference": "de668e159497ff89a302aec38f50f9346ff45529",
                 "shasum": ""
             },
             "require": {
@@ -3559,9 +3559,9 @@
             ],
             "support": {
                 "issues": "https://github.com/secretwebmaster/wncms-tags/issues",
-                "source": "https://github.com/secretwebmaster/wncms-tags/tree/v1.1.0"
+                "source": "https://github.com/secretwebmaster/wncms-tags/tree/v1.2.0"
             },
-            "time": "2024-09-10T17:21:48+00:00"
+            "time": "2024-09-12T18:09:50+00:00"
         },
         {
             "name": "secretwebmaster/wncms-translatable",

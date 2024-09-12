@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
+class ComposerStaticInit9948f0372958518946b8e9b5bd0a1951
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -391,8 +391,8 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-factory/src',
-            1 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -657,6 +657,7 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
         'App\\Models\\Record' => __DIR__ . '/../..' . '/app/Models/Record.php',
         'App\\Models\\SearchKeyword' => __DIR__ . '/../..' . '/app/Models/SearchKeyword.php',
         'App\\Models\\Setting' => __DIR__ . '/../..' . '/app/Models/Setting.php',
+        'App\\Models\\Tag' => __DIR__ . '/../..' . '/app/Models/Tag.php',
         'App\\Models\\TagKeyword' => __DIR__ . '/../..' . '/app/Models/TagKeyword.php',
         'App\\Models\\ThemeOption' => __DIR__ . '/../..' . '/app/Models/ThemeOption.php',
         'App\\Models\\TrafficSummary' => __DIR__ . '/../..' . '/app/Models/TrafficSummary.php',
@@ -687,7 +688,6 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
         'App\\Services\\Wncms\\Installer\\RequirementChecker' => __DIR__ . '/../..' . '/app/Services/Wncms/Installer/RequirementChecker.php',
         'App\\Services\\Wncms\\Wncms' => __DIR__ . '/../..' . '/app/Services/Wncms/Wncms.php',
         'App\\Traits\\BulkDeleteTraits' => __DIR__ . '/../..' . '/app/Traits/BulkDeleteTraits.php',
-        'App\\Traits\\CustomPageTrait' => __DIR__ . '/../..' . '/app/Traits/CustomPageTrait.php',
         'App\\Traits\\HasExtraAttributes' => __DIR__ . '/../..' . '/app/Traits/HasExtraAttributes.php',
         'App\\Traits\\OwnModelTrait' => __DIR__ . '/../..' . '/app/Traits/OwnModelTrait.php',
         'App\\Traits\\WnContentModelTraits' => __DIR__ . '/../..' . '/app/Traits/WnContentModelTraits.php',
@@ -6990,10 +6990,10 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit9948f0372958518946b8e9b5bd0a1951::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit9948f0372958518946b8e9b5bd0a1951::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit9948f0372958518946b8e9b5bd0a1951::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit9948f0372958518946b8e9b5bd0a1951::$classMap;
 
         }, null, ClassLoader::class);
     }
