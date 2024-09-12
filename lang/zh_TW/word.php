@@ -509,7 +509,7 @@ $words = [
     'link_list' => '連結列表',
     'create_link' => '新增連結',
     'edit_link' => '編輯連結',
-    'site_name' => '站名',
+    'site_name' => '網站名稱',
     'site_url' => '連結',
     'site_logo' => 'LOGO',
     'site_slogan' => '簡短描述',
@@ -1194,7 +1194,7 @@ $words = [
     'domain_is_required' => '域名為必填',
     'please_choose_at_least_one_website' => '請勾選最少1個網站以新增連結',
     'link_categories_are_required' => '請填寫最少1個網站分類',
-    'enter_domain_such_as_wndh_top' => '請輸入域名，不需要http，例如wndh.top',
+    'enter_domain_such_as_wntheme.com' => '請輸入域名，不需要http，例如wntheme.com',
     'function_not_release_yet' => '當前版本未開放此功能',
     'successfully_dispatch_import_job' => '成功創建匯入排程',
     'successfully_dispatch_job' => '成功建立排程任務',
@@ -1827,6 +1827,7 @@ $words = [
     
     //! 4.2.0
     'install_failed_retry' => '安裝失敗，請重試',
+    'tell_us_about_your_first_website' => '告訴我們你的第一個網站',
 ];
 
 if(file_exists("custom.php")){

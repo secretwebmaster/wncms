@@ -509,7 +509,7 @@ $words = [
     'link_list' => '连结列表',
     'create_link' => '新增连结',
     'edit_link' => '编辑连结',
-    'site_name' => '站名',
+    'site_name' => '网站名称',
     'site_url' => '连结',
     'site_logo' => 'LOGO',
     'site_slogan' => '简短描述',
@@ -1194,7 +1194,7 @@ $words = [
     'domain_is_required' => '域名为必填',
     'please_choose_at_least_one_website' => '请勾选最少1个网站以新增连结',
     'link_categories_are_required' => '请填写最少1个网站分类',
-    'enter_domain_such_as_wndh_top' => '请输入域名，不需要http，例如wndh.top',
+    'enter_domain_such_as_wntheme.com' => '请输入域名，不需要http，例如wntheme.com',
     'function_not_release_yet' => '当前版本未开放此功能',
     'successfully_dispatch_import_job' => '成功创建汇入排程',
     'successfully_dispatch_job' => '成功建立排程任务',
@@ -1827,6 +1827,7 @@ $words = [
         
     //! 4.2.0
     'install_failed_retry' => '安装失败，请重试',
+    'tell_us_about_your_first_website' => '告诉我们你的第一个网站',
 ];
 
 if(file_exists("custom.php")){

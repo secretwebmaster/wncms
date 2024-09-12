@@ -1194,7 +1194,7 @@ $words = [
     'domain_is_required' => 'Domain is Required',
     'please_choose_at_least_one_website' => 'Please Select at Least One Website to Add Link',
     'link_categories_are_required' => 'Please Fill in at Least One Website Category',
-    'enter_domain_such_as_wndh_top' => 'Please Enter Domain, Without http, e.g., wndh.top',
+    'enter_domain_such_as_wntheme.com' => 'Please Enter Domain, Without http, e.g., wntheme.com',
     'function_not_release_yet' => 'This Function is Not Available in the Current Version',
     'successfully_dispatch_import_job' => 'Successfully Created Import Schedule',
     'successfully_dispatch_job' => 'Successfully Created Scheduled Task',
@@ -1827,6 +1827,7 @@ $words = [
         
     //! 4.2.0
     'install_failed_retry' => 'Installation failed, Try again',
+    'tell_us_about_your_first_website' => 'Tell us about your first website',
 ];
 
 if(file_exists("custom.php")){

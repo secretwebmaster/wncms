@@ -45,7 +45,7 @@ class Wncms
     {
         if (!empty($debugType)) {
 
-            $app_version = env('APP_VERSION') ? "" .  env('APP_VERSION') : '';
+            $app_version = env('APP_VERSION') ? ("" .  env('APP_VERSION')) : '';
 
             if ($debugType == 'js') return gss('version') . $app_version . (env('JS_DEBUG') ? '.' . time() : '');
             if ($debugType == 'css') return gss('version') . $app_version . (env('CSS_DEBUG') ? '.' . time() : '');

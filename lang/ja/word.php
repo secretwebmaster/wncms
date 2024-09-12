@@ -1194,7 +1194,7 @@ $words = [
     'domain_is_required' => 'ドメインは必須です',
     'please_choose_at_least_one_website' => 'リンクを追加するために少なくとも1つのウェブサイトを選択してください',
     'link_categories_are_required' => '少なくとも1つのウェブサイトカテゴリを入力してください',
-    'enter_domain_such_as_wndh_top' => 'ドメインを入力してください。httpは不要です。例：wndh.top',
+    'enter_domain_such_as_wntheme.com' => 'ドメインを入力してください。httpは不要です。例：wntheme.com',
     'function_not_release_yet' => 'この機能は現在のバージョンでは利用できません',
     'successfully_dispatch_import_job' => 'インポートスケジュールを作成しました',
     'successfully_dispatch_job' => 'スケジュールされたタスクを作成しました',
@@ -1827,6 +1827,7 @@ $words = [
 
     //! 4.2.0
     'install_failed_retry' => 'インストール失敗、再試行',
+    'tell_us_about_your_first_website' => '最初のウェブサイトについて教えてください',
 ];
 
 if(file_exists("custom.php")){
