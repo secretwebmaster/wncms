@@ -2,76 +2,66 @@
 
 @push('head_css')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"/>
+<style>
+    .nav-link.active{
+        font-weight: bold
+    }
+</style>
 @endpush
 
 @section('content')
 
 @include('common.message')
 
-<div class="card border border-1 border-dark">
-    <form class="form" method="POST" action="{{ route('websites.theme.options.update' , $_website) }}" enctype="multipart/form-data">
-        <div class="card-header border-0 px-3 bg-dark" role="button">
-            <div class="card-title m-0 mw-100">
-                <div class="d-flex flex-wrap align-items-center mw-100">
-                    <h2 class="fw-bold text-truncate text-gray-100 mx-0 my-3 my-md-0 w-100 w-md-auto text-center text-md-start">@lang('word.theme_options')</h2>
-                    <a href="{{ wncms_add_https($_website->domain) }}" target="_blank" class="btn btn-sm btn-info fw-bold text-truncate ms-0 ms-md-3 mb-1 mb-md-0  w-50 w-md-auto">@lang('word.current_website'): {{ $_website->site_name }} ({{ $_website->domain }})</a>
-                    <span class="btn btn-sm btn-danger fw-bold text-truncate ms-0 ms-md-1  mb-1 mb-md-0  w-50 w-md-auto">@lang('word.current_theme'): {{ $_website->theme }}</span>
-                    <a href="{{ route('websites.edit', $_website) }}" class="btn btn-sm btn-light fw-bold text-truncate ms-0 ms-md-1  mb-1 mb-md-0  w-50 w-md-auto">@lang('word.switch_to_edit_website')</a>
-                    <button type="button" class="btn btn-sm btn-primary fw-bold text-truncate ms-0 ms-md-1  mb-1 mb-md-0  w-50 w-md-auto" data-bs-toggle="modal" data-bs-target="#clone_theme_options_from_another_website">@lang('word.clone_theme_options_from_another_website')</button>
-                    <button type="button" class="btn btn-sm btn-primary fw-bold text-truncate ms-0 ms-md-1  mb-1 mb-md-0  w-50 w-md-auto" data-bs-toggle="modal" data-bs-target="#modal_import_default_theme_option">@lang('word.import_default_theme_option')</button>
-                </div>
-            </div>
-
-            <div class="card-title m-0 w-100 w-md-auto">
-                <div class="card-toolbar flex-row-fluid justify-content-end text-nowrap">
-                    <button type="submit" wncms-btn-loading class="btn btn-sm btn-primary wncms-submit w-100 w-md-auto">
-                        @include('backend.parts.submit', ['label' => __('word.save_all')])
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="collapse show">
-            @csrf
-            @method('PUT')
-            <div class="card-body border-top p-3 p-md-9">
-
-                <ul class="nav nav-tabs nav-line-tabs mb-5 fs-6">
-                    @foreach($option_tabs ?? [] as $tab_name => $options)
-                        <li class="nav-item">
-                            <a class="nav-link @if($loop->iteration == 1) active @endif" 
-                                data-bs-toggle="tab" href="#tab_{{ $tab_name }}"
-                                data-bs-target="#tab_{{ $tab_name }}"
-                                >@lang("{$_website->theme}.{$tab_name}")</a>
-                        </li>
-                    @endforeach
-                </ul>
-
-                <div class="tab-content">
-                    @foreach($option_tabs ?? [] as $tab_name => $options)
-                        <div class="tab-pane fade @if($loop->iteration == 1) show active @endif" id="tab_{{ $tab_name }}" role="tabpanel">
-                            @foreach($options as $option_index => $option)
-                                @include('backend.parts.inputs' , [
-                                    'website'=> $_website,
-                                    'option_index'=>$option_index,
-                                    'option'=>$option,
-                                    'current_options'=>$current_options,
-                                ])
-                            @endforeach
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-
-            <div class="card-footer d-flex justify-content-end py-6 px-9">
-                {{-- <button type="reset" class="btn btn-white btn-active-light-primary me-2">@lang('word.cancel')</button> --}}
-                <button type="submit" wncms-btn-loading class="btn btn-primary fw-bold wncms-submit">
-                    @include('backend.parts.submit', ['label' => __('word.save_all')])
-                </button>
-            </div>
-        </div>
-    </form>
+<div class="row mx-auto mb-3 gx-1">
+    <div class="ms-0 mb-1 mb-md-0 col-12 col-md-auto"><a href="{{ wncms_add_https($_website->domain) }}" target="_blank" class="btn btn-sm btn-info fw-bold text-truncate w-100">@lang('word.current_website'): {{ $_website->site_name }} ({{ $_website->domain }})</a></div>
+    <div class="ms-0 ms-md-1 mb-1 mb-md-0 col-6 col-md-auto"><span class="btn btn-sm btn-danger fw-bold text-truncate w-100">@lang('word.current_theme'): {{ $_website->theme }}</span></div>
+    <div class="ms-0 ms-md-1 mb-1 mb-md-0 col-6 col-md-auto"><a href="{{ route('websites.edit', $_website) }}" class="btn btn-sm btn-primary fw-bold text-truncate w-100">@lang('word.switch_to_edit_website')</a></div>
+    <div class="ms-0 ms-md-1 mb-1 mb-md-0 col-6 col-md-auto"><button type="button" class="btn btn-sm btn-primary fw-bold text-truncate w-100" data-bs-toggle="modal" data-bs-target="#clone_theme_options_from_another_website">@lang('word.clone_theme_options_from_another_website')</button></div>
+    <div class="ms-0 ms-md-1 mb-1 mb-md-0 col-6 col-md-auto"><button type="button" class="btn btn-sm btn-primary fw-bold text-truncate w-100" data-bs-toggle="modal" data-bs-target="#modal_import_default_theme_option">@lang('word.import_default_theme_option')</button></div>
 </div>
+
+<form class="form" method="POST" action="{{ route('websites.theme.options.update' , $_website) }}" enctype="multipart/form-data">
+
+    <div class="card show">
+        @csrf
+        @method('PUT')
+        <div class="card-body border-top px-5 py-3">
+
+            <ul class="nav nav-tabs nav-line-tabs mb-5 fs-6">
+                @foreach($option_tabs ?? [] as $tab_name => $options)
+                    <li class="nav-item">
+                        <a class="nav-link @if($loop->iteration == 1) active @endif" 
+                            data-bs-toggle="tab" href="#tab_{{ $tab_name }}"
+                            data-bs-target="#tab_{{ $tab_name }}"
+                            >@lang("{$_website->theme}.{$tab_name}")</a>
+                    </li>
+                @endforeach
+            </ul>
+
+            <div class="tab-content">
+                @foreach($option_tabs ?? [] as $tab_name => $options)
+                    <div class="tab-pane fade @if($loop->iteration == 1) show active @endif" id="tab_{{ $tab_name }}" role="tabpanel">
+                        @foreach($options as $option_index => $option)
+                            @include('backend.parts.inputs' , [
+                                'website'=> $_website,
+                                'option_index'=>$option_index,
+                                'option'=>$option,
+                                'current_options'=>$current_options,
+                            ])
+                        @endforeach
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5 text-end">
+        <button type="submit" wncms-btn-loading class="btn btn-primary fw-bold wncms-submit w-100 w-md-auto">
+            @include('backend.parts.submit', ['label' => __('word.save_all')])
+        </button>
+    </div>
+</form>
 
 {{-- Modal clone theme option --}}
 <div class="modal fade" tabindex="-1" id="clone_theme_options_from_another_website">

@@ -142,7 +142,7 @@ return [
      * ----------------------------------------------------------------------------------------------------
      */
     'info' => [
-        'id' => 'starter',
+        'id' => 'default',
         'type' => 'listing',
         'name' => [
             'zh_TW' => '預設主題',
@@ -188,6 +188,14 @@ return [
             [
                 'label'=>'頁首',
                 'type'=>'heading',
+            ],
+            [
+                'label'=>'選擇分類',
+                'name'=>'post_category',
+                'type'=>'tagify',
+                'options'=>'tags',
+                'tag_type'=>'post_category',
+                'description'=>'選擇一個文章分類來顯示在頁首',
             ],
         ],
 
