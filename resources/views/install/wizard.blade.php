@@ -50,7 +50,7 @@
             {{-- App URL --}}
             <div class="form-group {{ $errors->has('app_url') ? ' has-error ' : '' }}">
                 <label for="app_url">{{ trans('installer_messages.environment.wizard.form.app_url_label') }}</label>
-                <input type="url" name="app_url" id="app_url" value="{{ old('app_url', str_replace("http://", "https://" ,request()->getSchemeAndHttpHost())) }}" placeholder="{{ trans('installer_messages.environment.wizard.form.app_url_placeholder') }}" />
+                <input type="url" name="app_url" id="app_url" value="{{ old('app_url', request()->root()) }}" placeholder="{{ trans('installer_messages.environment.wizard.form.app_url_placeholder') }}" />
                 @if ($errors->has('app_url'))
                 <span class="error-block">
                     <i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i>
@@ -149,9 +149,31 @@
         <div class="tab" id="tab3content">
 
             {{-- Cache --}}
-            <div class="form-group {{ $errors->has('cache_store') ? ' has-error ' : '' }}">
+            {{-- <div class="form-group {{ $errors->has('cache_store') ? ' has-error ' : '' }}">
                 <label for="cache_store">{{ trans('installer_messages.environment.wizard.form.app_tabs.cache_label') }}</label>
                 <input type="text" name="cache_store" id="cache_store" value="redis" placeholder="{{ trans('installer_messages.environment.wizard.form.app_tabs.cache_placeholder') }}" />
+                @if ($errors->has('cache_store'))
+                <span class="error-block">
+                    <i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i>
+                    {{ $errors->first('cache_store') }}
+                </span>
+                @endif
+            </div> --}}
+
+            {{-- Cache --}}
+            <div class="form-group {{ $errors->has('cache_store') ? ' has-error ' : '' }}">
+                <label for="cache_store">{{ trans('installer_messages.environment.wizard.form.app_tabs.cache_label') }}</label>
+                <select name="cache_store" id="cache_store" class="form-select">
+                    @if (class_exists(\Redis::class))
+                    <option value="redis" {{ old('cache_store', 'redis') == 'redis' ? 'selected' : '' }}>Redis</option>
+                    @endif
+                    
+                    <option value="file" {{ old('cache_store') == 'file' ? 'selected' : '' }}>File</option>
+
+                    @if (class_exists(\Memcached::class))
+                    <option value="memcached" {{ old('cache_store') == 'memcached' ? 'selected' : '' }}>Memcached</option>
+                    @endif
+                </select>
                 @if ($errors->has('cache_store'))
                 <span class="error-block">
                     <i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i>
@@ -207,6 +229,10 @@
                 @endif
             </div>
 
+            <div class="error-message-box" style="display: none">
+                <div class="alert alert-danger error-message"></div>
+            </div>
+
             <div class="buttons">
                 <button class="button btn-submit wncms-install2"
                     wncms-btn-ajax
@@ -237,6 +263,30 @@
 
     function showApplicationSettings() {
         document.getElementById('tab3').checked = true;
+    }
+
+    function customFailAction(response){
+        console.log(response);
+        if(response.status == 'fail'){
+            $('.error-message-box').show();
+                    // Check if response.message is an object
+        if (typeof response.message === 'object') {
+            let errorList = '<ul>';
+            for (let field in response.message) {
+                // Iterate through each error message for the field (assuming they are arrays)
+                response.message[field].forEach(function(error) {
+                    errorList += '<li>' + error + '</li>';
+                });
+            }
+            errorList += '</ul>';
+            
+            // Display the list of errors
+            $('.error-message').html(errorList);
+        } else {
+            // If not an object, display the message directly
+            $('.error-message').html(response.message);
+        }
+        }
     }
 
 </script>
