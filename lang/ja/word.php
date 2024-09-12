@@ -1826,7 +1826,11 @@ $words = [
     'disable_registration' => '登録を無効にする',
 ];
 
-require "custom.php";
+if(file_exists("custom.php")){
+    require "custom.php";
+}else{
+    $custom_words = [];
+}
 $words = array_merge($words, $custom_words);
 
 return $words;
