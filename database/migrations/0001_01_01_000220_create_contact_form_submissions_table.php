@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('contact_form_id')->nullable()->constrained()->nullOnDelete();
 
             $table->string('status')->default('unread'); // unread | read | replied
-            $table->json('content')->nullable();
+            $table->text('content')->nullable();
             $table->timestamps();
         });
     }

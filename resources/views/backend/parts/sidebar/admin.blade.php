@@ -117,7 +117,7 @@
     </div>
     @endcan --}}
 
-    @include('backend.parts.sidebar.custom_admin_sidebar')
+    @includeif('backend.parts.sidebar.custom_admin_sidebar')
 
     {{-- Settings --}}
 

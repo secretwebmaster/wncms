@@ -2,15 +2,16 @@
 
 namespace App\Models;
 
-use App\Traits\CustomTagTraits;
+use App\Traits\WnModelTrait;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use Wncms\Tags\Tag as SpatieTag;
+use Wncms\Tags\Tag as WncmsTag;
 
-class Tag extends SpatieTag implements HasMedia
+//TODO: Pending merge to HasTags
+class Tag extends WncmsTag implements HasMedia
 {
-    use CustomTagTraits;
     use InteractsWithMedia;
+    use WnModelTrait;
 
     public const ICONS = [
         'fontaweseom' => 'fa-solid fa-tag'
@@ -35,11 +36,6 @@ class Tag extends SpatieTag implements HasMedia
     public function posts()
     {
         return $this->morphedByMany(Post::class, 'taggable');
-    }
-
-    public function videos()
-    {
-        return $this->morphedByMany(Video::class, 'taggable');
     }
 
     public function templates()

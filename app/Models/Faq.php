@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Traits\OwnModelTrait;
 use App\Traits\WnContentModelTraits;
+use App\Traits\WnModelTrait;
 use Wncms\Tags\HasTags;
 use Wncms\Translatable\Traits\HasTranslations;
 
@@ -13,9 +13,9 @@ use Wncms\Translatable\Traits\HasTranslations;
 class Faq extends Model
 {
     use HasFactory;
-    use OwnModelTrait;
     use HasTags;
     use HasTranslations;
+    use WnModelTrait;
     use WnContentModelTraits;
 
     protected $guarded = [];

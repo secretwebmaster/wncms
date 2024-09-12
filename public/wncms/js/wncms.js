@@ -297,6 +297,13 @@ var WNCMS={
                                 failAction(response, button, fail_text)
                             }
                         }
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(xhr);
+                        console.log(status);
+                        console.log(error);
+                        button.prop('disabled', false);
+                        button.text(fail_text);
                     }
                 });
 

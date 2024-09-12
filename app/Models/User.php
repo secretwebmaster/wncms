@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use App\Traits\WnModelTrait;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\LogOptions;
-use App\Traits\CustomUserTraits;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -19,7 +19,7 @@ class User extends Authenticatable implements MustVerifyEmail,HasMedia
     use LogsActivity;
     use HasRoles;
     use InteractsWithMedia;
-    use CustomUserTraits;
+    use WnModelTrait;
 
 
     protected $guarded = [];

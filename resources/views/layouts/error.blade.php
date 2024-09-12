@@ -7,7 +7,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700">
         <link rel="stylesheet" href="{{ asset('wncms/plugins/global/plugins.bundle.css') }}" type="text/css">
-        <link rel="stylesheet" href="{{ asset('wncms/plugins/global/plugins-custom.bundle.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('wncms/plugins/global/plugins-wncms.bundle.css') }}" type="text/css">
         <link rel="stylesheet" href="{{ asset('wncms/css/style.bundle.css') }}" type="text/css">
         @yield('styles')
     </head>

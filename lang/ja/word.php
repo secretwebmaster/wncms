@@ -1824,6 +1824,9 @@ $words = [
     'maintenance' => 'メンテナンス',
     'invalid_password' => '無効なパスワード',
     'disable_registration' => '登録を無効にする',
+
+    //! 4.2.0
+    'install_failed_retry' => 'インストール失敗、再試行',
 ];
 
 if(file_exists("custom.php")){

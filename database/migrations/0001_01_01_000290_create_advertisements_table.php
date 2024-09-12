@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('website_id')->constrained()->cascadeOnDelete();
             $table->string('status'); // active | paused | suspended
             $table->datetime('expired_at')->nullable();
-            $table->json('name')->nullable();
+            $table->string('name')->nullable();
             $table->string('type'); // text | image | card | script
             $table->string('cta_text')->nullable();
             $table->string('url')->nullable();

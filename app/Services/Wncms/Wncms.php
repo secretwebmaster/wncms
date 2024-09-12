@@ -44,8 +44,11 @@ class Wncms
     public function getVersion($debugType = null)
     {
         if (!empty($debugType)) {
-            if ($debugType == 'js') return gss('version') . env('APP_VERSION') . (env('JS_DEBUG') ? time() : '');
-            if ($debugType == 'css') return gss('version') . env('APP_VERSION') . (env('CSS_DEBUG') ? time() : '');
+
+            $app_version = env('APP_VERSION') ? "" .  env('APP_VERSION') : '';
+
+            if ($debugType == 'js') return gss('version') . $app_version . (env('JS_DEBUG') ? '.' . time() : '');
+            if ($debugType == 'css') return gss('version') . $app_version . (env('CSS_DEBUG') ? '.' . time() : '');
         }
         $app_debug =  env('APP_DEBUG') ? time() : '';
         return gss('version') . $app_debug .  env('APP_VERSION');
@@ -111,7 +114,6 @@ class Wncms
 
         return false;
     }
-
 
     /**
      * !----------------------------------------------------------------------------------------------------

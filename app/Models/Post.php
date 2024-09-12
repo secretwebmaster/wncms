@@ -2,8 +2,7 @@
 
 namespace App\Models;
 
-use App\Traits\CustomPostTraits;
-use App\Traits\OwnModelTrait;
+use App\Traits\WnModelTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -20,8 +19,7 @@ class Post extends Model implements HasMedia
     use InteractsWithMedia;
     use HasTranslations;
     use SoftDeletes;
-    use CustomPostTraits;
-    use OwnModelTrait;
+    use WnModelTrait;
 
     protected $guarded = [];
 

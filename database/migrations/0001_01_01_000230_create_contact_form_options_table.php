@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name'); // field name 
             $table->string('type'); // text | textarea | select
-            $table->json('display_name')->nullable();
-            $table->json('placeholder')->nullable();
-            $table->json('default_value')->nullable();
-            $table->json('options')->nullable(); // comma separated
+            $table->string('display_name')->nullable();
+            $table->string('placeholder')->nullable();
+            $table->string('default_value')->nullable();
+            $table->string('options')->nullable(); // comma separated
             $table->timestamps();
         });
     }

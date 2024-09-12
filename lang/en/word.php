@@ -1824,6 +1824,9 @@ $words = [
     'maintenance' => 'Maintenance',
     'invalid_password' => 'Invalid Password',
     'disable_registration' => 'Disable Registration',
+        
+    //! 4.2.0
+    'install_failed_retry' => 'Installation failed, Try again',
 ];
 
 if(file_exists("custom.php")){

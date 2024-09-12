@@ -16,9 +16,9 @@ return new class extends Migration
             $table->foreignId('website_id')->constrained()->cascadeOnDelete();
             $table->string('status')->default('published'); // published | drafted 
             $table->string('slug');
-            $table->json('question');
-            $table->json('answer')->nullable();
-            $table->json('label')->nullable();
+            $table->string('question');
+            $table->string('answer')->nullable();
+            $table->string('label')->nullable();
             $table->string('remark')->nullable();
             $table->integer('order')->nullable();
             $table->boolean('is_pinned')->default(false);

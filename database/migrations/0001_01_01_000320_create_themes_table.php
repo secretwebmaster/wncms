@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('status')->default('active'); //active | paused
             $table->string('theme_id')->unique(); //slug
             $table->string('type');
-            $table->json('name');
-            $table->json('description')->nullable();
+            $table->string('name');
+            $table->string('description')->nullable();
             $table->string('author')->nullable();
             $table->string('version')->default('1.0.0');
             $table->string('demo_url')->nullable();

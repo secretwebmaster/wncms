@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\WnModelTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Wncms\Translatable\Traits\HasTranslations;
@@ -10,6 +11,7 @@ class ContactForm extends Model
 {
     use HasFactory;
     use HasTranslations;
+    use WnModelTrait;
 
     protected $guarded = [];
 

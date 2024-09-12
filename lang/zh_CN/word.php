@@ -1824,6 +1824,9 @@ $words = [
     'maintenance' => '维护',
     'invalid_password' => '无效密码',
     'disable_registration' => '关闭注册',
+        
+    //! 4.2.0
+    'install_failed_retry' => '安装失败，请重试',
 ];
 
 if(file_exists("custom.php")){

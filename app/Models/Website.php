@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Traits\CustomWebsiteTraits;
+use App\Traits\WnModelTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
@@ -12,7 +12,7 @@ class Website extends Model implements HasMedia
 {
     use HasFactory;
     use InteractsWithMedia;
-    use CustomWebsiteTraits;
+    use WnModelTrait;
 
     protected $guarded = [];
 

@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Traits\CustomAdvertisementTraits;
+use App\Traits\WnModelTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Wncms\Tags\HasTags;
@@ -16,7 +16,7 @@ class Advertisement extends Model implements HasMedia
     use HasTags;
     use InteractsWithMedia;
     use HasTranslations;
-    use CustomAdvertisementTraits;
+    use WnModelTrait;
 
     protected $guarded = [];
 
@@ -88,7 +88,6 @@ class Advertisement extends Model implements HasMedia
         'card',
         'script',
     ];
-    
 
     public function registerMediaCollections(): void
     {

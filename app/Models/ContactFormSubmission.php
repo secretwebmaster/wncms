@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\WnModelTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class ContactFormSubmission extends Model
 {
     use HasFactory;
+    use WnModelTrait;
 
     protected $guarded = [];
     

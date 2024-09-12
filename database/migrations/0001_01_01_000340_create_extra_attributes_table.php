@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('model_type');
             $table->unsignedBigInteger('model_id');
-            $table->json('model_attributes')->nullable();
+            $table->string('model_attributes')->nullable();
             $table->timestamps();
         });
     }

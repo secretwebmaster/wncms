@@ -49,7 +49,7 @@
             {{-- Header Menu Right --}}
             <div class="app-navbar flex-shrink-0">
 
-                @include('backend.parts.custom_header_items')
+                @includeif('backend.parts.custom_header_items')
 
                 {{-- Website list --}}
                 <div class="app-navbar-item ms-1 ms-lg-3">

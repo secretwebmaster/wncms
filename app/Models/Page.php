@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use App\Traits\CustomPageTraits;
 use App\Traits\HasExtraAttributes;
 use App\Traits\WnContentModelTraits;
+use App\Traits\WnModelTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Wncms\Translatable\Traits\HasTranslations;
@@ -16,7 +16,7 @@ class Page extends Model implements HasMedia
     use HasFactory;
     use InteractsWithMedia;
     use HasTranslations;
-    use CustomPageTraits;
+    use WnModelTrait;
     use WnContentModelTraits;
     use HasExtraAttributes;
 

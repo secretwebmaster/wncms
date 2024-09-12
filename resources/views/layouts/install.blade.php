@@ -89,8 +89,8 @@
             </div>
         </div>
 
-        <script src="{{ asset('wncms/js/jquery.min.js?v=') . config('installer.version') }}"></script>
-        <script src="{{ asset('wncms/js/wncms.js?v=') . config('installer.version') }}"></script>
+        <script src="{{ asset('wncms/js/jquery.min.js?v=') . config('installer.version') . '.' . wncms()->getVersion('js') }}"></script>
+        <script src="{{ asset('wncms/js/wncms.js?v=') . config('installer.version') . "." . wncms()->getVersion('js') }}"></script>
         @yield('foot_js')
     </body>
 </html>
