@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="{{ asset('wncms/plugins/global/plugins.bundle.css?v=' . $wncms->getVersion('css')) }}" type="text/css">
         <link rel="stylesheet" href="{{ asset('wncms/css/style.bundle.css?v=' . $wncms->getVersion('css')) }}" type="text/css">
         @stack('head_css')
-        <link rel="stylesheet" href="{{ asset('wncms/css/custom.css?v=' . $wncms->getVersion('css')) }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('wncms/css/core.css?v=' . $wncms->getVersion('css')) }}" type="text/css">
 
         {{-- JS --}}
         @stack('head_js')

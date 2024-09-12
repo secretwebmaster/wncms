@@ -26824,7 +26824,8 @@ textarea.form-control-lg {
   --wncms-pagination-disabled-bg: transparent;
   --wncms-card-color: ;
   --wncms-card-bg: #ffffff;
-  --wncms-card-box-shadow: 0px 0px 20px 0px rgba(76, 87, 125, 0.02);
+  /* --wncms-card-box-shadow: 0px 0px 20px 0px rgba(76, 87, 125, 0.02); */
+  --wncms-card-box-shadow: 0 0 0 1px rgba(49,49,93,.05), 0 2px 5px 0 rgba(49,49,93,.075), 0 1px 3px 0 rgba(49,49,93,.15);
   --wncms-card-border-color: #eff2f5;
   --wncms-card-border-dashed-color: #E4E6EF;
   --wncms-card-cap-bg: transparent;
