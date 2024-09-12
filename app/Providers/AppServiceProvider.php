@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         try{
-            info(request()->all());
+            // info(request()->all());
             if(config('app.force_https') || gss('force_https') || request()->force_https){
                 \URL::forceScheme('https');
             }
