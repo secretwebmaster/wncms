@@ -118,7 +118,7 @@ class InstallController extends Controller
         $this->install_lang_files();
 
         //install custom trait files
-        $this->install_trait_files();
+        // $this->install_trait_files();
 
         //install custom route files
         $this->install_route_files();
@@ -184,6 +184,7 @@ class InstallController extends Controller
             'CSS_DEBUG='."false" . "\n".
             'JS_DEBUG='."false" . "\n".
             'APP_VERSION='.config('installer.version') . "\n".
+            'CUSTOM_VERSION='. "1" . "\n".
             'APP_LOG_LEVEL=' . ($input['app_log_level']??'') . "\n".
             'APP_URL=' . ($input['app_url']??'') . "\n\n".
 
