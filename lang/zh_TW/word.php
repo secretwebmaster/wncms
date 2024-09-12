@@ -1828,6 +1828,7 @@ $words = [
     //! 4.2.0
     'install_failed_retry' => '安裝失敗，請重試',
     'tell_us_about_your_first_website' => '告訴我們你的第一個網站',
+    'force_https' => '強制HTTPS',
 ];
 
 if(file_exists("custom.php")){

@@ -1828,6 +1828,7 @@ $words = [
     //! 4.2.0
     'install_failed_retry' => 'Installation failed, Try again',
     'tell_us_about_your_first_website' => 'Tell us about your first website',
+    'force_https' => 'Force HTTPS',
 ];
 
 if(file_exists("custom.php")){

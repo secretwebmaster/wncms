@@ -1828,6 +1828,7 @@ $words = [
     //! 4.2.0
     'install_failed_retry' => 'インストール失敗、再試行',
     'tell_us_about_your_first_website' => '最初のウェブサイトについて教えてください',
+    'force_https' => 'HTTPSを強制',
 ];
 
 if(file_exists("custom.php")){
