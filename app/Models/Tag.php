@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Traits\CustomTagTraits;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use Spatie\Tags\Tag as SpatieTag;
+use Wncms\Tags\Tag as SpatieTag;
 
 class Tag extends SpatieTag implements HasMedia
 {

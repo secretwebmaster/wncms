@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use App\Traits\OwnModelTrait;
 use App\Traits\WnContentModelTraits;
 use App\Traits\WnTagTraits;
-use Spatie\Tags\HasTags;
-use Spatie\Translatable\HasTranslations;
+use Wncms\Tags\HasTags;
+use Wncms\Translatable\Traits\HasTranslations;
 
 
 class Faq extends Model

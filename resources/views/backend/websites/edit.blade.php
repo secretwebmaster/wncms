@@ -32,34 +32,34 @@
             <div class="card-body border-top p-3 p-md-9">
 
                 {{-- License --}}
-                <div class="row mb-3">
-                    <label class="col-lg-4 col-form-label fw-bold fs-6">@lang('word.license')</label>
-                    <div class="col-lg-8 fv-row">
-                        <input type="password" class="form-control" value="{{ $website->license ?? old('license') }}" disabled/>
+                {{-- <div class="row mb-3">
+                    <label class="col-lg-3 col-form-label fw-bold fs-6">@lang('word.license')</label>
+                    <div class="col-lg-9 fv-row">
+                        <input type="password" class="form-control form-control-sm" value="{{ $website->license ?? old('license') }}" disabled/>
                     </div>
-                </div>
+                </div> --}}
                 
                 {{-- Domain --}}
-                <div class="row mb-3">
-                    <label class="col-lg-4 col-form-label fw-bold fs-6">@lang('word.domain')</label>
-                    <div class="col-lg-8 fv-row">
-                        <input type="text" class="form-control" value="{{ $website->domain }}" disabled/>
+                <div class="row mb-1">
+                    <label class="col-lg-3 col-form-label fw-bold fs-6">@lang('word.domain')</label>
+                    <div class="col-lg-9 fv-row">
+                        <input type="text" class="form-control form-control-sm" value="{{ $website->domain }}" disabled/>
                     </div>
                 </div>
 
                 {{-- Site Name --}}
-                <div class="row mb-3">
-                    <label class="col-lg-4 col-form-label fw-bold fs-6">@lang('word.site_name')</label>
-                    <div class="col-lg-8 fv-row">
-                        <input type="text" name="site_name" class="form-control" value="{{ $website->site_name ?? old('site_name') }}"/>
+                <div class="row mb-1">
+                    <label class="col-lg-3 col-form-label fw-bold fs-6">@lang('word.site_name')</label>
+                    <div class="col-lg-9 fv-row">
+                        <input type="text" name="site_name" class="form-control form-control-sm" value="{{ $website->site_name ?? old('site_name') }}"/>
                     </div>
                 </div>
 
                 {{-- Other name--}}
-                <div class="row mb-3">
-                    <label class="col-lg-4 col-form-label fw-bold fs-6">@lang('word.domain_aliases')</label>
-                    <div class="col-lg-8 fv-row">
-                        <textarea class="form-control" name="domain_aliases" rows="6">{{ $website?->domain_aliases()->implode('domain', "\r\n") }}</textarea>
+                <div class="row mb-1">
+                    <label class="col-lg-3 col-form-label fw-bold fs-6">@lang('word.domain_aliases')</label>
+                    <div class="col-lg-9 fv-row">
+                        <textarea class="form-control form-control-sm" name="domain_aliases" rows="6">{{ $website?->domain_aliases()->implode('domain', "\r\n") }}</textarea>
                     </div>
                 </div>
                 
@@ -77,34 +77,34 @@
                 </div>
 
                 {{-- site_slogan --}}
-                <div class="row mb-3">
-                    <label class="col-lg-4 col-form-label fw-bold fs-6">@lang('word.site_slogan')</label>
-                    <div class="col-lg-8 fv-row">
-                        <input type="text" name="site_slogan" class="form-control" value="{{ $website->site_slogan ?? old('site_slogan') }}"/>
+                <div class="row mb-1">
+                    <label class="col-lg-3 col-form-label fw-bold fs-6">@lang('word.site_slogan')</label>
+                    <div class="col-lg-9 fv-row">
+                        <input type="text" name="site_slogan" class="form-control form-control-sm" value="{{ $website->site_slogan ?? old('site_slogan') }}"/>
                     </div>
                 </div>
 
                 {{-- site_seo_escription --}}
-                <div class="row mb-3">
-                    <label class="col-lg-4 col-form-label fw-bold fs-6">@lang('word.seo_description')</label>
-                    <div class="col-lg-8 fv-row">
-                        <input type="text" name="site_seo_description" class="form-control" value="{{ $website->site_seo_description ?? old('site_seo_description') }}"/>
+                <div class="row mb-1">
+                    <label class="col-lg-3 col-form-label fw-bold fs-6">@lang('word.seo_description')</label>
+                    <div class="col-lg-9 fv-row">
+                        <input type="text" name="site_seo_description" class="form-control form-control-sm" value="{{ $website->site_seo_description ?? old('site_seo_description') }}"/>
                     </div>
                 </div>
 
                 {{-- site_seo_keywords  --}}
-                <div class="row mb-3">
-                    <label class="col-lg-4 col-form-label fw-bold fs-6">@lang('word.site_seo_keywords')</label>
-                    <div class="col-lg-8 fv-row">
-                        <input type="text" name="site_site_seo_keywords" class="form-control" value="{{ $website->site_site_seo_keywords ?? old('site_site_seo_keywords') }}"/>
+                <div class="row mb-1">
+                    <label class="col-lg-3 col-form-label fw-bold fs-6">@lang('word.site_seo_keywords')</label>
+                    <div class="col-lg-9 fv-row">
+                        <input type="text" name="site_site_seo_keywords" class="form-control form-control-sm" value="{{ $website->site_site_seo_keywords ?? old('site_site_seo_keywords') }}"/>
                     </div>
                 </div>
 
                 {{-- Favicon --}}
-                <div class="row mb-3">
-                    <label class="col-lg-4 col-form-label fw-bold fs-6">@lang('word.favicon')</label>
+                <div class="row mb-1">
+                    <label class="col-lg-3 col-form-label fw-bold fs-6">@lang('word.favicon')</label>
 
-                    <div class="col-lg-8">
+                    <div class="col-lg-9">
                         <div class="image-input image-input-outline {{ !empty($website->site_favicon) ? '' : 'image-input-empty' }}" data-kt-image-input="true" style="background-image: url({{ asset('wncms/images/placeholders/upload.png') }});background-position:center">
                             <div class="image-input-wrapper w-125px h-125px" style="background-image: {{!empty($website->site_favicon) ? 'url("'. $website->site_favicon .'")' : 'none' }};background-size: contain;"></div>
 
@@ -126,10 +126,10 @@
                 </div>
                 
                 {{-- Logo --}}
-                <div class="row mb-3">
-                    <label class="col-lg-4 col-form-label fw-bold fs-6">@lang('word.logo_black')</label>
+                <div class="row mb-1">
+                    <label class="col-lg-3 col-form-label fw-bold fs-6">@lang('word.logo_black')</label>
 
-                    <div class="col-lg-8">
+                    <div class="col-lg-9">
                         <div class="image-input image-input-outline {{ !empty($website->site_logo) ? '' : 'image-input-empty' }}" data-kt-image-input="true" style="background-image: url('{{ asset('wncms/images/placeholders/upload.png') }}');background-position:center">
                             <div class="image-input-wrapper w-250px h-50px" style="background-image: {{!empty($website->site_logo) ? 'url("'. $website->site_logo .'")' : 'none' }};background-size: contain;"></div>
 
@@ -151,10 +151,10 @@
                     </div>
                 </div>
 
-                <div class="row mb-3">
-                    <label class="col-lg-4 col-form-label fw-bold fs-6">@lang('word.logo_white')</label>
+                <div class="row mb-1">
+                    <label class="col-lg-3 col-form-label fw-bold fs-6">@lang('word.logo_white')</label>
 
-                    <div class="col-lg-8">
+                    <div class="col-lg-9">
                         <div class="image-input image-input-outline {{ !empty($website->site_logo_white) ? '' : 'image-input-empty' }}" data-kt-image-input="true" style="background-image: url({{ asset('wncms/images/placeholders/upload.png') }});background-position:center">
                             <div class="image-input-wrapper w-250px h-50px" style="background-image: {{!empty($website->site_logo_white) ? 'url("'. $website->site_logo_white .'")' : 'none' }};background-size: contain;"></div>
 
@@ -178,26 +178,26 @@
 
                 {{-- Codes --}}
                 @foreach(['meta_verification','head_code','body_code'] as $code_field)
-                    <div class="row mb-3">
-                        <label class="col-lg-4 col-form-label fw-bold fs-6">@lang('word.' . $code_field)</label>
-                        <div class="col-lg-8">
-                            <textarea class="form-control" name="{{ $code_field }}" cols="30" rows="4">{{ $website->{$code_field} }}</textarea>
+                    <div class="row mb-1">
+                        <label class="col-lg-3 col-form-label fw-bold fs-6">@lang('word.' . $code_field)</label>
+                        <div class="col-lg-9">
+                            <textarea class="form-control form-control-sm" name="{{ $code_field }}" cols="30" rows="4">{{ $website->{$code_field} }}</textarea>
                         </div>
                     </div>
                 @endforeach
 
                 {{-- analytics_code --}}
-                <div class="row mb-3">
-                    <label class="col-lg-4 col-form-label fw-bold fs-6">@lang('word.analytics_code')</label>
-                    <div class="col-lg-8">
-                        <textarea class="form-control" name="analytics" cols="30" rows="10">{{ $website->analytics }}</textarea>
+                <div class="row mb-1">
+                    <label class="col-lg-3 col-form-label fw-bold fs-6">@lang('word.analytics_code')</label>
+                    <div class="col-lg-9">
+                        <textarea class="form-control form-control-sm" name="analytics" cols="30" rows="10">{{ $website->analytics }}</textarea>
                     </div>
                 </div>
 
                 {{-- enabled_page_cache --}}
-                <div class="row mb-3">
-                    <label class="col-lg-4 col-form-label fw-bold fs-6" for="enabled_page_cache">@lang('word.enabled_page_cache')</label>
-                    <div class="col-lg-8 d-flex align-items-center">
+                <div class="row mb-1">
+                    <label class="col-lg-3 col-form-label fw-bold fs-6" for="enabled_page_cache">@lang('word.enabled_page_cache')</label>
+                    <div class="col-lg-9 d-flex align-items-center">
                         <div class="form-check form-check-solid form-check-custom form-switch fv-row">
                             <input id="enabled_page_cache" type="hidden" name="enabled_page_cache" value="0">
                             <input class="form-check-input w-35px h-20px" type="checkbox" id="enabled_page_cache" name="enabled_page_cache" value="1" {{ old('enabled_page_cache', $website->enabled_page_cache ?? null) ? 'checked' : '' }}/>
@@ -207,9 +207,9 @@
                 </div>
 
                 {{-- enabled_data_cache --}}
-                <div class="row mb-3">
-                    <label class="col-lg-4 col-form-label fw-bold fs-6" for="enabled_data_cache">@lang('word.enabled_data_cache')</label>
-                    <div class="col-lg-8 d-flex align-items-center">
+                <div class="row mb-1">
+                    <label class="col-lg-3 col-form-label fw-bold fs-6" for="enabled_data_cache">@lang('word.enabled_data_cache')</label>
+                    <div class="col-lg-9 d-flex align-items-center">
                         <div class="form-check form-check-solid form-check-custom form-switch fv-row">
                             <input id="enabled_data_cache" type="hidden" name="enabled_data_cache" value="0">
                             <input class="form-check-input w-35px h-20px" type="checkbox" id="enabled_data_cache" name="enabled_data_cache" value="1" {{ old('enabled_data_cache', $website->enabled_data_cache ?? null) ? 'checked' : '' }}/>
@@ -219,10 +219,10 @@
                 </div>
                                 
                 {{-- Remark --}}
-                <div class="row mb-3">
-                    <label class="col-lg-4 col-form-label fw-bold fs-6">@lang('word.remark')</label>
-                    <div class="col-lg-8 fv-row">
-                        <input type="text" name="remark" class="form-control" value="{{ $website->remark ?? old('remark') }}"/>
+                <div class="row mb-1">
+                    <label class="col-lg-3 col-form-label fw-bold fs-6">@lang('word.remark')</label>
+                    <div class="col-lg-9 fv-row">
+                        <input type="text" name="remark" class="form-control form-control-sm" value="{{ $website->remark ?? old('remark') }}"/>
                     </div>
                 </div>
 

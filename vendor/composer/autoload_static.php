@@ -18,9 +18,9 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
+        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         '2203a247e6fda86070a5e4e07aed533a' => __DIR__ . '/..' . '/symfony/clock/Resources/now.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
-        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         '35a6ad97d21e794e7e22a17d806652e4' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Functions.php',
         '09f6b20656683369174dd6fa83b7e5fb' => __DIR__ . '/..' . '/symfony/polyfill-uuid/bootstrap.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
@@ -53,6 +53,8 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
         ),
         'W' => 
         array (
+            'Wncms\\Translatable\\' => 19,
+            'Wncms\\Tags\\' => 11,
             'Whoops\\' => 7,
             'Webmozart\\Assert\\' => 17,
         ),
@@ -93,15 +95,12 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
             'Symfony\\Component\\Clock\\' => 24,
-            'Spatie\\Translatable\\' => 20,
             'Spatie\\TemporaryDirectory\\' => 26,
-            'Spatie\\Tags\\' => 12,
             'Spatie\\Permission\\' => 18,
             'Spatie\\MediaLibrary\\' => 20,
             'Spatie\\LaravelPackageTools\\' => 27,
             'Spatie\\Image\\' => 13,
             'Spatie\\ImageOptimizer\\' => 22,
-            'Spatie\\EloquentSortable\\' => 24,
             'Spatie\\Activitylog\\' => 19,
         ),
         'R' => 
@@ -202,6 +201,14 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
         'ZipStream\\' => 
         array (
             0 => __DIR__ . '/..' . '/maennchen/zipstream-php/src',
+        ),
+        'Wncms\\Translatable\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/secretwebmaster/wncms-translatable/src',
+        ),
+        'Wncms\\Tags\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/secretwebmaster/wncms-tags/src',
         ),
         'Whoops\\' => 
         array (
@@ -339,17 +346,9 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
         array (
             0 => __DIR__ . '/..' . '/symfony/clock',
         ),
-        'Spatie\\Translatable\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/spatie/laravel-translatable/src',
-        ),
         'Spatie\\TemporaryDirectory\\' => 
         array (
             0 => __DIR__ . '/..' . '/spatie/temporary-directory/src',
-        ),
-        'Spatie\\Tags\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/spatie/laravel-tags/src',
         ),
         'Spatie\\Permission\\' => 
         array (
@@ -370,10 +369,6 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
         'Spatie\\ImageOptimizer\\' => 
         array (
             0 => __DIR__ . '/..' . '/spatie/image-optimizer/src',
-        ),
-        'Spatie\\EloquentSortable\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/spatie/eloquent-sortable/src',
         ),
         'Spatie\\Activitylog\\' => 
         array (
@@ -598,13 +593,10 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
         'App\\Console\\Commands\\CreateModelPermission' => __DIR__ . '/../..' . '/app/Console/Commands/CreateModelPermission.php',
         'App\\Console\\Commands\\CreateModelView' => __DIR__ . '/../..' . '/app/Console/Commands/CreateModelView.php',
         'App\\Console\\Commands\\CreateThemeFile' => __DIR__ . '/../..' . '/app/Console/Commands/CreateThemeFile.php',
-        'App\\Console\\Commands\\CustomCreateUpdateMigration' => __DIR__ . '/../..' . '/app/Console/Commands/CustomCreateUpdateMigration.php',
-        'App\\Console\\Commands\\PackCoreFile' => __DIR__ . '/../..' . '/app/Console/Commands/PackCoreFile.php',
         'App\\Console\\Commands\\PackThemeFile' => __DIR__ . '/../..' . '/app/Console/Commands/PackThemeFile.php',
         'App\\Console\\Commands\\RemoveThemeFile' => __DIR__ . '/../..' . '/app/Console/Commands/RemoveThemeFile.php',
         'App\\Console\\Commands\\Test' => __DIR__ . '/../..' . '/app/Console/Commands/Test.php',
         'App\\Http\\Controllers\\Api\\V1\\AnalyticsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/V1/AnalyticsController.php',
-        'App\\Http\\Controllers\\Api\\V1\\CustomUpdateController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/V1/CustomUpdateController.php',
         'App\\Http\\Controllers\\Api\\V1\\MenuController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/V1/MenuController.php',
         'App\\Http\\Controllers\\Api\\V1\\PageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/V1/PageController.php',
         'App\\Http\\Controllers\\Api\\V1\\PostController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/V1/PostController.php',
@@ -638,19 +630,16 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
         'App\\Http\\Controllers\\Backend\\RoleController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/RoleController.php',
         'App\\Http\\Controllers\\Backend\\SearchKeywordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/SearchKeywordController.php',
         'App\\Http\\Controllers\\Backend\\SettingController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/SettingController.php',
-        'App\\Http\\Controllers\\Backend\\SitemapController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/SitemapController.php',
-        'App\\Http\\Controllers\\Backend\\SubscriptionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/SubscriptionController.php',
         'App\\Http\\Controllers\\Backend\\TagController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/TagController.php',
-        'App\\Http\\Controllers\\Backend\\ThemeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/ThemeController.php',
-        'App\\Http\\Controllers\\Backend\\TransactionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/TransactionController.php',
         'App\\Http\\Controllers\\Backend\\UpdateController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/UpdateController.php',
         'App\\Http\\Controllers\\Backend\\UploadController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/UploadController.php',
         'App\\Http\\Controllers\\Backend\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/UserController.php',
         'App\\Http\\Controllers\\Backend\\WebsiteController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/WebsiteController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
-        'App\\Http\\Controllers\\Custom\\UpdateLogController' => __DIR__ . '/../..' . '/app/Http/Controllers/Custom/UpdateLogController.php',
-        'App\\Http\\Controllers\\Custom\\WncmsLicenseController' => __DIR__ . '/../..' . '/app/Http/Controllers/Custom/WncmsLicenseController.php',
-        'App\\Http\\Controllers\\Custom\\ZipController' => __DIR__ . '/../..' . '/app/Http/Controllers/Custom/ZipController.php',
+        'App\\Http\\Controllers\\Frontend\\ContactFormSubmissionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/ContactFormSubmissionController.php',
+        'App\\Http\\Controllers\\Frontend\\PageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/PageController.php',
+        'App\\Http\\Controllers\\Frontend\\PostController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/PostController.php',
+        'App\\Http\\Controllers\\Frontend\\SitemapController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/SitemapController.php',
         'App\\Http\\Middleware\\ApiAuth' => __DIR__ . '/../..' . '/app/Http/Middleware/ApiAuth.php',
         'App\\Http\\Middleware\\FullPageCache' => __DIR__ . '/../..' . '/app/Http/Middleware/FullPageCache.php',
         'App\\Http\\Middleware\\HasWebsite' => __DIR__ . '/../..' . '/app/Http/Middleware/HasWebsite.php',
@@ -658,8 +647,8 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
         'App\\Http\\Requests\\Auth\\LoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Auth/LoginRequest.php',
         'App\\Http\\Requests\\BannerFormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/BannerFormRequest.php',
         'App\\Models\\Advertisement' => __DIR__ . '/../..' . '/app/Models/Advertisement.php',
+        'App\\Models\\Article' => __DIR__ . '/../..' . '/app/Models/Article.php',
         'App\\Models\\Banner' => __DIR__ . '/../..' . '/app/Models/Banner.php',
-        'App\\Models\\BannerClick' => __DIR__ . '/../..' . '/app/Models/BannerClick.php',
         'App\\Models\\Comment' => __DIR__ . '/../..' . '/app/Models/Comment.php',
         'App\\Models\\ContactForm' => __DIR__ . '/../..' . '/app/Models/ContactForm.php',
         'App\\Models\\ContactFormOption' => __DIR__ . '/../..' . '/app/Models/ContactFormOption.php',
@@ -677,13 +666,11 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
         'App\\Models\\Setting' => __DIR__ . '/../..' . '/app/Models/Setting.php',
         'App\\Models\\Tag' => __DIR__ . '/../..' . '/app/Models/Tag.php',
         'App\\Models\\TagKeyword' => __DIR__ . '/../..' . '/app/Models/TagKeyword.php',
-        'App\\Models\\Theme' => __DIR__ . '/../..' . '/app/Models/Theme.php',
         'App\\Models\\ThemeOption' => __DIR__ . '/../..' . '/app/Models/ThemeOption.php',
         'App\\Models\\TrafficSummary' => __DIR__ . '/../..' . '/app/Models/TrafficSummary.php',
         'App\\Models\\UpdateLog' => __DIR__ . '/../..' . '/app/Models/UpdateLog.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\Website' => __DIR__ . '/../..' . '/app/Models/Website.php',
-        'App\\Models\\WncmsLicense' => __DIR__ . '/../..' . '/app/Models/WncmsLicense.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\HelpersProvider' => __DIR__ . '/../..' . '/app/Providers/HelpersProvider.php',
@@ -5740,10 +5727,6 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
         'Spatie\\Activitylog\\Models\\Activity' => __DIR__ . '/..' . '/spatie/laravel-activitylog/src/Models/Activity.php',
         'Spatie\\Activitylog\\Traits\\CausesActivity' => __DIR__ . '/..' . '/spatie/laravel-activitylog/src/Traits/CausesActivity.php',
         'Spatie\\Activitylog\\Traits\\LogsActivity' => __DIR__ . '/..' . '/spatie/laravel-activitylog/src/Traits/LogsActivity.php',
-        'Spatie\\EloquentSortable\\EloquentModelSortedEvent' => __DIR__ . '/..' . '/spatie/eloquent-sortable/src/EloquentModelSortedEvent.php',
-        'Spatie\\EloquentSortable\\EloquentSortableServiceProvider' => __DIR__ . '/..' . '/spatie/eloquent-sortable/src/EloquentSortableServiceProvider.php',
-        'Spatie\\EloquentSortable\\Sortable' => __DIR__ . '/..' . '/spatie/eloquent-sortable/src/Sortable.php',
-        'Spatie\\EloquentSortable\\SortableTrait' => __DIR__ . '/..' . '/spatie/eloquent-sortable/src/SortableTrait.php',
         'Spatie\\ImageOptimizer\\DummyLogger' => __DIR__ . '/..' . '/spatie/image-optimizer/src/DummyLogger.php',
         'Spatie\\ImageOptimizer\\Image' => __DIR__ . '/..' . '/spatie/image-optimizer/src/Image.php',
         'Spatie\\ImageOptimizer\\Optimizer' => __DIR__ . '/..' . '/spatie/image-optimizer/src/Optimizer.php',
@@ -5918,19 +5901,9 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
         'Spatie\\Permission\\Traits\\HasRoles' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Traits/HasRoles.php',
         'Spatie\\Permission\\Traits\\RefreshesPermissionCache' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Traits/RefreshesPermissionCache.php',
         'Spatie\\Permission\\WildcardPermission' => __DIR__ . '/..' . '/spatie/laravel-permission/src/WildcardPermission.php',
-        'Spatie\\Tags\\HasSlug' => __DIR__ . '/..' . '/spatie/laravel-tags/src/HasSlug.php',
-        'Spatie\\Tags\\HasTags' => __DIR__ . '/..' . '/spatie/laravel-tags/src/HasTags.php',
-        'Spatie\\Tags\\Tag' => __DIR__ . '/..' . '/spatie/laravel-tags/src/Tag.php',
-        'Spatie\\Tags\\TagsServiceProvider' => __DIR__ . '/..' . '/spatie/laravel-tags/src/TagsServiceProvider.php',
         'Spatie\\TemporaryDirectory\\Exceptions\\InvalidDirectoryName' => __DIR__ . '/..' . '/spatie/temporary-directory/src/Exceptions/InvalidDirectoryName.php',
         'Spatie\\TemporaryDirectory\\Exceptions\\PathAlreadyExists' => __DIR__ . '/..' . '/spatie/temporary-directory/src/Exceptions/PathAlreadyExists.php',
         'Spatie\\TemporaryDirectory\\TemporaryDirectory' => __DIR__ . '/..' . '/spatie/temporary-directory/src/TemporaryDirectory.php',
-        'Spatie\\Translatable\\Events\\TranslationHasBeenSetEvent' => __DIR__ . '/..' . '/spatie/laravel-translatable/src/Events/TranslationHasBeenSetEvent.php',
-        'Spatie\\Translatable\\Exceptions\\AttributeIsNotTranslatable' => __DIR__ . '/..' . '/spatie/laravel-translatable/src/Exceptions/AttributeIsNotTranslatable.php',
-        'Spatie\\Translatable\\Facades\\Translatable' => __DIR__ . '/..' . '/spatie/laravel-translatable/src/Facades/Translatable.php',
-        'Spatie\\Translatable\\HasTranslations' => __DIR__ . '/..' . '/spatie/laravel-translatable/src/HasTranslations.php',
-        'Spatie\\Translatable\\Translatable' => __DIR__ . '/..' . '/spatie/laravel-translatable/src/Translatable.php',
-        'Spatie\\Translatable\\TranslatableServiceProvider' => __DIR__ . '/..' . '/spatie/laravel-translatable/src/TranslatableServiceProvider.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'Symfony\\Component\\Clock\\Clock' => __DIR__ . '/..' . '/symfony/clock/Clock.php',
         'Symfony\\Component\\Clock\\ClockAwareTrait' => __DIR__ . '/..' . '/symfony/clock/ClockAwareTrait.php',
@@ -6973,6 +6946,13 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
         'Whoops\\Util\\Misc' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/Misc.php',
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
+        'Wncms\\Tags\\HasTags' => __DIR__ . '/..' . '/secretwebmaster/wncms-tags/src/HasTags.php',
+        'Wncms\\Tags\\Tag' => __DIR__ . '/..' . '/secretwebmaster/wncms-tags/src/Tag.php',
+        'Wncms\\Tags\\TagsServiceProvider' => __DIR__ . '/..' . '/secretwebmaster/wncms-tags/src/TagsServiceProvider.php',
+        'Wncms\\Translatable\\Facades\\Translatable' => __DIR__ . '/..' . '/secretwebmaster/wncms-translatable/src/Facades/Translatable.php',
+        'Wncms\\Translatable\\Models\\Translation' => __DIR__ . '/..' . '/secretwebmaster/wncms-translatable/src/Models/Translation.php',
+        'Wncms\\Translatable\\Traits\\HasTranslations' => __DIR__ . '/..' . '/secretwebmaster/wncms-translatable/src/Traits/HasTranslations.php',
+        'Wncms\\Translatable\\TranslatableServiceProvider' => __DIR__ . '/..' . '/secretwebmaster/wncms-translatable/src/TranslatableServiceProvider.php',
         'ZipStream\\CentralDirectoryFileHeader' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/CentralDirectoryFileHeader.php',
         'ZipStream\\CompressionMethod' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/CompressionMethod.php',
         'ZipStream\\DataDescriptor' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/DataDescriptor.php',

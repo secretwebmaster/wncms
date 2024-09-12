@@ -6,7 +6,8 @@
 
         {{-- Meta --}}
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no">
+        {{-- <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no"> --}}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="keywords" content="{{ $website->site_seo_keywords }}">
         <meta name="description" content="{{ $website->site_seo_description }}">
@@ -17,6 +18,27 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" referrerpolicy="no-referrer" />
         <link rel="stylesheet" type="text/css" href="{{ asset("theme/default/css/style.css?v=") . wncms_get_version() }}" />
         <style>
+            .nav-link{
+                margin: 10px 0;
+                display: inline-block;
+                text-decoration: none;
+            }
+
+            .table-container {
+                max-width: 100%;
+                overflow-x: auto;
+            }
+
+            /* Hide scrollbar for Webkit browsers */
+            .table-container::-webkit-scrollbar {
+                display: none;
+            }
+
+            /* Hide scrollbar for Firefox */
+            .table-container {
+                scrollbar-width: none;
+            }
+            
             table {
                 border-collapse: collapse;
             }
@@ -27,6 +49,9 @@
                 padding: 3px;
                 text-align: left;
                 font-size: 12px;
+                white-space: nowrap;
+                -webkit-text-size-adjust: 100%;
+
             }
     
             th {
@@ -65,6 +90,10 @@
 
             .tab-content.active {
                 display: block;
+            }
+
+            .post-thumbnail{
+                height: 25px;
             }
         </style>
 

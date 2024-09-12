@@ -176,13 +176,25 @@ class Wncms
      * @since 1.0.0
      * @version 3.0.0
      * @return string
-     * @example wncms_get_locale()
      */
 
     public function getLocale(): string
     {
         return LaravelLocalization::getCurrentLocale();
     }
+
+    /**
+     * 檢查當前語言是否預設語言
+     * @link https://wncms.cc
+     * @since 4.0.0
+     * @version 4.0.0
+     * @return string
+     */
+
+     public function isDefaultLocale(): string
+     {
+         return LaravelLocalization::getCurrentLocale() == LaravelLocalization::getDefaultLocale();
+     }
 
     /**
      * 獲取當前用戶語言名稱

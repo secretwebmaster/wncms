@@ -176,15 +176,44 @@ class TagController extends Controller
             };
         }
 
+        if(app()->getLocale() != LaravelLocalization::getDefaultLocale()){
+            $newName = $tag->getTranslation('name', LaravelLocalization::getDefaultLocale());
+        }else{
+            $newName = $request->name;
+        }
+
+        // dd($newName);
+
         $tag->update([
             'parent_id' => $request->parent_id,
-            'name' => $request->name,
+            'name' => $newName,
             'type' => $request->type,
             'slug' => $request->slug,
             'description' => $request->description,
             'icon' => $icon_name,
             'order_column' => $request->order_column,
         ]);
+
+        if(app()->getLocale() != LaravelLocalization::getDefaultLocale()){
+            $tag->translations()->updateOrCreate(
+                [
+                    'field' => 'name',
+                    'locale' => app()->getLocale(),
+                ],
+                [
+                    'value' => $request->name,
+                ]
+            );
+        }
+
+        // dd(
+        //     request()->all(),
+        //     app()->getLocale(),
+        //     LaravelLocalization::getDefaultLocale(),
+        //     $newName,
+        //     $tag,
+        //     $tag->translations,
+        // );
 
 
         //handle tag_thumbnail

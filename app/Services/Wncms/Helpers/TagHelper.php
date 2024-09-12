@@ -42,15 +42,18 @@ class TagHelper
             // info('no cache from TagHelper getByName()');
 
             $locale ??= LaravelLocalization::getCurrentLocale();
-            $website = wnWebsite()->get($websiteId);
+            $website = wncms()->website()->get($websiteId);
 
             $q = Tag::query();
 
             $q->where('type', $tagType);
 
             $q->where(function($subq) use ($tagName, $locale) {
-                $subq->where("name->{$locale}", $tagName)
-                    ->orWhere("slug", $tagName);
+                $subq->where("name", $tagName)
+                    ->orWhere("slug", $tagName)
+                    ->orWhereHas('translations', function($subsubq) use ($tagName, $locale){
+                        $subsubq->where('field', 'name')->where('value', $tagName)->where('locale', $locale);
+                    });
             });
 
             if(!empty($withs)){
@@ -124,7 +127,12 @@ class TagHelper
                 $q->where(function ($subq) use ($tagIds, $locale) {
                     // $subq->orWhereIn('tags.id', $tagIds);
                     $subq->orWhere(function ($subsubq) use ($locale, $tagIds) {
-                        $subsubq->whereIn("tags.name->{$locale}", $tagIds)->orWhereIn('tags.id', $tagIds);
+                        $subsubq->whereIn("tags.name", $tagIds)
+                            ->orWhereIn("tags.slug", $tagIds)
+                            ->orWhereHas('translations', function($subsubsubq) use ($locale, $tagIds){
+                                $subsubsubq->where('field', 'name')->where('locale', $locale)->whereIn('value', $tagIds);
+                            })
+                            ->orWhereIn('tags.id', $tagIds);
                     });
                 });
             }
@@ -279,7 +287,7 @@ class TagHelper
         })
         ->filter(function ($model) {
             $reflection = new \ReflectionClass($model);
-            return in_array("Spatie\Tags\HasTags", $reflection->getTraitNames());
+            return in_array("Wncms\Tags\HasTags", $reflection->getTraitNames());
         });
 
         $tagTypes = [];

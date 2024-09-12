@@ -123,7 +123,7 @@ class WebsiteController extends Controller
     public function edit(Website $website)
     {
         // TODO: authorization
-        $website = wncms()->checkLicense($website);
+        // $website = wncms()->checkLicense($website);
 
         $themes = Storage::disk('views')->directories('frontend/theme');
         sort($themes);
@@ -168,6 +168,8 @@ class WebsiteController extends Controller
                 }
             };
         }
+
+
 
         $website->update([
             'site_name' => $request->site_name,
@@ -232,7 +234,17 @@ class WebsiteController extends Controller
         //load theme 檔案
         $option_tabs = config('theme.'. ($website->theme ?? 'default') .'.option_tabs');
 
-        $current_options = $website->theme_options()->where('theme',$website->theme)->pluck('value','key')->toArray();
+        // $current_options = $website->theme_options()->where('theme',$website->theme)->pluck('value','key')->toArray();
+        
+        $current_options = $website->theme_options()
+            ->where('theme', $website->theme)
+            ->get()
+            ->mapWithKeys(function ($option) {
+                // Get the translation for the current locale
+                $translatedValue = $option->getTranslation('value', app()->getLocale());
+                return [$option->key => $translatedValue];
+            })
+            ->toArray();
 
         $websites = wnWebsite()->getList(wheres:[
             ['theme', $website->theme],

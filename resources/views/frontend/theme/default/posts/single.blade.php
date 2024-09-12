@@ -20,7 +20,7 @@
 </style>
 @endpush
 @section('content')
-    <a href="{{ route('frontend.pages.blog') }}">< @lang('word.blog')</a>
+    <a class="nav-link" href="{{ route('frontend.pages.blog') }}">< @lang('word.blog')</a>
     <h2>{{ wncms_model_word('post', 'single') }}</h2>
 
     <h4>@lang('word.post_detail')</h4>

@@ -115,9 +115,33 @@ class Website extends Model implements HasMedia
 
 
     //! Functions
-    public function get_options()
+    public function get_options($locale = null)
     {
-        return $this->theme_options()->where('theme',$this->theme ?? 'default')->pluck('value','key')->toArray();
+        if(!$this->theme){
+            return [];
+        }
+
+        $locale ??= app()->getLocale();
+
+        // Eager load translations with the theme options
+        $options = $this->theme_options()
+            ->where('theme', $this->theme ?? 'default')
+            ->with(['translations' => function ($query) use ($locale) {
+                $query->where('locale', $locale);
+            }])
+            ->get();
+
+        //not mapped
+        // return $options->pluck('value','key')->toArray();
+
+        // Map the options with their translations
+        return $options->mapWithKeys(function ($option) use ($locale) {
+            // Get the translation for the current locale
+            $translatedValue = $option->translations->firstWhere('locale', $locale)->value ?? $option->value;
+            return [$option->key => $translatedValue];
+        })->toArray();
+
+        // return $this->theme_options()->where('theme',$this->theme ?? 'default')->pluck('value','key')->toArray();
     }
 
     public function get_option($key)

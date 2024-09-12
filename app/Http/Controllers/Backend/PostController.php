@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use App\Models\Tag;
 use Faker\Factory as Faker;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class PostController extends Controller
 {
@@ -560,45 +561,71 @@ class PostController extends Controller
         $imageDirectory = public_path('wncms/images/placeholders');
         $imageFilenames = preg_grep('/^placeholder_16_9_/', scandir($imageDirectory));
 
-
-
         // Create Post model
-        $faker = Faker::create('zh_TW');
+        // $faker = Faker::create(config('app.locale', 'zh_TW'));
+
+        // Get all supported locales
+        $fakers = [];
+        $locales = LaravelLocalization::getSupportedLocales();
+        foreach ($locales as $localeCode => $localeData) {
+            $fakers[$localeCode] = Faker::create($localeCode);
+        }
+
+        $categories = wncms()->tag()->getList(tagType:'post_category', count: 3, isRandom: true);
+        $tags = wncms()->tag()->getList(tagType:'post_tag', count: 3, isRandom: true);
 
         for ($i = 0; $i < $count; $i++) {
             // Choose a random image filename
-            $randomImageFilename = $faker->randomElement($imageFilenames);
+            $randomImageFilename = $fakers[config('app.locale')]->randomElement($imageFilenames);
             $imagePath = '/wncms/images/placeholders/' . $randomImageFilename;
 
             // Add Sub title to paragraphs
             $content = "";
             $paragraph_count = rand(2,5);
             for ($j = 0; $j < $paragraph_count; $j++) {
-                $paragraphTitle = $faker->realText(20, 5);
+                $paragraphTitle = $fakers[config('app.locale')]->realText(20, 5);
                 $content .= "<h2>{$paragraphTitle}</h2>";
-                $content .= "<p>" .  $faker->realText(500, 5) . "</p>";
+                $content .= "<p>" .  $fakers[config('app.locale')]->realText(500, 5) . "</p>";
             }
 
             // Create a new post
             $post = Post::create([
                 'user_id' => auth()->id(),
-                'title' => $faker->realText(30, 5),
+                'title' => $fakers[config('app.locale')]->realText(30, 5),
                 'slug' => wncms()->getUniqueSlug('posts'),
-                // 'content' => $faker->realText(500, 5),
+                // 'content' => $fakers[config('app.locale')]->realText(500, 5),
                 'content' => $content,
                 'published_at' => now(),
                 'external_thumbnail' => $imagePath,
             ]);
 
+            // Set translations for the post title in all supported locales
+            foreach ($locales as $localeCode => $localeData) {
+
+                if(config('app.locale') != $localeCode){
+                    try {
+                        // Create a faker instance for each locale
+                        $translatedTitle = $fakers[$localeCode]->realText(30, 5);
+                    } catch (\Exception $e) {
+                        // Fallback in case the locale doesn't support realText
+                        logger()->error($e);
+                        // $translatedTitle = $fakers[$localeCode]->realText(30, 5); // Default locale fallback
+                    }
+
+                    // Set the translation for the title
+                    $post->setTranslation('title', $localeCode, $translatedTitle);
+                }
+            }
+
             // add random existing categories
-            $categories = wncms()->tag()->getList(tagType:'post_category', count: 3, isRandom: true);
+            // TODO: Add random existing categories
             if($categories->count()){
                 $category_names = $categories->pluck('name');
                 $post->syncTagsWithType($category_names, 'post_category');
             }
             
             // add random existing tags
-            $tags = wncms()->tag()->getList(tagType:'post_tag', count: 3, isRandom: true);
+            // TODO: Add random existing tags
             if($tags->count()){
                 $tag_names = $tags->pluck('name');
                 $post->syncTagsWithType($tag_names, 'post_tag');

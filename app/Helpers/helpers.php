@@ -55,9 +55,9 @@ if (!function_exists('uss')) {
 }
 
 if (!function_exists('gto')) {
-    function gto($key, $fallback = '')
+    function gto($key, $fallback = '', $locale = null)
     {
-        return wncms_get_theme_option($key, $fallback);
+        return wncms_get_theme_option($key, $fallback, $locale);
     }
 }
 

@@ -69,7 +69,7 @@ class PostController extends Controller
         $page = request()->page ?? 0;
         $pageSize = gto('post_page_size', 10);
         $posts = $tag->getPostList(count:$count,page:$page,pageSize:$pageSize);
-        
+
         return wncms_view('frontend.theme.' . $this->theme . '.posts.archive', [
             'pageTitle' => __('word.latest_tag_models', ['tagName' => $tagName, 'modelName' => __('word.' . $modelName)]),
             'tagName' => $tagName,

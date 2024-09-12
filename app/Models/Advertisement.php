@@ -6,8 +6,8 @@ use App\Traits\CustomAdvertisementTraits;
 use App\Traits\WnTagTraits;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Tags\HasTags;
-use Spatie\Translatable\HasTranslations;
+use Wncms\Tags\HasTags;
+use Wncms\Translatable\Traits\HasTranslations;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
