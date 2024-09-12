@@ -84,6 +84,9 @@ class InstallController extends Controller
         $rules = config('installer.environment.form.rules');
         $messages = [
             'environment_custom.required_if' => trans('installer_messages.environment.wizard.form.name_required'),
+            'database_name.required' => __('word.database_name') . ' ' . __('word.required'),
+            'database_username.required' => __('word.database_user') . ' ' . __('word.required'),
+            'database_password.required' => __('word.database_password') . ' ' . __('word.required'),
         ];
         $validator = Validator::make($input, $rules, $messages);
 

@@ -9,16 +9,55 @@
         <link rel="icon" type="image/png" href="{{ asset('wncms/images/logos/favicon.png') }}" sizes="16x16"/>
         <link rel="icon" type="image/png" href="{{ asset('wncms/images/logos/favicon.png') }}" sizes="32x32"/>
         <link rel="icon" type="image/png" href="{{ asset('wncms/images/logos/favicon.png') }}" sizes="96x96"/>
-        <link href="{{ asset('installer/css/style.css') . '?v=' . time() }}" rel="stylesheet"/>
+        <link href="{{ asset('installer/css/style.css?v=')  . config('installer.version') . '.' . wncms()->getVersion('css') }}" rel="stylesheet"/>
         @yield('style')
     </head>
     <body>
+        <div class="installer-language-switcher">
+            <style>
+                .language-switcher-wrapper {
+                    position: absolute;
+                    top: 10px; /* Adjust this value as needed */
+                    right: 10px; /* Adjust this value as needed */
+                }
+        
+                .language-switcher-dropdown {
+                    padding: 2px;
+                    font-size: 12px;
+                    background-color: white;
+                    border: 1px solid transparent; /* Set to transparent initially */
+                    border-radius: 3px;
+                    background-image: linear-gradient(white, white), linear-gradient(to right, #590fb7 0%, #ff0076 100%);
+                    background-origin: border-box;
+                    background-clip: content-box, border-box;
+                    margin:0;
+                }
+        
+                .language-switcher-dropdown:hover {
+
+                }
+            </style>
+        
+            <div class="language-switcher-wrapper">
+                <select class="language-switcher-dropdown" onchange="window.location.href=this.value;">
+                    @foreach($wncms->getLocaleList() as $key => $locale)
+                    
+                        <option value="{{ \LaravelLocalization::getLocalizedURL($key, null, [], true) }}" @if(app()->getLocale() == $key) selected @endif>{{ $locale['native'] }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+        
+        
+
         <div class="master">
             <div class="box">
                 <div class="header">
                     <h1 class="header__title">@yield('title')</h1>
                 </div>
+
                 <ul class="step">
+
                     <li class="step__divider"></li>
                     <li class="step__item {{ isActive('installer.final') }} {{ isActive('installer.environment')}} {{ isActive('installer.wizard')}} {{ isActive('installer.environmentClassic')}}">
                         <i class="step__icon fa fa-server" aria-hidden="true"></i>
@@ -34,6 +73,7 @@
                             <i class="step__icon fa fa-key" aria-hidden="true"></i>
                         @endif
                     </li>
+
                     <li class="step__divider"></li>
                     <li class="step__item {{ isActive('installer.requirements') }}">
                         @if(Request::is('install') || Request::is('install/requirements') || Request::is('install/permissions') || Request::is('install/environment') || Request::is('install/environment/wizard') || Request::is('install/environment/classic') )
@@ -44,6 +84,7 @@
                             <i class="step__icon fa fa-list" aria-hidden="true"></i>
                         @endif
                     </li>
+
                     <li class="step__divider"></li>
                     <li class="step__item {{ isActive('installer.welcome') }}">
                         @if(Request::is('install') || Request::is('install/requirements') || Request::is('install/permissions') || Request::is('install/environment') || Request::is('install/environment/wizard') || Request::is('install/environment/classic') )
@@ -54,9 +95,12 @@
                             <i class="step__icon fa fa-home" aria-hidden="true"></i>
                         @endif
                     </li>
+
                     <li class="step__divider"></li>
                 </ul>
+
                 <div class="main">
+
                     @if (session('message'))
                         <p class="alert text-center">
                             <strong>
@@ -68,6 +112,7 @@
                             </strong>
                         </p>
                     @endif
+
                     @if(session()->has('errors'))
                         <div class="alert alert-danger" id="error_alert">
                             <button type="button" class="close" id="close_alert" data-dismiss="alert" aria-hidden="true">
@@ -84,6 +129,7 @@
                             </ul>
                         </div>
                     @endif
+
                     @yield('container')
                 </div>
             </div>
