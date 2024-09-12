@@ -42,7 +42,9 @@ if (!function_exists('gss')) {
         try{
             return wncms()->setting()->get($key, $fallback, $fromCache);
         }catch(\Exception $e){
-            logger()->error("Call gss error. key: $key");
+            if(wncms_is_installed()){
+                logger()->error("Call gss error. key: $key");
+            }
         }
     }
 }
