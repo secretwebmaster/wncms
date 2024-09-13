@@ -4,8 +4,25 @@
 
 ### v4.2.0 2024-09-13
 - remove WnTagTraits.php
+- add translations when generating demo post content
+- improve default home template. Added post archive url
+- added more translations
+- fix error when adding second website
 
 ### v4.1.0 2024-09-07
+- add force https options
+- minor fixes
+- Updated default env file to hide debug messages
+- Flush cache after installation and website creation
+- Add php functions requirement checking
+- Add database.sqlite to .gitignore
+- Fix create theme command. Update lang dir following Laravel 11 structure
+- Fix advertisement expiry date cannot be null
+- Removed useless UpdateLog model
+- Update default model settings
+- Update installer
+- Add disabling user registration functionality
+- Set theme to null instead of default on website edit page
 
 ### v4.0.0 2024-08-03
 #### 新增
