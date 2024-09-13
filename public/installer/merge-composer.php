@@ -4,6 +4,15 @@ session_start(); // Start the session
 
 header('Content-Type: application/json'); // Set JSON response header
 
+if (file_exists(__DIR__ . '/../../.env') && file_exists(__DIR__ . '/../../vendor/autoload.php')) {
+    $response = [
+        'status' => 'success',
+        'message' => 'Already installed.',
+    ];
+    echo json_encode($response);
+    exit;
+}
+
 $response = [
     'status' => 'running',
     'message' => 'Starting the Composer merge and installation process...',
@@ -45,7 +54,10 @@ try {
             $core['require'] = array_merge($core['require'] ?? [], $custom['require']);
         }
 
-        file_put_contents($coreFile, json_encode($core, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        $result = @file_put_contents($coreFile, json_encode($core, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        if ($result === false) {
+            throw new Exception("Failed to write to $coreFile", 1001);
+        }
     }
 
     if (file_exists($pluginFile)) {
@@ -56,7 +68,10 @@ try {
             $core['require'] = array_merge($core['require'] ?? [], $plugin['require']);
         }
 
-        file_put_contents($coreFile, json_encode($core, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        $result = @file_put_contents($coreFile, json_encode($core, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        if ($result === false) {
+            throw new Exception("Failed to write to $coreFile", 1001);
+        }
     }
 
     // Run composer install to update dependencies
@@ -68,21 +83,39 @@ try {
         $response['message'] = 'Composer install failed. Please check the server logs for details.';
         $response['output'] = implode("\n", $output); // Include output in the response
     } else {
-        // Copy the .env.example file to .env
-        $base_path = realpath(__DIR__ . '/../../');
-        copy($base_path . '/.env.example', $base_path . '/.env');
-
         $response['status'] = 'success';
         $response['message'] = 'Composer install completed successfully.';
-        $response['output'] = implode("\n", $output); // Include output in the response
+
+        try {
+            // Copy the .env.example file to .env
+            $base_path = realpath(__DIR__ . '/../../');
+            copy($base_path . '/.env.example', $base_path . '/.env');
+        } catch (Exception $e) {
+            echo json_encode([
+                "status" => "error",
+                "message" => $e->getMessage()
+            ]);
+            exit;
+        }
     }
-    
+     
 } catch (Exception $e) {
 
     // Handle any exceptions and return an error message
     $response['status'] = 'error';
-    $response['message'] = 'An error occurred: ' . $e->getMessage();
+    $response['message'] = $e->getMessage();
+    $errorCode = $e->getCode();
 
+    switch ($errorCode) {
+        case 1001:
+            $response['suggestion'] = 'Please fix file permission of composer.json file to make it editable.';
+            break;
+    }
+
+
+} finally {
+    // Restore the original error handler
+    restore_error_handler();
 }
 
 echo json_encode($response); // Return JSON response

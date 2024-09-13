@@ -70,19 +70,23 @@ $translationsJson = json_encode($translations);
         <div id="progress-container">
             <div id="progress-bar"></div>
         </div>
+
+        <div id="alert-message"></div>
+        <div id="alert-suggestion"></div>
     </div>
 
     <script>
         const csrfToken = '<?php echo $csrfToken; ?>'; // Pass the CSRF token to JavaScript
         const translations = <?php echo $translationsJson; ?>; // Pass the translations to JavaScript
         let progressBar = document.getElementById('progress-bar');
+        let interval;
         
         function simulateProgress() {
             let width = 0;
             const maxWidth = 99; // Set to 95% so it never reaches 100% normally
             const incrementFactor = 0.05; // Larger increments initially
 
-            const interval = setInterval(() => {
+            interval = setInterval(() => {
                 if (width >= maxWidth) {
                     clearInterval(interval);
                 } else {
@@ -118,6 +122,15 @@ $translationsJson = json_encode($translations);
                     location.href = '/install';
                 } else {
                     console.error('Error:', data.message);
+                    document.getElementById('alert-message').textContent = data.message;
+                    document.getElementById('alert-message').style.display = 'block';
+                    document.getElementById('progress-bar').style.backgroundColor = "red";
+                    clearInterval(interval);
+
+                    if(data.suggestion) {
+                        document.getElementById('alert-suggestion').textContent = data.suggestion;
+                        document.getElementById('alert-suggestion').style.display = 'block';
+                    }
                 }
 
                 // Log the output if it is defined

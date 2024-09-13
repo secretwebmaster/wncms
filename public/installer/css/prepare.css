@@ -8,7 +8,38 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
 }
+#alert-message{
+    display: none;
+    background-color: #f8d7da;
+    padding: 5px 10px;
+    border: 1px solid #ff8787;
+    margin-bottom: 20px;
+    width: 600px;
+    max-width: 95%;
+    margin-top: 20px;
+    color: #ff8787;
+    border-radius: 5px;
+    text-wrap: wrap;
+    line-break: anywhere;
+    text-align: left;
+}
 
+#alert-suggestion{
+    display: none;
+    background-color: #a2ffa1;
+    padding: 5px 10px;
+    border: 1px solid #15a74b;
+    margin-bottom: 20px;
+    width: 600px;
+    max-width: 95%;
+    margin-top: 20px;
+    color: #15a74b;
+    border-radius: 5px;
+    text-wrap: wrap;
+    line-break: anywhere;
+    margin-top: 5px;
+    text-align: left;
+}
 .card {
     background: white;
     border-radius: 8px;
