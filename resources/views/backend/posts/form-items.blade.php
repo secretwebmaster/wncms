@@ -13,7 +13,7 @@
 
                 {{-- title --}}
                 <div class="form-item mb-3">
-                    <label class="form-label required fw-bold fs-6">@lang('word.title')</label>
+                    <label class="form-label required fw-bold fs-6">@lang('word.title') @dd($post->translatable)</label>
                     <input type="text" name="title" class="form-control form-control-sm" value="{{ old('title', $post->title) }}" required />
                 </div>
 
@@ -52,13 +52,13 @@
                         <div class="col-12 col-md-3 d-flex align-items-center">
                             <div class="form-check form-check-custom form-switch fv-row">
                                 <input type="hidden" name="auto_generate_category" value="0">
-                                <input class="form-check-input w-35px h-20px" type="checkbox" name="auto_generate_category" value="1" {{ old('auto_generate_category') ? 'checked' : '' }}/>
+                                <input class="form-check-input w-35px h-20px" type="checkbox" name="auto_generate_category" value="1" {{ old('auto_generate_category') ? 'checked' : '' }} />
                                 <label class="form-check-label">@lang('word.auto_generate_category') <a href="{{ route('tags.keywords.index') }}" target="_blank" title="@lang('word.go_to_keyword_binding')">(?)</a></label>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 {{-- tag --}}
                 <div class="form-item mb-3">
                     <label class="form-label required fw-bold fs-6">@lang('word.tag')</label>
@@ -94,7 +94,7 @@
                         <div class="col-12 col-md-3 d-flex align-items-center">
                             <div class="form-check form-check-custom form-switch fv-row">
                                 <input type="hidden" name="auto_generate_tag" value="0">
-                                <input class="form-check-input w-35px h-20px" type="checkbox" name="auto_generate_tag" value="1" {{ old('auto_generate_tag') ? 'checked' : '' }}/>
+                                <input class="form-check-input w-35px h-20px" type="checkbox" name="auto_generate_tag" value="1" {{ old('auto_generate_tag') ? 'checked' : '' }} />
                                 <label class="form-check-label">@lang('word.auto_generate_tag') <a href="{{ route('tags.keywords.index') }}" target="_blank" title="@lang('word.go_to_keyword_binding')">(?)</a></label>
                             </div>
                         </div>
@@ -125,36 +125,45 @@
                     <textarea type="text" name="excerpt" class="form-control form-control-sm" rows="4">{{ old('excerpt', $post->excerpt) }}</textarea>
                 </div>
 
-                {{-- content --}}
-                <div class="form-item mb-3">
-                    <label class="form-label required fw-bold fs-6">@lang('word.content')</label>
-                    <textarea id="kt_docs_tinymce_basic" name="content" class="tox-target">{{ old('content', $post->content) }}</textarea>
-                </div>
-
                 {{-- remark --}}
                 <div class="form-item mb-3">
                     <label class="form-label required fw-bold fs-6">@lang('word.remark')</label>
                     <input type="text" name="remark" class="form-control form-control-sm" value="{{ old('remark', $post->remark) }}" />
                 </div>
 
-                {{-- order --}}
-                <div class="form-item mb-3">
-                    <label class="form-label required fw-bold fs-6">@lang('word.order')</label>
-                    <input type="number" name="order" class="form-control form-control-sm" value="{{ old('order', $post->order) }}" />
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        {{-- order --}}
+                        <div class="form-item mb-3">
+                            <label class="form-label required fw-bold fs-6">@lang('word.order')</label>
+                            <input type="number" name="order" class="form-control form-control-sm" value="{{ old('order', $post->order) }}" />
+                        </div>
+
+                    </div>
+                    <div class="col-12 col-md-4">
+                        {{-- password --}}
+                        <div class="form-item mb-3">
+                            <label class="form-label required fw-bold fs-6">@lang('word.password')</label>
+                            <input type="text" name="password" class="form-control form-control-sm" value="{{ old('password', $post->password) }}" />
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        {{-- price --}}
+                        <div class="form-item mb-3">
+                            <label class="form-label required fw-bold fs-6">@lang('word.price')</label>
+                            <input type="text" name="price" class="form-control form-control-sm" value="{{ old('price', $post->price) }}" />
+                        </div>
+                    </div>
                 </div>
 
-                {{-- password --}}
-                <div class="form-item mb-3">
-                    <label class="form-label required fw-bold fs-6">@lang('word.password')</label>
-                    <input type="text" name="password" class="form-control form-control-sm" value="{{ old('password', $post->password) }}" />
-                </div>
+            </div>
+        </div>
 
-                {{-- price --}}
-                <div class="form-item mb-3">
-                    <label class="form-label required fw-bold fs-6">@lang('word.price')</label>
-                    <input type="text" name="price" class="form-control form-control-sm" value="{{ old('price', $post->price) }}" />
-                </div>
-
+        <div class="mt-3">
+            {{-- content --}}
+            <div class="form-item mb-3">
+                <label class="form-label fw-bold fs-6">@lang('word.content')</label>
+                <textarea id="kt_docs_tinymce_basic" name="content" class="tox-target">{{ old('content', $post->content) }}</textarea>
             </div>
         </div>
     </div>
@@ -280,15 +289,15 @@
                 <div class="form-item mb-3">
                     <label class="form-label required fw-bold fs-6">@lang('word.website')</label>
                     @foreach($websites as $index => $_website)
-                        <div class="col-12 col-md-3 mb-1 website_ids_checkbox">
-                            <label class="form-check form-check-inline form-check-solid me-5">
-                                <input class="form-check-input" name="website_ids[]" type="checkbox" value="{{ $_website->id }}" 
-                                    @checked($post?->websites->contains($_website->id))
-                                    @checked(request()->routeIs('posts.create') && wncms()->isSelectedWebsite($_website))
-                                />
-                                <span class="fw-bold ps-2 fs-6">{{ $_website->domain }}</span>
-                            </label>
-                        </div>
+                    <div class="col-12 col-md-3 mb-1 website_ids_checkbox">
+                        <label class="form-check form-check-inline form-check-solid me-5">
+                            <input class="form-check-input" name="website_ids[]" type="checkbox" value="{{ $_website->id }}"
+                                @checked($post?->websites->contains($_website->id))
+                            @checked(request()->routeIs('posts.create') && wncms()->isSelectedWebsite($_website))
+                            />
+                            <span class="fw-bold ps-2 fs-6">{{ $_website->domain }}</span>
+                        </label>
+                    </div>
                     @endforeach
                 </div>
 
@@ -323,7 +332,7 @@
                         <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
                             <i class="fa fa-pencil fs-7"></i>
                             <input type="file" name="post_thumbnail" accept="image/*" />
-      
+
                             <input type="hidden" name="post_thumbnail_remove" />
                         </label>
                         @if(!empty($post->exists) && request()->routeIs('posts.clone'))

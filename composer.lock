@@ -3565,16 +3565,16 @@
         },
         {
             "name": "secretwebmaster/wncms-translatable",
-            "version": "v1.0.5",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/secretwebmaster/wncms-translatable.git",
-                "reference": "d7834b66649c70bbf490b3bcedb274421a599d62"
+                "reference": "90a22d0873a4ff48813ea09b83d9b18c8bb0fa1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/secretwebmaster/wncms-translatable/zipball/d7834b66649c70bbf490b3bcedb274421a599d62",
-                "reference": "d7834b66649c70bbf490b3bcedb274421a599d62",
+                "url": "https://api.github.com/repos/secretwebmaster/wncms-translatable/zipball/90a22d0873a4ff48813ea09b83d9b18c8bb0fa1d",
+                "reference": "90a22d0873a4ff48813ea09b83d9b18c8bb0fa1d",
                 "shasum": ""
             },
             "require": {
@@ -3618,9 +3618,9 @@
             ],
             "support": {
                 "issues": "https://github.com/secretwebmaster/wncms-translatable/issues",
-                "source": "https://github.com/secretwebmaster/wncms-translatable/tree/v1.0.5"
+                "source": "https://github.com/secretwebmaster/wncms-translatable/tree/v1.0.6"
             },
-            "time": "2024-09-10T18:58:59+00:00"
+            "time": "2024-09-13T08:36:50+00:00"
         },
         {
             "name": "spatie/image",
