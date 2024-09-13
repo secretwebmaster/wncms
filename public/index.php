@@ -5,6 +5,11 @@ use Illuminate\Http\Request;
 define('LARAVEL_START', microtime(true));
 
 if (!file_exists(__DIR__.'/../.env')) {
+    //merge composer.json
+    require __DIR__.'/installer/merge-composer.php';
+    //run composer install
+
+    //copy .env
     copy(__DIR__.'/../.env.example', __DIR__.'/../.env');
 }
 
