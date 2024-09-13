@@ -5,7 +5,6 @@
 @endsection
 
 @section('title')
-    <i class="fa fa-list-ul fa-fw" aria-hidden="true"></i>
     {{ trans('installer_messages.requirements.title') }}
 @endsection
 
@@ -23,25 +22,19 @@
                         <strong>
                             {{ $phpSupportInfo['current'] }}
                         </strong>
-                        <i class="fa fa-fw fa-{{ $phpSupportInfo['supported'] ? 'check-circle-o' : 'exclamation-circle' }} row-icon" aria-hidden="true"></i>
+                        <i class="fa-regular fa fa-fw fa-{{ $phpSupportInfo['supported'] ? 'circle-check' : 'circle-xmark' }} row-icon" aria-hidden="true"></i>
                     </span>
                 @elseif($type == 'php_functions')
                     <strong>
                         <small>(@lang('installer_messages.please_enable_these_php_functions'))</small>
                     </strong>
-                    <span class="float-right">
-                        <strong>
-                            {{ $phpSupportInfo['current'] }}
-                        </strong>
-                        <i class="fa fa-fw fa-{{ $phpSupportInfo['supported'] ? 'check-circle-o' : 'exclamation-circle' }} row-icon" aria-hidden="true"></i>
-                    </span>
                 @endif
             </li>
 
             @foreach($requirements['requirements'][$type] as $extention => $enabled)
                 <li class="list__item {{ $enabled ? 'success' : 'error' }}">
                     {{ $extention }}
-                    <i class="fa fa-fw fa-{{ $enabled ? 'check-circle-o' : 'exclamation-circle' }} row-icon" aria-hidden="true"></i>
+                    <i class="fa-regular fa fa-fw fa-{{ $enabled ? 'circle-check' : 'circle-xmark' }} row-icon" aria-hidden="true"></i>
                 </li>
             @endforeach
         </ul>

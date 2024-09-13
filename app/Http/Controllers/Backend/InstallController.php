@@ -117,6 +117,10 @@ class InstallController extends Controller
         Artisan::call('migrate:fresh', ['--seed' => true,  '--force' => true]);
         info('migration completed');
 
+        if(!empty($input['force_https'])){
+            uss('force_https', true);
+        }
+
         //install lang files
         $this->install_lang_files();
 

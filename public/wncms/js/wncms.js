@@ -146,7 +146,7 @@ var WNCMS={
             });
 
             //since v3.0.6
-            //!updated v3.0.7
+            //!updated v4.2.0
             $('[wncms-btn-ajax]').on('click', function(e) {
 
                 e.preventDefault();

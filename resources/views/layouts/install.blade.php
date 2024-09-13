@@ -9,10 +9,14 @@
         <link rel="icon" type="image/png" href="{{ asset('wncms/images/logos/favicon.png') }}" sizes="16x16"/>
         <link rel="icon" type="image/png" href="{{ asset('wncms/images/logos/favicon.png') }}" sizes="32x32"/>
         <link rel="icon" type="image/png" href="{{ asset('wncms/images/logos/favicon.png') }}" sizes="96x96"/>
+        <link href="{{ asset('wncms/css/fontawesome.min.css?v=')  . config('installer.version') . '.' . wncms()->getVersion('css') }}" rel="stylesheet"/>
         <link href="{{ asset('installer/css/style.css?v=')  . config('installer.version') . '.' . wncms()->getVersion('css') }}" rel="stylesheet"/>
+        
         @yield('style')
     </head>
     <body>
+
+        {{-- Language switcher --}}
         <div class="installer-language-switcher">
             <style>
                 .language-switcher-wrapper {
@@ -48,8 +52,7 @@
             </div>
         </div>
         
-        
-
+        {{-- Box --}}
         <div class="master">
             <div class="box">
                 <div class="header">
@@ -59,18 +62,21 @@
                 <ul class="step">
 
                     <li class="step__divider"></li>
+                    <li><i class="step__icon fa-solid fa-lg fa-check" aria-hidden="true"></i></li>
+
+                    <li class="step__divider"></li>
                     <li class="step__item {{ isActive('installer.final') }} {{ isActive('installer.environment')}} {{ isActive('installer.wizard')}} {{ isActive('installer.environmentClassic')}}">
-                        <i class="step__icon fa fa-server" aria-hidden="true"></i>
+                        <i class="step__icon fa-solid fa-server" aria-hidden="true"></i>
                     </li>
 
                     <li class="step__divider"></li>
                     <li class="step__item {{ isActive('installer.permissions') }}">
                         @if(Request::is('install/permissions') || Request::is('install/environment') || Request::is('install/environment/wizard') || Request::is('install/environment/classic') )
                             <a href="{{ route('installer.permissions') }}">
-                                <i class="step__icon fa fa-key" aria-hidden="true"></i>
+                                <i class="step__icon fa-solid fa-key" aria-hidden="true"></i>
                             </a>
                         @else
-                            <i class="step__icon fa fa-key" aria-hidden="true"></i>
+                            <i class="step__icon fa-solid fa-key" aria-hidden="true"></i>
                         @endif
                     </li>
 
@@ -78,10 +84,10 @@
                     <li class="step__item {{ isActive('installer.requirements') }}">
                         @if(Request::is('install') || Request::is('install/requirements') || Request::is('install/permissions') || Request::is('install/environment') || Request::is('install/environment/wizard') || Request::is('install/environment/classic') )
                             <a href="{{ route('installer.requirements') }}">
-                                <i class="step__icon fa fa-list" aria-hidden="true"></i>
+                                <i class="step__icon fa-solid fa-list-check" aria-hidden="true"></i>
                             </a>
                         @else
-                            <i class="step__icon fa fa-list" aria-hidden="true"></i>
+                            <i class="step__icon fa-solid fa-list-check" aria-hidden="true"></i>
                         @endif
                     </li>
 
@@ -89,13 +95,12 @@
                     <li class="step__item {{ isActive('installer.welcome') }}">
                         @if(Request::is('install') || Request::is('install/requirements') || Request::is('install/permissions') || Request::is('install/environment') || Request::is('install/environment/wizard') || Request::is('install/environment/classic') )
                             <a href="{{ route('installer.welcome') }}">
-                                <i class="step__icon fa fa-home" aria-hidden="true"></i>
+                                <i class="step__icon fa fa-heart" aria-hidden="true"></i>
                             </a>
                         @else
-                            <i class="step__icon fa fa-home" aria-hidden="true"></i>
+                            <i class="step__icon fa fa-heart" aria-hidden="true"></i>
                         @endif
                     </li>
-
                     <li class="step__divider"></li>
                 </ul>
 

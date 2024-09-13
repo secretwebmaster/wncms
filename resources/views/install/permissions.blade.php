@@ -5,7 +5,7 @@
 @endsection
 
 @section('title')
-    <i class="fa fa-key fa-fw" aria-hidden="true"></i>
+    {{-- <i class="fa fa-key fa-fw" aria-hidden="true"></i> --}}
     {{ trans('installer_messages.permissions.title') }}
 @endsection
 
@@ -16,7 +16,7 @@
         <li class="list__item list__item--permissions {{ $permission['isSet'] ? 'success' : 'error' }}">
             {{ $permission['folder'] }}
             <span>
-                <i class="fa fa-fw fa-{{ $permission['isSet'] ? 'check-circle-o' : 'exclamation-circle' }}"></i>
+                <i class="fa-regular fa fa-fw fa-{{ $permission['isSet'] ? 'circle-check' : 'circle-xmark' }}"></i>
                 {{ $permission['permission'] }}
             </span>
         </li>
