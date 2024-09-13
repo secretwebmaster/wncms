@@ -3,74 +3,74 @@
 ## 更新日誌
 
 ### v4.3.0 2024-09-14
-- Test new installation process
-- Stop tracking vendor directory
-- Update backend footer year to be dynamically updated
-- Update default cache driver to null before installation
-- Update README.md
-- Improve default template
-- Update installer icon. Add automatic force HTTPS setting upon install
-- Add error message to installer
-- Add option to select Redis, Memcache, file as Cache driver during installation
-- Set default DB_CONNECTION to dummy SQLite in memory. Set default SESSION driver to file.
-- Disabled trait files generation during installation
-- Add force HTTPS option in system setting
-- Add default env file
-- Update .gitignore
-- Update composer dependency
-- Update theme options panel
-- Improve first website creation flow
-- Remove debug message
-- Fix backend style
-- Rename Traits. Fix installation error. Add force HTTPS compatibility
-- Check if custom language file exists before requiring
+- 測試新的安裝過程
+- 停止追蹤 vendor 目錄
+- 更新後台頁腳年份為動態更新
+- 在安裝前將預設快取驅動程式更新為 null
+- 更新 README.md
+- 改進預設模板
+- 更新安裝程式圖示。安裝時自動添加強制 HTTPS 設定
+- 向安裝程式添加錯誤訊息
+- 在安裝過程中添加選擇 Redis、Memcache、文件作為快取驅動程式的選項
+- 將預設 DB_CONNECTION 設為內存中的假 SQLite。將預設 SESSION 驅動程式設為文件
+- 禁用安裝過程中的 trait 文件生成
+- 在系統設定中添加強制 HTTPS 選項
+- 添加預設 env 文件
+- 更新 .gitignore
+- 更新 composer 依賴
+- 更新主題選項面板
+- 改進首次網站創建流程
+- 移除調試訊息
+- 修正後台樣式
+- 重命名 Traits。修正安裝錯誤。添加強制 HTTPS 相容性
+- 在要求之前檢查自定義語言文件是否存在
 
 ### v4.2.0 2024-09-13
-- remove WnTagTraits.php
-- add translations when generating demo post content
-- improve default home template. Added post archive url
-- added more translations
-- fix error when adding second website
+- 移除 WnTagTraits.php
+- 在生成示例文章內容時添加翻譯
+- 改進預設首頁模板。添加文章存檔 URL
+- 添加更多翻譯
+- 修正添加第二個網站時的錯誤
 
 ### v4.1.0 2024-09-07
-- add force https options
-- minor fixes
-- Updated default env file to hide debug messages
-- Flush cache after installation and website creation
-- Add php functions requirement checking
-- Add database.sqlite to .gitignore
-- Fix create theme command. Update lang dir following Laravel 11 structure
-- Fix advertisement expiry date cannot be null
-- Removed useless UpdateLog model
-- Update default model settings
-- Update installer
-- Add disabling user registration functionality
-- Set theme to null instead of default on website edit page
+- 添加強制 HTTPS 選項
+- 小幅修正
+- 更新預設 env 文件以隱藏調試訊息
+- 安裝和網站創建後清除快取
+- 添加 PHP 函數需求檢查
+- 將 database.sqlite 添加到 .gitignore
+- 修正創建主題命令。根據 Laravel 11 結構更新 lang 目錄
+- 修正廣告過期日期不能為空的錯誤
+- 移除無用的 UpdateLog 模型
+- 更新預設模型設定
+- 更新安裝程式
+- 添加禁用用戶註冊功能
+- 在網站編輯頁面上將主題設置為 null 而非預設
 
 ### v4.0.0 2024-08-03
 #### 新增
-- php requirement from 7.2+ to 8.2+
-- laravel 10 -> 11
-- jquery 3.2.1 -> 3.7.1
-- update all composer dependency
-- add database prefix to avoid conflict table name with mysql preserved keywords
+- PHP 需求從 7.2+ 升級至 8.2+
+- Laravel 10 -> 11
+- jQuery 3.2.1 -> 3.7.1
+- 更新所有 composer 依賴
+- 添加數據庫前綴以避免與 MySQL 保留關鍵字的表名衝突
 #### 修復
-- fix error when navigating panel/xxxx pages when cms is not installed
-- fix php artisan migtate:fresh not working
-- fix page controller error when $request-input is null
+- 修正當 CMS 未安裝時導航 panel/xxxx 頁面的錯誤
+- 修正 php artisan migrate:fresh 不工作
+- 修正當 $request-input 為 null 時頁面控制器錯誤
 #### 優化
-- merged old migrations and renamed migration files.
-- rename modal database column external_image -> external_thumbnail
-- updated default env file generator
-- wncms_get_unique_slug() set default length to 8
-- all // comment should leave a space after //. i.e. // Good and //Bad
-- rewrite login logic in wncms.js and AuthenticatedSessionController
+- 合併舊遷移並重命名遷移文件
+- 重命名資料庫列 external_image -> external_thumbnail
+- 更新預設 env 文件生成器
+- wncms_get_unique_slug() 將預設長度設為 8
+- 所有 // 註釋後應留有空格。例如 // Good 和 //Bad
+- 重寫 wncms.js 和 AuthenticatedSessionController 中的登入邏輯
 #### 移除
-- remove vendor directory to make package smaller. Packages will be downloaded during installation
-- removed gloabal function wn(), all replaced by wncms()
-- removed global variable $wn, all replaced by $wncms
-- removed analytic helpers to avoid performace issue. Replaced by third-party analytics tool
-- remove wncms_get_theme_options() helper function. Use $website->get_options() in model
+- 移除 vendor 目錄以縮小包大小。安裝過程中將下載包
+- 移除全域函數 wn()，全部替換為 wncms()
+- 移除全域變數 $wn，全部替換為 $wncms
+- 移除分析幫助程式以避免性能問題。用第三方分析工具替代
+- 移除 wncms_get_theme_options() 幫助函數。在模型中使用 $website->get_options()
 
 ### v3.2.1 2024-05-19
 #### 新增
@@ -231,12 +231,12 @@ ___
 - 緩存讚好數，每日使用排程任務更新到模組 like 欄位，可加速不需要實時讚好數的模組
 - 更新 RecordViews 排程任務，可以紀錄任何 collection，例如visit, like, dislike
 - [開發者] 新增 $wn->addVersion()，不需要再於模版中加上 '?v=' . $wn->getVersion()，新功能輸出時已包括 ?v=
-- 引入 applicaion/ld+json 選項，可以Push到<head>中
+- 引入 applicaion/ld+json 選項，可以Push到 `<head>` 中
 #### 修復
 - 修復3.1.3更新後，部分頁面未能讀取內容
 
 #### 優化
-- 預設主題<title>從「首頁」改為網站名稱
+- 預設主題 `<title>` 從「首頁」改為網站名稱
 - 優化新增同名權限時的提示，不再是報錯，而是提示已有重覆項目
 - [開發者] 重新命名前端視圖中的統計部分 get_view -> get, record_like -> like, record_view -> record
 
