@@ -47,9 +47,7 @@ class WebsiteController extends Controller
         $themes = Storage::disk('views')->directories('frontend/theme/');
         sort($themes);
 
-        if(!Website::count()){
-            $first_website = true;
-        }
+        $first_website = Website::count() ? false : true;
 
         return view('backend.websites.create',[
             'themes' => $themes,

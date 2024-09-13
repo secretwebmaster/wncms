@@ -94,7 +94,7 @@
                         @foreach($wncms->tag()->getList(tagType:$type,pageSize:10) as $tag)
                             <tr>
                                 <td>{{ $tag->id }}</td>
-                                <td><a href="#">{{ $tag->name }}</a></td>
+                                <td><a href="{{ $tag->postCategoryUrl }}">{{ $tag->name }}</a></td>
                             </tr>
                         @endforeach
                     </tbody>

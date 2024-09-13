@@ -606,6 +606,14 @@ class PostController extends Controller
                     try {
                         // Create a faker instance for each locale
                         $translatedTitle = $fakers[$localeCode]->realText(30, 5);
+
+                        $content = "";
+                        $paragraph_count = rand(2,5);
+                        for ($j = 0; $j < $paragraph_count; $j++) {
+                            $paragraphTitle = $fakers[$localeCode]->realText(20, 5);
+                            $content .= "<h2>{$paragraphTitle}</h2>";
+                            $content .= "<p>" .  $fakers[$localeCode]->realText(500, 5) . "</p>";
+                        }
                     } catch (\Exception $e) {
                         // Fallback in case the locale doesn't support realText
                         logger()->error($e);
@@ -614,6 +622,7 @@ class PostController extends Controller
 
                     // Set the translation for the title
                     $post->setTranslation('title', $localeCode, $translatedTitle);
+                    $post->setTranslation('content', $localeCode, $content);
                 }
             }
 

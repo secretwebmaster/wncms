@@ -23,7 +23,6 @@
     <a class="nav-link" href="{{ route('frontend.pages.blog') }}">< @lang('word.blog')</a>
     <h2>{{ wncms_model_word('post', 'single') }}</h2>
 
-    <h4>@lang('word.post_detail')</h4>
     <div style="max-width: 100%;overflow-x:scroll">
         <table style="max-width: 100%;">
             <tbody>
