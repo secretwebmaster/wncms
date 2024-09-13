@@ -2,6 +2,29 @@
 
 ## 更新日誌
 
+### v4.3.0 2024-09-14
+- Test new installation process
+- Stop tracking vendor directory
+- Update backend footer year to be dynamically updated
+- Update default cache driver to null before installation
+- Update README.md
+- Improve default template
+- Update installer icon. Add automatic force HTTPS setting upon install
+- Add error message to installer
+- Add option to select Redis, Memcache, file as Cache driver during installation
+- Set default DB_CONNECTION to dummy SQLite in memory. Set default SESSION driver to file.
+- Disabled trait files generation during installation
+- Add force HTTPS option in system setting
+- Add default env file
+- Update .gitignore
+- Update composer dependency
+- Update theme options panel
+- Improve first website creation flow
+- Remove debug message
+- Fix backend style
+- Rename Traits. Fix installation error. Add force HTTPS compatibility
+- Check if custom language file exists before requiring
+
 ### v4.2.0 2024-09-13
 - remove WnTagTraits.php
 - add translations when generating demo post content
