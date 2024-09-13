@@ -118,6 +118,7 @@ $translationsJson = json_encode($translations);
             .then(data => {
                 if (data.status === 'success') {
                     console.log(data.message);
+                    clearInterval(interval);
                     progressBar.style.width = '100%';
                     location.href = '/install';
                 } else {
