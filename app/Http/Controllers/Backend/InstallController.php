@@ -117,10 +117,6 @@ class InstallController extends Controller
         Artisan::call('migrate:fresh', ['--seed' => true,  '--force' => true]);
         info('migration completed');
 
-        if(!empty($input['force_https'])){
-            uss('force_https', true);
-        }
-
         //install lang files
         $this->install_lang_files();
 
@@ -137,6 +133,12 @@ class InstallController extends Controller
 
         //install composer files
         $this->install_composer_files();
+
+        //force https
+        if(!empty($input['force_https'])){
+            uss('force_https', true);
+            info("updated force_https to true");
+        }
 
         cache()->flush();
 

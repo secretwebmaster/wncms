@@ -14,7 +14,7 @@ return [
         'templateTitle' => '文尼CMS安裝向導',
         'title'   => '文尼CMS安裝向導',
         'message' => '簡單且快速安裝',
-        'next'    => '檢查環境',
+        'next'    => '開始安裝',
     ],
 
     'requirements' => [

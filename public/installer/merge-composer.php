@@ -1,63 +1,88 @@
 <?php
 
-// Start output buffering
-ob_start();
+session_start(); // Start the session
 
-// Check if the script is accessed directly and not via a valid request
-if (!defined('LARAVEL_START')) {
-    header('HTTP/1.0 403 Forbidden');
-    exit('Direct access to this file is forbidden.');
+header('Content-Type: application/json'); // Set JSON response header
+
+$response = [
+    'status' => 'running',
+    'message' => 'Starting the Composer merge and installation process...',
+];
+
+// Verify the CSRF token from the request
+$csrfToken = $_SERVER['HTTP_X_CSRF_TOKEN'] ?? '';
+
+if (empty($csrfToken) || $csrfToken !== $_SESSION['csrf_token']) {
+    http_response_code(403);
+    echo json_encode($response);
+    exit;
 }
+
+$response['status'] = 'running';
+$response['message'] = 'Starting the Composer merge and installation process...';
 
 // Check if exec function exists
 if (!function_exists('exec')) {
-    header('HTTP/1.0 500 Internal Server Error');
-    include __DIR__ . '/error.php';
-    die;
+    http_response_code(500);
+    $response['status'] = 'error';
+    $response['message'] = 'The exec function is disabled on this server.';
+    echo json_encode($response);
+    exit;
 }
-
-// Output the HTML message
-include __DIR__ . '/preparation_message.html';
-
-// Ensure the output is sent to the browser before continuing
-ob_flush();
-flush();
-
 
 $coreFile = __DIR__ . '/../../composer.json';
 $customFile = __DIR__ . '/../../composer.custom.json';
 $pluginFile = __DIR__ . '/../../composer.plugin.json';
 
-if (file_exists($customFile)) {
-    $core = json_decode(file_get_contents($coreFile), true);
-    $custom = json_decode(file_get_contents($customFile), true);
+// Merging custom and plugin Composer files if they exist
 
-    if (isset($custom['require'])) {
-        $core['require'] = array_merge($core['require'] ?? [], $custom['require']);
+try {
+    if (file_exists($customFile)) {
+        $core = json_decode(file_get_contents($coreFile), true);
+        $custom = json_decode(file_get_contents($customFile), true);
+
+        if (isset($custom['require'])) {
+            $core['require'] = array_merge($core['require'] ?? [], $custom['require']);
+        }
+
+        file_put_contents($coreFile, json_encode($core, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     }
 
-    file_put_contents($coreFile, json_encode($core, JSON_PRETTY_PRINT));
-}
+    if (file_exists($pluginFile)) {
+        $core = json_decode(file_get_contents($coreFile), true);
+        $plugin = json_decode(file_get_contents($pluginFile), true);
 
-if (file_exists($pluginFile)) {
-    $core = json_decode(file_get_contents($coreFile), true);
-    $plugin = json_decode(file_get_contents($pluginFile), true);
+        if (isset($plugin['require'])) {
+            $core['require'] = array_merge($core['require'] ?? [], $plugin['require']);
+        }
 
-    if (isset($plugin['require'])) {
-        $core['require'] = array_merge($core['require'] ?? [], $plugin['require']);
+        file_put_contents($coreFile, json_encode($core, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     }
 
-    file_put_contents($coreFile, json_encode($core, JSON_PRETTY_PRINT));
+    // Run composer install to update dependencies
+    exec('cd ../.. && composer install --ignore-platform-reqs 2>&1', $output, $returnVar);
+
+    if ($returnVar !== 0) {
+        // Capture the output from Composer and return it in the response
+        $response['status'] = 'error';
+        $response['message'] = 'Composer install failed. Please check the server logs for details.';
+        $response['output'] = implode("\n", $output); // Include output in the response
+    } else {
+        // Copy the .env.example file to .env
+        $base_path = realpath(__DIR__ . '/../../');
+        copy($base_path . '/.env.example', $base_path . '/.env');
+
+        $response['status'] = 'success';
+        $response['message'] = 'Composer install completed successfully.';
+        $response['output'] = implode("\n", $output); // Include output in the response
+    }
+    
+} catch (Exception $e) {
+
+    // Handle any exceptions and return an error message
+    $response['status'] = 'error';
+    $response['message'] = 'An error occurred: ' . $e->getMessage();
+
 }
 
-// Run composer install to update dependencies
-exec('cd .. && composer install 2>&1', $output, $returnVar);
-
-if ($returnVar !== 0) {
-    header('HTTP/1.0 500 Internal Server Error');
-    echo "<div class='error-message'><pre>";
-    print_r($output);
-    print_r($returnVar);
-    echo "</pre></div>";
-    exit('Composer install failed. Please check the server logs for details.');
-}
+echo json_encode($response); // Return JSON response

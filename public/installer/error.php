@@ -1,4 +1,5 @@
 <?php
+
 // Define translations
 $translations = [
     'en' => [
@@ -33,31 +34,8 @@ $translations = [
     ],
 ];
 
-// Current language (could be dynamically set based on user preference or browser settings)
-$currentLang = isset($_GET['lang']) ? $_GET['lang'] : 'zh_TW';
+require('language.php');
 
-// Function to get translation
-function getTranslation($key)
-{
-    global $translations, $currentLang;
-    return isset($translations[$currentLang][$key]) ? $translations[$currentLang][$key] : $key;
-}
-
-// Simulated function to get the list of locales (replace with actual data from your app)
-function getLocaleList()
-{
-    return [
-        'en' => ['native' => 'English'],
-        'zh_TW' => ['native' => '繁體中文'],
-        'zh_CN' => ['native' => '简体中文'],
-    ];
-}
-
-// Simulated LaravelLocalization::getLocalizedURL function
-function getLocalizedURL($locale)
-{
-    return '?lang=' . $locale; // Replace with your actual URL generation logic
-}
 ?>
 
 <!DOCTYPE html>
@@ -67,142 +45,11 @@ function getLocalizedURL($locale)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo getTranslation('install_instructions'); ?></title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
-
-        .container {
-            width: 500px;
-            max-width: 90%;
-        }
-
-        .card {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin: 20px 0;
-        }
-
-        h1 {
-            margin: 0 0 20px;
-            text-align: center;
-        }
-
-        h2 {
-            font-size: 20px;
-            margin: 0 0 20px 0;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-            text-align: left;
-        }
-
-        li {
-            margin: 10px 0;
-        }
-
-        .description{
-            text-align: center;
-        }
-
-        .card-1 code {
-            background-color: #f1f1f1;
-            color: #333;
-            padding: 2px 4px;
-            border-radius: 4px;
-            font-family: monospace;
-        }
-
-        .code-block {
-            background-color: #333;
-            color: #fff;
-            padding: 15px;
-            border-radius: 5px;
-            position: relative;
-            overflow-x: auto;
-            font-family: monospace;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            text-align: left;
-            display: inline-block;
-            width: calc(100% - 20px);
-        }
-
-        .inline-code {
-            background-color: #f1f1f1;
-            color: #333;
-            padding: 2px 4px;
-            border-radius: 4px;
-            font-family: monospace;
-        }
-
-        .copy-button {
-            display: inline-block;
-            padding: 5px 10px;
-            font-size: 14px;
-            color: #fff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .copy-button:focus {
-            outline: none;
-        }
-
-        .copy-button.copied {
-            background-color: #28a745;
-        }
-
-        .language-switcher-item-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-        }
-
-        .language-switcher-item-list li {
-            display: inline-block;
-            margin-right: 3px;
-        }
-
-        .language-switcher-item {
-            text-decoration: none;
-            padding: 3px 5px;
-            border: 1px solid #007bff;
-            border-radius: 3px;
-            color: #007bff;
-            font-size: 12px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .language-switcher-item:hover {
-            background-color: #007bff;
-            color: #fff;
-        }
-
-        .header {
-            position: absolute;
-            top: 0;
-            right: 10px;
-
-        }
-    </style>
+    
 </head>
 
 <body>
-    <!-- Header -->
+
     <div class="header">
         <div class="language-switcher-wrapper">
             <ul class="language-switcher-item-list">

@@ -14,7 +14,7 @@ return [
         'templateTitle' => '文尼CMSインストーラー',
         'title'   => '文尼CMSインストーラー',
         'message' => '簡単で迅速なインストール',
-        'next'    => '環境を確認',
+        'next'    => 'インストールを開始',
     ],
 
     'requirements' => [

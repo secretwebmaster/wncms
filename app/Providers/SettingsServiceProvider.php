@@ -25,6 +25,8 @@ class SettingsServiceProvider extends ServiceProvider
      */
     public function boot(Request $request)
     {
+        if(!wncms_is_installed()) return;
+        
         try {
 
             $cacheKey = "gsss";

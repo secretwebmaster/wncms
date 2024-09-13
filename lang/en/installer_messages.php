@@ -14,7 +14,7 @@ return [
         'templateTitle' => 'WNCMS Installation Wizard',
         'title'   => 'WNCMS Installation Wizard',
         'message' => 'Simple and Fast Installation',
-        'next'    => 'Check Environment',
+        'next'    => 'Start Installation',
     ],
 
     'requirements' => [
