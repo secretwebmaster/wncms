@@ -20,7 +20,7 @@ class CreateModel extends Command
      *
      * @var string
      */
-    protected $description = 'Quickly create model class, view, migration, contoller, files for new Eloquent model';
+    protected $description = 'Quickly create custom model class, view, migration, contoller, files for new Eloquent model';
 
     /**
      * Execute the console command.

@@ -250,6 +250,7 @@ Route::prefix('panel')->middleware(['auth'])->group(function () {
 
     //update
     Route::get('updates', [UpdateController::class, 'index'])->name('updates');
+    Route::post('updates/check', [UpdateController::class, 'check'])->name('updates.check');
 
 
     //user

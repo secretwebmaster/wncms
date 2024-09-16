@@ -1829,6 +1829,14 @@ $words = [
     'install_failed_retry' => '安裝失敗，請重試',
     'tell_us_about_your_first_website' => '告訴我們你的第一個網站',
     'force_https' => '強制HTTPS',
+
+    //! 4.3.2
+    'new_version_available' => '有新版本可用',
+    'new_version_available_with_versions' => '有新版本可用! 由 :current 升級到 :latest',
+    'already_the_latest_vcersion' => '已經是最新版本',
+    'checking_for_updates' => '正在檢查更新',
+    'update_now' => '立即更新',
+
 ];
 
 if(file_exists(__DIR__ . "/custom.php")){

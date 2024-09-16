@@ -51,10 +51,45 @@
                     @include('backend.parts.sidebar')
 
                     <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+
+                        <style>
+                            .global-notification-message {
+                                background-color: var(--wncms-success-light);
+                                color: var(--wncms-success);
+                                padding: 5px 20px;
+                                display: none
+                            }
+
+                            .global-notification-message a {
+                                display:none;
+                                color: var(--wncms-success);
+                                font-weight: bold;
+                            }
+
+                            .global-notification-message a:hover {
+                                color: var(--wncms-success);
+                                text-decoration: underline;
+                            }
+
+                            .global-notification-message-title {
+
+                            }
+                        </style>
+                        
+                        <div class="global-notification-message">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="global-notification-message-title"></div>
+                                <div class="global-notification-message-url"><a href="javascript:;"></a></div>
+                            </div>
+                        </div>
+                    
+
                         <div class="d-flex flex-column flex-column-fluid">
 
                             {{-- Breadcrum  需要傳參數 --}}
                             @include('backend.parts.toolbar')
+
+                            
                             
                             {{-- Content --}}
                             <div id="kt_app_content" class="app-content flex-column-fluid">
@@ -89,6 +124,8 @@
         <script src="{{ asset('wncms/js/init.js?v='). $wncms->getVersion('js') }}"></script>
         <script src="{{ asset('wncms/js/wncms.js?v='). $wncms->getVersion('js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+
+        @include('backend.common.check_for_update')
         @stack('foot_js')
         @stack('foot_css')
 

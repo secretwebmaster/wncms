@@ -26,6 +26,42 @@ class UpdateController extends Controller
         ]);
     }
 
+    public function check()
+    {
+        $response = Http::post("https://corev4.wncms.cc/api/v2/versions/latest");
+
+        $currentVersion = gss('version');
+
+        $latestVersion = $response->json()['tag'] ?? null;
+        $latestVersion = str_replace('v', '', $latestVersion);
+
+        $result = version_compare($currentVersion, $latestVersion);
+
+        if($result < 0){
+            $result = [
+                'status' => 'success',
+                'message' => __('word.new_version_available_with_versions', ['current' => $currentVersion, 'latest' => $latestVersion]),
+                'current_version' => $currentVersion,
+                'latest_version' => $latestVersion,
+                'has_update' => true,
+                'url' => route('updates'),
+                'button_text' => __('word.update_now'),
+            ];
+
+        }else{
+            $result = [
+                'status' => 'success',
+                'message' => __('word.already_the_latest_vcersion'),
+                'current_version' => $currentVersion,
+                'latest_version' => $latestVersion,
+                'has_update' => false,
+                
+            ];
+        }
+
+        return response()->json($result);
+    }
+
     public function getUpdateData()
     {
         try{
