@@ -25,13 +25,9 @@
                     </ul>
                 </div>
                 
-                @if(request()->getHost() != 'core.wncms.cc')
+                @if(!gss('disable_core_update'))
                     <div class="card-footer p-3">
                         <a href="{{ route('updates') }}" class="btn btn-sm btn-secondary w-100">@lang('word.check_updates')</a>
-                    </div>
-                @else
-                    <div class="card-footer p-3">
-                        <a href="javascript:;" class="btn btn-sm btn-secondary w-100">@lang('word.check_updates') (cannot update core)</a>
                     </div>
                 @endif
             </div>
@@ -54,7 +50,7 @@
 
                                         @elseif(in_array($tab_content['type'], ['text', 'number']))
 
-                                            <div class="row mb-3">
+                                            <div class="row mb-1">
                                                 <label class="col-lg-4 col-form-label fw-bold fs-6">
                                                     @lang('word.' . ($tab_content['text'] ?? $tab_content['name']))
                                                     @if(!empty($tab_content['badge']))
@@ -74,7 +70,7 @@
                                         @elseif($tab_content['type'] == 'switch')
                                         
                                             {{-- {{ dd( $settings[($tab_content['name']))] ?? '' }} --}}
-                                            <div class="row mb-3">
+                                            <div class="row mb-1">
                                                 <label class="col-lg-4 col-form-label fw-bold fs-6">
                                                     @lang('word.' . ($tab_content['text'] ?? $tab_content['name']))
                                                     @if(!empty($tab_content['badge']))
@@ -97,7 +93,7 @@
 
                                         @elseif($tab_content['type'] == 'select')
 
-                                            <div class="row mb-3">
+                                            <div class="row mb-1">
                                                 <label class="col-lg-4 col-form-label fw-bold fs-6">
                                                     @lang('word.' . ($tab_content['text'] ?? $tab_content['name']))
                                                     @if(!empty($tab_content['badge']))
@@ -124,7 +120,7 @@
 
                                         @elseif($tab_content['type'] == 'textarea')
 
-                                            <div class="row mb-3">
+                                            <div class="row mb-1">
                                                 <label class="col-lg-4 col-form-label fw-bold fs-6">
                                                     @lang('word.' . ($tab_content['text'] ?? $tab_content['name']))
                                                     @if(!empty($tab_content['badge']))
@@ -143,7 +139,7 @@
 
                                         {{-- @elseif($tab_content['type'] == 'checkbox')
 
-                                            <div class="row mb-3">
+                                            <div class="row mb-1">
                                                 <label class="col-lg-4 col-form-label fw-bold fs-6">
                                                     @lang('word.' . ($tab_content['text'] ?? $tab_content['name']))
                                                     @if(!empty($tab_content['badge']))
@@ -162,7 +158,7 @@
                                         @elseif($tab_content['type'] == 'custom')
                                         
                                             @if($tab_content['name'] == 'display_model')
-                                                <div class="row mb-3">
+                                                <div class="row mb-1">
                                                     <label class="col-lg-4 col-form-label fw-bold fs-6">
                                                         @lang('word.display_model')
                                                         <br>

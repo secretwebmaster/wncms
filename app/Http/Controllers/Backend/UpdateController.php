@@ -55,7 +55,6 @@ class UpdateController extends Controller
                 'current_version' => $currentVersion,
                 'latest_version' => $latestVersion,
                 'has_update' => false,
-                
             ];
         }
 

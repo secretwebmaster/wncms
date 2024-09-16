@@ -3,6 +3,11 @@
 @section('content')
 
 @include('backend.parts.message')
+@if(gss('disable_core_update'))
+    <div class="alert alert-danger" role="alert">
+        @lang('word.core_update_disabled')
+    </div>
+@endif
 
 <div class="row mb-3">
     <div class="col-12">

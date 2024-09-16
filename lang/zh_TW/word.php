@@ -1836,6 +1836,8 @@ $words = [
     'already_the_latest_vcersion' => '已經是最新版本',
     'checking_for_updates' => '正在檢查更新',
     'update_now' => '立即更新',
+    'disable_core_update' => '禁用核心更新',
+    'core_update_disabled' => '核心更新已禁用',
 
 ];
 

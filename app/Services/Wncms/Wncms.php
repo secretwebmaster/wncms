@@ -247,13 +247,11 @@ class Wncms
         }
 
         //if accessing pages exceed allowed pages, empty the collection
-
         if($currentPage > ceil($limit / $pageSize)){
             $items = collect([]);
         }else{
             //if on last page, take the remaining items
             if($currentPage == ceil($limit / $pageSize)){
-                // take limited count of items
                 // Calculate remaining items
                 $start = ($currentPage - 1) * $pageSize;
                 $remainingItems = $total - $start;

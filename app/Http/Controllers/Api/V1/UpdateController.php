@@ -12,6 +12,13 @@ class UpdateController extends Controller
 {
     public function update(Request $request)
     {
+        if(gss('disalbe_core_update')){
+            return response()->json([
+                'status' => 'fail',
+                'message' => __('word.core_update_disabled'),
+            ]);
+        }
+
         Artisan::call('queue:restart');
         sleep(5);
         

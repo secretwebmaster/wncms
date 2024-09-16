@@ -4,7 +4,8 @@
 
 ### v4.4.0 (開發中)
 - Update craete model functions. Add compatibility to custom model and controllers
-- 
+- Fix model pagination to handle correct item count on the last page within limi
+- Add setting option to disable core update
 
 ### v4.3.0 2024-09-14
 - 測試新的安裝過程
