@@ -2,6 +2,10 @@
 
 ## 更新日誌
 
+### v4.4.0 (開發中)
+- Update craete model functions. Add compatibility to custom model and controllers
+- 
+
 ### v4.3.0 2024-09-14
 - 測試新的安裝過程
 - 停止追蹤 vendor 目錄

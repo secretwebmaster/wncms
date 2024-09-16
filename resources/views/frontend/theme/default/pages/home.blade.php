@@ -50,7 +50,8 @@
                 <th>@lang('word.tag')</th>
             </thead>
             <tbody>
-                @foreach($wncms->post()->getList(pageSize:10) as $post)
+                @php $posts = $wncms->post()->getList(pageSize:5,count:24,sequence:'asc'); @endphp
+                @foreach($posts as $post)
                     <tr>
                         <td>{{ $post->id }}</td>
                         <td><img class="post-thumbnail" src="{{ $post->thumbnail }}" alt=""></td>
@@ -72,7 +73,7 @@
             </tbody>
         </table>
     </div>
-    {!! $wncms->post()->getList(pageSize:10)->links() !!}
+    {!! $posts->links() !!}
 
     {{-- Tags --}}
     <h2>@lang('word.tag')</h2>

@@ -233,13 +233,11 @@ class Wncms
         }
     }
 
-    public function paginateWithLimit($collection, $pageSize = null , $limit = null, $currentPage = null, $pageName = 'page')
+    public function paginateWithLimit(LengthAwarePaginator $collection, $pageSize = null , $limit = null, $currentPage = null, $pageName = 'page')
     {
         if(empty($pageSize)) return $collection;
 
         $currentPage ??= LengthAwarePaginator::resolveCurrentPage($pageName);
-
-
 
         //if total collection item exceed the limit, set the limit as total. Otherwise use original total item count as total
         if(!empty($limit) && $collection->total() > $limit){
@@ -253,7 +251,18 @@ class Wncms
         if($currentPage > ceil($limit / $pageSize)){
             $items = collect([]);
         }else{
-            $items = $collection->take($pageSize);
+            //if on last page, take the remaining items
+            if($currentPage == ceil($limit / $pageSize)){
+                // take limited count of items
+                // Calculate remaining items
+                $start = ($currentPage - 1) * $pageSize;
+                $remainingItems = $total - $start;
+
+                // Take limited count of items for the last page
+                $items = $collection->take($remainingItems);
+            }else{
+                $items = $collection->take($pageSize);
+            }
         }
 
         return new LengthAwarePaginator(

@@ -164,7 +164,7 @@ class PostHelper
             $cacheTime = gss('enable_cache') ? gss('data_cache_time') : 0;
         }
 
-        // wncms()->cache()->clear($cacheKey, $cacheTags);
+        //wncms()->cache()->clear($cacheKey, $cacheTags);
 
         return wncms()->cache()->tags($cacheTags)->remember($cacheKey, $cacheTime, function () use ($tags, $tagType, $keywords, $count, $pageSize, $order, $sequence, $status, $wheres, $websiteId, $excludedPostIds, $excludedTagIds, $ids, $select, $withs, $offset, $excludedChildrenTags, $isRandom) {
 
@@ -286,7 +286,6 @@ class PostHelper
                 $q->offset($offset);
             }
     
-
             if($pageSize){
                 $posts = $q->paginate($pageSize);
 
