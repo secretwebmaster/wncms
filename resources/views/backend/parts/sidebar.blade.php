@@ -89,12 +89,12 @@
 						$modelMenuItems = [];
 					
 						foreach ($models as $modelData) {
-							$model_class_name = "App\Models\\" . $modelData['name'];
+							$model_class_name = $modelData['model_name_with_namespace'];
 							$model = (new $model_class_name)->newModelInstance();
-							$snake_name = str()->snake($modelData['name'], '_');
+							$snake_name = str()->snake($modelData['model_name'], '_');
 							$table_name = $model->getTable();
 					
-							if (defined(get_class($model) . "::ROUTES") && in_array($modelData['name'], json_decode(gss('active_models'), true))) {
+							if (defined(get_class($model) . "::ROUTES") && in_array($modelData['model_name'], json_decode(gss('active_models'), true))) {
 								$menuItem = [
 									'model' => $model,
 									'routes' => array_map(fn($route) => $snake_name . '_' . $route, $model::ROUTES),
@@ -104,7 +104,7 @@
 									'sub_routes' => [],
 								];
 					
-								if (defined(get_class($model) . "::SUB_ROUTES") && in_array($modelData['name'], json_decode(gss('active_models'), true))) {
+								if (defined(get_class($model) . "::SUB_ROUTES") && in_array($modelData['model_name'], json_decode(gss('active_models'), true))) {
 									foreach ($model::SUB_ROUTES as $route_name) {
 										$sub_model_class_name = explode(".", $route_name)[0] ?? '';
 										$route_suffix = explode(".", $route_name)[1] ?? '';
@@ -176,13 +176,13 @@
 					@foreach([] as $modelData)
 					
 						@php
-							$model_class_name = "App\Models\\" . $modelData['name'];
+							$model_class_name = $modelData['model_name_with_namespace'];
 							$model = (new $model_class_name)->newModelInstance();
-							$snake_name = str()->snake($modelData['name'], '_');
+							$snake_name = str()->snake($modelData['model_name'], '_');
 							$table_name = $model->getTable();
 						@endphp
 			
-						@if(defined(get_class($model) . "::ROUTES") && in_array($modelData['name'], json_decode(gss('active_models'), true)))
+						@if(defined(get_class($model) . "::ROUTES") && in_array($modelData['model_name'], json_decode(gss('active_models'), true)))
 							@canany(array_map(fn($route) => $snake_name . '_' . $route, $model::ROUTES))
 								<div data-kt-menu-trigger="click" class="menu-item menu-accordion @if(request()->routeIs(array_map(fn($route) => $table_name . '.' . $route, array_merge($model::ROUTES, ['edit']))))) show @endif">
 									<span class="menu-link py-2">
@@ -210,7 +210,7 @@
 											@endif
 										@endforeach
 
-										@if(defined(get_class($model) . "::SUB_ROUTES") && in_array($modelData['name'], json_decode(gss('active_models'), true)))
+										@if(defined(get_class($model) . "::SUB_ROUTES") && in_array($modelData['model_name'], json_decode(gss('active_models'), true)))
 											@foreach($model::SUB_ROUTES as $route_name)
 
 												@php

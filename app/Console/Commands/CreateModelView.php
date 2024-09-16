@@ -12,14 +12,14 @@ class CreateModelView extends Command
      *
      * @var string
      */
-    protected $signature = 'wncms:create_model_view {model_name}';
+    protected $signature = 'wncms:create-model-view {model_name}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Quickly create view files for new Eloquent model';
+    protected $description = 'Quickly create custom view files for new Eloquent model';
 
     /**
      * Execute the console command.
@@ -43,7 +43,7 @@ class CreateModelView extends Command
 
         //generate view files
         foreach ($view_files as $view_file) {
-            $new_view_file = str_replace('/backend/starters/', "/backend/{$model_name}s/", $view_file);
+            $new_view_file = str_replace('/backend/starters/', "/backend/custom/{$plural_snake}/", $view_file);
 
             if (!File::exists($new_view_file)) {
                 $directory = dirname($new_view_file);
@@ -60,9 +60,12 @@ class CreateModelView extends Command
                 //replace starter content for model
                 $file_content = File::get($new_view_file);
 
+                // replace @inclde path
+                $updated_content = str_replace('backend.starters.', "backend.custom.{$plural_snake}.", $file_content);
+   
                 //replace starter
-                $updated_content = str_replace('starter', $singulaer_snake, $file_content);
-                
+                $updated_content = str_replace('starter', $singulaer_snake, $updated_content);
+
                 //replace model variable
                 $updated_content = str_replace("\${$singulaer_snake}", "\${$singulaer_camel}", $updated_content);
 

@@ -1,20 +1,20 @@
 {{-- Create --}}
 @if(wncms_route_exists($model_prefix . '.create'))
-    @if(!empty($should_auth) && auth()->user()->can(str($model_prefix)->singular() . '_' . 'create'))
+    @if(auth()->user()->can(str($model_prefix)->singular() . '_' . 'create'))
     <a href="{{ route($model_prefix . '.create') }}" class="btn btn-sm btn-primary fw-bold mb-1">{{ wncms_model_word($model_prefix, 'create') }}</a>
     @endif
 @endif
 
 {{-- Bulk Create --}}
 @if(wncms_route_exists($model_prefix . '.create.bulk'))
-    @if(!empty($should_auth) && auth()->user()->can(str($model_prefix)->singular() . '_' . 'bulk_create'))
+    @if(auth()->user()->can(str($model_prefix)->singular() . '_' . 'bulk_create'))
     <a href="{{ route($model_prefix . '.create.bulk') }}" class="btn btn-sm btn-primary fw-bold mb-1">{{ wncms_model_word($model_prefix, 'bulk_create') }}</a>
     @endif
 @endif
 
 {{-- Clone --}}
 @if(wncms_route_exists($model_prefix . '.clone.bulk'))
-    @if(!empty($should_auth) && auth()->user()->can(str($model_prefix)->singular() . '_' . 'clone'))
+    @if(auth()->user()->can(str($model_prefix)->singular() . '_' . 'clone'))
         <button class="btn btn-sm btn-info fw-bold mb-1" data-bs-toggle="modal" data-bs-target="#modal_clone_{{ $model_prefix }}">{{ wncms_model_word($model_prefix, 'clone') }}</button>
         <div class="modal fade" tabindex="-1" id="modal_clone_{{ $model_prefix }}">
             <div class="modal-dialog">
@@ -53,7 +53,7 @@
 
 {{-- Bulk Delete --}}
 @if(wncms_route_exists($model_prefix . '.bulk_delete'))
-    @if(!empty($should_auth) && auth()->user()->can(str($model_prefix)->singular() . '_' . 'bulk_delete'))
+    @if(auth()->user()->can(str($model_prefix)->singular() . '_' . 'bulk_delete'))
         <button class="btn btn-sm btn-danger fw-bold mb-1" data-bs-toggle="modal" data-bs-target="#modal_delete_{{ $model_prefix }}">@lang('word.bulk_delete')</button>
         <div class="modal fade" tabindex="-1" id="modal_delete_{{ $model_prefix }}">
             <div class="modal-dialog">

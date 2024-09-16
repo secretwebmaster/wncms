@@ -13,7 +13,7 @@ class CreateModelPermission extends Command
      *
      * @var string
      */
-    protected $signature = 'wncms:create_model_permission {model_name}';
+    protected $signature = 'wncms:create-model-permission {model_name}';
 
     /**
      * The console command description.

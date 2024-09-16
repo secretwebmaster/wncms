@@ -179,8 +179,8 @@
                                                                 @if(!empty($modelData['routes']))
                                                                     <div class="col-6 col-md-4 mb-1 model_checkbox">
                                                                         <label class="form-check form-check-inline form-check-solid me-5">
-                                                                            <input class="form-check-input" name="active_models[]" type="checkbox" value="{{ $modelData['name'] }}" @if(in_array($modelData['name'], json_decode($settings[('active_models')], true) ?? '' ?? [])) checked @endif />
-                                                                            <span class="fw-bold ps-2 fs-6">{{ $modelData['name'] }}</span>
+                                                                            <input class="form-check-input" name="active_models[]" type="checkbox" value="{{ $modelData['model_name'] }}" @if(in_array($modelData['model_name'], json_decode($settings[('active_models')], true) ?? '' ?? [])) checked @endif />
+                                                                            <span class="fw-bold ps-2 fs-6">{{ $modelData['model_name'] }}</span>
                                                                         </label>
                                                                     </div>
                                                                 @endif

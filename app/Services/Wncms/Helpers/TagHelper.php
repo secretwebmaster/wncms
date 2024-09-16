@@ -282,8 +282,13 @@ class TagHelper
         // dd($request->all());
         $modelsWithHasTagsTraits = collect(File::allFiles(app_path('Models')))
         ->map(function ($file) {
-            $class = 'App\\Models\\' . Str::replace('.php', '', $file->getBasename());
-            return app($class);
+            //$class = 'App\\Models\\' . Str::replace('.php', '', $file->getBasename());
+            //return app($class);
+
+            $relativePath = Str::replaceFirst(app_path('Models') . DIRECTORY_SEPARATOR, '', $file->getPathname());
+            $class = 'App\\Models\\' . Str::replace('.php', '', str_replace(DIRECTORY_SEPARATOR, '\\', $relativePath));
+            return class_exists($class) ? app($class) : null;
+
         })
         ->filter(function ($model) {
             $reflection = new \ReflectionClass($model);

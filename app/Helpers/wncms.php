@@ -38,22 +38,54 @@ if (!function_exists('wncms_get_version')) {
 }
 
 if (!function_exists('wncms_get_model_names')) {
+
     function wncms_get_model_names()
     {
-        $path = app_path('Models') . '/*.php';
-        $collection = collect(glob($path))->map(function($file){
-            $modelName = "\App\Models\\" . basename($file, '.php');
-            $model = new $modelName;
-            return [
-                'name' => basename($file, '.php'),
-                // TODO: 修改為可以在系統設定中自訂，儲存順序表，讀取，fallback
-                'priority' => $model->menuPriority ?? 0,
-                'routes' => defined(get_class($model) . "::ROUTES") ? $model::ROUTES : null,
-            ];
-        });
+        // Use recursive glob to get all PHP files in subdirectories
+        $files = collect(File::allFiles(app_path('Models')))
+            ->map(function ($file) {
+                // Get relative path and convert to namespace
+                $relativePath = Str::replaceFirst(app_path('Models') . DIRECTORY_SEPARATOR, '', $file->getPathname());
+                $namespacePath = str_replace(DIRECTORY_SEPARATOR, '\\', $relativePath);
+                $modelName = 'App\\Models\\' . Str::replace('.php', '', $namespacePath);
 
+                return $modelName;
+            });
+
+        $collection = $files->map(function ($modelName) {
+            if (class_exists($modelName)) {
+                $model = new $modelName;
+
+                return [
+                    'model_name' => class_basename($modelName),
+                    'model_name_with_namespace' => $modelName,
+                    // Handle menuPriority and ROUTES if they exist
+                    'priority' => property_exists($model, 'menuPriority') ? $model->menuPriority : 0,
+                    'routes' => defined($modelName . "::ROUTES") ? $modelName::ROUTES : null,
+                ];
+            }
+
+            return null; // In case the class does not exist
+        })->filter(); // Remove any null values
         return $collection;
     }
+
+    // function wncms_get_model_names()
+    // {
+    //     $path = app_path('Models') . '/*.php';
+    //     $collection = collect(glob($path))->map(function($file){
+    //         $modelName = "\App\Models\\" . basename($file, '.php');
+    //         $model = new $modelName;
+    //         return [
+    //             'name' => basename($file, '.php'),
+    //             // TODO: 修改為可以在系統設定中自訂，儲存順序表，讀取，fallback
+    //             'priority' => $model->menuPriority ?? 0,
+    //             'routes' => defined(get_class($model) . "::ROUTES") ? $model::ROUTES : null,
+    //         ];
+    //     });
+
+    //     return $collection;
+    // }
 }
 
 if (!function_exists('wncms_route_exists')) {

@@ -1,16 +1,18 @@
 <div class="card-body border-top p-3 p-md-9">
     {{-- status --}}
+    @if(!empty($statuses))
     <div class="row mb-3">
         <label class="col-lg-3 col-form-label required fw-bold fs-6" for="status">@lang('word.status')</label>
         <div class="col-lg-9 fv-row">
             <select id="status" name="status" class="form-select form-select-sm" required>
                 <option value="">@lang('word.please_select')</option>
-                @foreach($statuses as $status)
+                @foreach($statuses ?? [] as $status)
                     <option  value="{{ $status }}" {{ $status === old('status', $starter->status ?? 'active') ? 'selected' :'' }}>@lang('word.' . $status)</option>
                 @endforeach
             </select>
         </div>
     </div>
+    @endif
 
     {{-- user --}}
     {{-- <div class="row mb-3">
@@ -123,8 +125,8 @@
 
     {{-- switch_example --}}
     <div class="row mb-3">
-        <label class="col-3 col-form-label fw-bold fs-6" for="switch_example">@lang('word.switch_example')</label>
-        <div class="col-9 d-flex align-items-center">
+        <label class="col-auto col-md-3 col-form-label fw-bold fs-6" for="switch_example">@lang('word.switch_example')</label>
+        <div class="col-auto col-md-9 d-flex align-items-center">
             <div class="form-check form-check-solid form-check-custom form-switch fv-row">
                 <input id="switch_example" type="hidden" name="switch_example" value="0">
                 <input class="form-check-input w-35px h-20px" type="checkbox" id="switch_example" name="switch_example" value="1" {{ old('switch_example', $starter->switch_example ?? null) ? 'checked' : '' }}/>
@@ -137,18 +139,18 @@
     <div class="row mb-3">
         <label class="col-lg-3 col-form-label fw-bold fs-6" for="checkbox_example">@lang('word.checkbox_example')</label>
         <div class="col-lg-9 fv-row">
-            <div class="d-flex align-items-center mt-3">
-                <label class="form-check form-check-inline form-check-solid me-5">
+            <div class="d-flex flex-wrap align-items-center mt-3">
+                <label class="form-check form-check-inline form-check-solid me-5 mb-1">
                     <input type="hidden" name="checkbox_examples[name1]" value="0">
                     <input class="form-check-input" name="checkbox_examples[name1]" type="checkbox" value="1" {{ old('name1', $starter->name1 ?? null) ? 'checked' : '' }}/>
                     <span class="fw-bold ps-2 fs-6">@lang('word.checkbox_1')</span>
                 </label>
-                <label class="form-check form-check-inline form-check-solid me-5">
+                <label class="form-check form-check-inline form-check-solid me-5 mb-1">
                     <input type="hidden" name="checkbox_examples[name2]" value="0">
                     <input class="form-check-input" name="checkbox_examples[name2]" type="checkbox" value="2" {{ old('name2', $starter->name2 ?? null) ? 'checked' : '' }}/>
                     <span class="fw-bold ps-2 fs-6">@lang('word.checkbox_2')</span>
                 </label>
-                <label class="form-check form-check-inline form-check-solid me-5">
+                <label class="form-check form-check-inline form-check-solid me-5 mb-1">
                     <input type="hidden" name="checkbox_examples[name3]" value="0">
                     <input class="form-check-input" name="checkbox_examples[name3]" type="checkbox" value="3" {{ old('name3', $starter->name3 ?? null) ? 'checked' : '' }}/>
                     <span class="fw-bold ps-2 fs-6">@lang('word.checkbox_3')</span>
@@ -205,7 +207,7 @@
     </div>
 
     {{-- starter_tag --}}
-    <div class="row mb-3">
+    {{-- <div class="row mb-3">
         <label class="col-lg-3 col-form-label required fw-bold fs-6">@lang('word.starter_tag')</label>
         <div class="col-lg-9 fv-row">
             <input id="starter_tags" class="form-control form-control-sm p-0"  name="starter_tags" value="{{ $starter->tagsWithType('starter_tag')->implode('name', ',') }}"/>
@@ -236,6 +238,6 @@
                 });
             });
         </script>
-    </div>
+    </div> --}}
 
 </div>
