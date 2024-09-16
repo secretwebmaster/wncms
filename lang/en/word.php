@@ -1831,7 +1831,7 @@ $words = [
     'force_https' => 'Force HTTPS',
 ];
 
-if(file_exists("custom.php")){
+if(file_exists(__DIR__ . "/custom.php")){
     require "custom.php";
 }else{
     $custom_words = [];
