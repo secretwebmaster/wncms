@@ -36,8 +36,8 @@ return [
         'php_functions' => [
             // 'putenv',
             'symlink',
-            // 'proc_open',
-            // 'exec',
+            'proc_open',
+            'exec',
         ]
     ],
 
