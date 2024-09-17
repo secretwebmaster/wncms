@@ -18,3 +18,10 @@ Route::group([
         require __DIR__ . '/frontend.php';
     });
 });
+
+
+//throw 404 if no route is matched
+//pass $exception to the view
+Route::fallback(function () {
+    return view('errors.404');
+});

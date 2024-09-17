@@ -13,10 +13,10 @@
             <div class="d-flex flex-column flex-center text-center p-10">
                 <div class="card card-flush py-5">
                     <div class="card-body">
-                        {{-- message for 404 error --}}
-                        <h1 class="fw-bolder fs-1 text-gray-900 mb-4">Error 404</h1>
+                        {{-- message for 419 error --}}
+                        <h1 class="fw-bolder fs-1 text-gray-900 mb-4">Error 419</h1>
                         <div>
-                            <p class="text-gray-700 fs-4">@lang('word.error_404_message')</p>
+                            <p class="text-gray-700 fs-4">@lang('word.error_419_message')</p>
                         </div>
                         @if(!empty($exception))
                         <div class="alert alert-danger">

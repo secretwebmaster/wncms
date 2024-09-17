@@ -1829,6 +1829,21 @@ $words = [
     'install_failed_retry' => '安装失败，请重试',
     'tell_us_about_your_first_website' => '告诉我们你的第一个网站',
     'force_https' => '强制HTTPS',
+
+    //! 4.3.0
+    'new_version_available' => '有新版本可用',
+    'new_version_available_with_versions' => '有新版本可用! 由 :current 升级到 :latest',
+    'already_the_latest_version' => '已经是最新版本',
+    'checking_for_updates' => '正在检查更新',
+    'update_now' => '立即更新',
+    'disable_core_update' => '禁用核心更新',
+    'core_update_disabled' => '核心更新已禁用',
+
+    //! 4.4.0
+    'error_405_message' => '请求的 URL 不允许使用此方法。',
+    'error_404_message' => '找不到页面',
+    'error_419_message' => '页面已过期，请刷新页面',
+    'error_500_message' => '服务器内部错误',
 ];
 
 if(file_exists(__DIR__ . "/custom.php")){

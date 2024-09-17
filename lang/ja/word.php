@@ -1829,6 +1829,21 @@ $words = [
     'install_failed_retry' => 'インストール失敗、再試行',
     'tell_us_about_your_first_website' => '最初のウェブサイトについて教えてください',
     'force_https' => 'HTTPSを強制',
+
+    //! 4.3.0
+    'new_version_available' => '新しいバージョンが利用可能です',
+    'new_version_available_with_versions' => '新しいバージョンが利用可能です！ :current から :latest にアップグレードします',
+    'already_the_latest_version' => 'すでに最新バージョンです',
+    'checking_for_updates' => '更新を確認しています',
+    'update_now' => '今すぐ更新',
+    'disable_core_update' => 'コアの更新を無効化',
+    'core_update_disabled' => 'コアの更新が無効化されています',
+
+    //! 4.4.0
+    'error_405_message' => '要求されたURLはこの方法を許可していません。',
+    'error_404_message' => 'ページが見つかりません',
+    'error_419_message' => 'ページの有効期限が切れました。再読み込みしてください',
+    'error_500_message' => 'サーバー内部エラー',
 ];
 
 if(file_exists(__DIR__ . "/custom.php")){

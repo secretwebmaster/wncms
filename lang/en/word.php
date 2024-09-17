@@ -1829,6 +1829,22 @@ $words = [
     'install_failed_retry' => 'Installation failed, Try again',
     'tell_us_about_your_first_website' => 'Tell us about your first website',
     'force_https' => 'Force HTTPS',
+
+    //! 4.3.0
+    'new_version_available' => 'New version available',
+    'new_version_available_with_versions' => 'New version available! Upgrading from :current to :latest',
+    'already_the_latest_version' => 'Already the latest version',
+    'checking_for_updates' => 'Checking for updates',
+    'update_now' => 'Update now',
+    'disable_core_update' => 'Disable core update',
+    'core_update_disabled' => 'Core update disabled',
+
+    //! 4.4.0
+    'error_405_message' => 'The requested URL does not allow this method.',
+    'error_404_message' => 'Page not found',
+    'error_419_message' => 'Page expired, please refresh',
+    'error_500_message' => 'Internal server error',
+
 ];
 
 if(file_exists(__DIR__ . "/custom.php")){

@@ -1830,7 +1830,7 @@ $words = [
     'tell_us_about_your_first_website' => '告訴我們你的第一個網站',
     'force_https' => '強制HTTPS',
 
-    //! 4.3.2
+    //! 4.3.0
     'new_version_available' => '有新版本可用',
     'new_version_available_with_versions' => '有新版本可用! 由 :current 升級到 :latest',
     'already_the_latest_vcersion' => '已經是最新版本',
@@ -1838,7 +1838,12 @@ $words = [
     'update_now' => '立即更新',
     'disable_core_update' => '禁用核心更新',
     'core_update_disabled' => '核心更新已禁用',
-
+    
+    //! 4.4.0
+    'error_405_message' => '請求的 URL 不允許使用此方法。',
+    'error_404_message' => '找不到頁面',
+    'error_419_message' => '頁面已過期，請刷新頁面',
+    'error_500_message' => '伺服器內部錯誤',
 ];
 
 if(file_exists(__DIR__ . "/custom.php")){

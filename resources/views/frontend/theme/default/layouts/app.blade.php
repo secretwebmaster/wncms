@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="{{ app()->getLocale() }}">
 
     <head>
         <title>{{ $page_title ?? $website->site_name }}</title>
