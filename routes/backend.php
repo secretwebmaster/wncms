@@ -23,6 +23,7 @@ use App\Http\Controllers\Backend\UpdateController;
 use App\Http\Controllers\Backend\UploadController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\WebsiteController;
+use App\Http\Controllers\ThemeController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('panel')->middleware(['auth'])->group(function () {
@@ -199,6 +200,18 @@ Route::prefix('panel')->middleware(['auth'])->group(function () {
     Route::get('settings', [SettingController::class, 'index'])->middleware('can:setting_index')->name('settings.index');
     Route::put('settings', [SettingController::class, 'update'])->middleware('can:setting_edit')->name('settings.update');
     Route::post('settings/smtp/test', [SettingController::class, 'smtp_test'])->middleware('can:setting_edit')->name('settings.smtp_test');
+
+
+    //theme
+    Route::get('themes', [ThemeController::class, 'index'])->middleware('can:theme_index')->name('themes.index');
+    Route::post('themes/activate/{themeId}', [ThemeController::class, 'activate'])->middleware('can:theme_activate')->name('themes.activate');
+    Route::post('themes/deactivate/{themeId}', [ThemeController::class, 'deactivate'])->middleware('can:theme_deactivate')->name('themes.deactivate');
+    Route::post('themes/upload', [ThemeController::class, 'upload'])->middleware('can:theme_upload')->name('themes.upload');
+    Route::post('themes/delete/{themeId}', [ThemeController::class, 'delete'])->middleware('can:theme_delete')->name('themes.delete');
+    Route::post('themes/preview/{themeId}', [ThemeController::class, 'preview'])->middleware('can:theme_preview')->name('themes.preview');
+    Route::get('themes/settings', [ThemeController::class, 'settings'])->middleware('can:theme_settings')->name('themes.settings');
+    Route::post('themes/update_setting', [ThemeController::class, 'updateSetting'])->middleware('can:theme_settings')->name('themes.update_setting');
+    
 
 
     //record

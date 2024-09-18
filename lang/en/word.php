@@ -1844,7 +1844,20 @@ $words = [
     'error_404_message' => 'Page not found',
     'error_419_message' => 'Page expired, please refresh',
     'error_500_message' => 'Internal server error',
-
+    'theme_uploaded_successfully' => 'Theme uploaded successfully',
+    'activate' => 'Activate',
+    'activated' => 'Activated',
+    'deactivate' => 'Deactivate',
+    'deactivated' => 'Deactivated',
+    'is_valid' => 'Is valid',
+    'valid_structure' => 'Valid structure',
+    'the_same_theme_with_higher_version_already_exists' => 'A theme with the same name but a higher version already exists',
+    'the_same_theme_with_the_same_version_already_exists' => 'A theme with the same name and the same version already exists',
+    'please_select_a_theme_file' => 'Please select a theme file',
+    'please_select_a_valid_theme_file' => 'Please select a valid theme file',
+    'theme_activated_successfully' => 'Theme activated successfully',
+    'are_you_sure_to_deactivate_theme' => 'Are you sure to deactivate theme :theme_name?',
+    'theme_deactivated_successfully' => 'Theme deactivated successfully',
 ];
 
 if(file_exists(__DIR__ . "/custom.php")){

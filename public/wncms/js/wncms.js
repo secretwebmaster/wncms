@@ -17,7 +17,7 @@ var WNCMS={
                 var original_text = label.text();
                 var success_text = button.data('success-text') || original_text;
                 var fail_text = button.data('fail-text') || original_text;
-                
+
                 button.prop('disabled', true)
                 label.text('');
                 loading_button.show();
@@ -148,7 +148,6 @@ var WNCMS={
             //since v3.0.6
             //!updated v4.2.0
             $('[wncms-btn-ajax]').on('click', function(e) {
-
                 e.preventDefault();
                 var button = $(this);
 
@@ -157,14 +156,23 @@ var WNCMS={
                 var loading_text =  button.data('loading-text') || original_text;
                 var success_text =  button.data('success-text') || original_text;
                 var fail_text =  button.data('fail-text') || original_text;
+                var isSwal = button.is("[wncms-btn-swal]") && button.attr("wncms-btn-swal") !== "false";
+                var confirm_text = button.data('confirm-text');
+                let isConfirmed = true;
 
+                // if confirm text is set, show confirm dialog
+                if(confirm_text){
+                    isConfirmed = confirm(confirm_text);
+                }
+
+                if(!isConfirmed){
+                    return; // Exit if user doesn't confirm
+                }
+                
                 //disabled when submitting
                 button.prop('disabled', true);
                 button.text(loading_text||original_text);
                 // console.log('loading_text = ' + loading_text)
-
-                //get btn setting
-                var isSwal = button.is("[wncms-btn-swal]") && button.attr("wncms-btn-swal") !== "false";
 
                 //get api
                 var route = button.data('route');
@@ -306,7 +314,6 @@ var WNCMS={
                         button.text(fail_text);
                     }
                 });
-
 
             });
 

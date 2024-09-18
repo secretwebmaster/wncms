@@ -12,6 +12,7 @@ Demo: [demo.wncms.cc](https://demo.wncms.cc)
 - Update eroor pages
 - Add translations
 - Add Command to update setting
+- Add Theme controller
 
 ### v4.3.0 2024-09-14
 - 測試新的安裝過程

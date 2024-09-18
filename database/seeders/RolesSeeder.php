@@ -108,7 +108,6 @@ class RolesSeeder extends Seeder
             'post_generate_demo_posts',
             'tag_create_type',
             'tag_import_csv',
-            'theme_apply',
             'upload_image',
             'upload_video',
             'user_api_show',
@@ -117,6 +116,12 @@ class RolesSeeder extends Seeder
             'user_profile_update',
             'user_record_show',
             'user_security_show',
+            
+            'theme_apply',
+            'theme_upload',
+            'theme_activate',
+            'theme_deactivate',
+            'theme_preview',
         ];
         
     }

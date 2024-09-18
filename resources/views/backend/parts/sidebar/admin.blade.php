@@ -19,6 +19,18 @@
         </div>
     @endcan
 
+    {{-- 系統設定 --}}
+    @can('theme_index')
+        <div class="menu-item">
+            <a class="menu-link py-2 @if(request()->routeIs('themes.index')) active @endif" href="{{ route('themes.index') }}">
+                <span class="menu-icon">
+                    <i class="fa-lg @if(request()->routeIs('themes.index')) fa-beat @endif fa-solid fa-gear"></i>
+                </span>
+                <span class="menu-title fw-bold">@lang('word.theme_list')</span>
+            </a>
+        </div>
+    @endcan
+
     {{-- 權限列表 --}}
     @can('role_edit')
     <div data-kt-menu-trigger="click" class="menu-item menu-accordion @if(request()->routeIs('roles.*') || request()->routeIs('permissions.*')) show @endif">

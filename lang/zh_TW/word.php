@@ -1844,6 +1844,20 @@ $words = [
     'error_404_message' => '找不到頁面',
     'error_419_message' => '頁面已過期，請刷新頁面',
     'error_500_message' => '伺服器內部錯誤',
+    'theme_uploaded_successfully' => '主題上傳成功',
+    'activate' => '啟用',
+    'activated' => '已啟用',
+    'deactivate' => '停用',
+    'deactivated' => '已停用',
+    'is_valid' => '有效',
+    'valid_structure' => '有效結構',
+    'the_same_theme_with_higher_version_already_exists' => '已存在相同名稱但版本較高的主題',
+    'the_same_theme_with_the_same_version_already_exists' => '已存在相同名稱且版本相同的主題',
+    'please_select_a_theme_file' => '請選擇主題檔案',
+    'please_select_a_valid_theme_file' => '請選擇有效的主題檔案',
+    'theme_activated_successfully' => '主題啟用成功',
+    'are_you_sure_to_deactivate_theme' => '確定停用主題 :theme_name?',
+    'theme_deactivated_successfully' => '主題停用成功',
 ];
 
 if(file_exists(__DIR__ . "/custom.php")){

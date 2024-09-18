@@ -44,9 +44,7 @@ class WebsiteController extends Controller
 
     public function create()
     {
-        $themes = Storage::disk('views')->directories('frontend/theme/');
-        sort($themes);
-
+        $themes = wncms()->theme()->getActivatedTheme();
         $first_website = Website::count() ? false : true;
 
         return view('backend.websites.create',[
@@ -128,8 +126,7 @@ class WebsiteController extends Controller
         // TODO: authorization
         // $website = wncms()->checkLicense($website);
 
-        $themes = Storage::disk('views')->directories('frontend/theme');
-        sort($themes);
+        $themes = wncms()->theme()->getActivatedTheme();
 
         return view('backend.websites.edit' , [
             'page_title' => __('word.website_management'),

@@ -1844,6 +1844,20 @@ $words = [
     'error_404_message' => 'ページが見つかりません',
     'error_419_message' => 'ページの有効期限が切れました。再読み込みしてください',
     'error_500_message' => 'サーバー内部エラー',
+    'theme_uploaded_successfully' => 'テーマのアップロードが成功しました',
+    'activate' => '有効化',
+    'activated' => '有効化されました',
+    'deactivate' => '無効化',
+    'deactivated' => '無効化されました',
+    'is_valid' => '有効です',
+    'valid_structure' => '有効な構造',
+    'the_same_theme_with_higher_version_already_exists' => '同じ名前でより高いバージョンのテーマが既に存在します',
+    'the_same_theme_with_the_same_version_already_exists' => '同じ名前で同じバージョンのテーマが既に存在します',
+    'please_select_a_theme_file' => 'テーマファイルを選択してください',
+    'please_select_a_valid_theme_file' => '有効なテーマファイルを選択してください',
+    'theme_activated_successfully' => 'テーマが正常に有効化されました',
+    'are_you_sure_to_deactivate_theme' => 'テーマ :theme_name を無効化しますか？',
+    'theme_deactivated_successfully' => 'テーマが正常に無効化されました',
 ];
 
 if(file_exists(__DIR__ . "/custom.php")){

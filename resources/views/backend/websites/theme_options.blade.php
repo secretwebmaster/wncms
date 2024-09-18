@@ -11,7 +11,7 @@
 
 @section('content')
 
-@include('common.message')
+@include('backend.parts.message')
 
 <div class="row mx-auto mb-3 gx-1">
     <div class="ms-0 mb-1 mb-md-0 col-12 col-md-auto"><a href="{{ wncms_add_https($_website->domain) }}" target="_blank" class="btn btn-sm btn-info fw-bold text-truncate w-100">@lang('word.current_website'): {{ $_website->site_name }} ({{ $_website->domain }})</a></div>

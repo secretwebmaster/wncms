@@ -71,7 +71,7 @@
     <div class="card card-flush rounded overflow-hidden">
         <div class="card-body p-0">
             <div class="table-responsive">
-                <table class="table table-sm table-hover align-middle text-nowrap mb-0 border border-2 border-dark rounded">
+                <table class="table table-sm table-hover align-middle text-nowrap mb-0 table-bordered border border-2 border-dark rounded">
                     <thead class="table-dark">
                         <tr class="text-start fw-bold gs-0">
                             <th class="w-10px pe-2">
@@ -81,7 +81,8 @@
                             </th>
                             <th>@lang('word.action')</th>
                             <th>@lang('word.id')</th>
-                            <th>@lang('word.status')</th>
+                            <th>@lang('word.valid_structure')</th>
+                            {{-- <th>@lang('word.status')</th> --}}
                             <th>@lang('word.name')</th>
                             @if(request()->show_detail)
                             <th>@lang('word.description')</th>
@@ -89,8 +90,8 @@
                             <th>@lang('word.demo_url')</th>
                             @if(request()->show_detail)
                             <th>@lang('word.author')</th>
-                            <th>@lang('word.version')</th>
-                            <th>@lang('word.installed_at')</th>
+                            <th>@lang('word.current_version')</th>
+                            <th>@lang('word.created_at')</th>
                             <th>@lang('word.updated_at')</th>
                             @endif
 
@@ -104,26 +105,45 @@
                         <tr>
                             <td>
                                 <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                    <input class="form-check-input" type="checkbox" value="1" data-model-id="{{ $theme->id }}"/>
+                                    <input class="form-check-input" type="checkbox" value="1" data-model-id="{{ $theme['id'] }}"/>
                                 </div>
                             </td>
                             <td>
-                                <a class="btn btn-sm btn-dark fw-bold px-2 py-1" href="{{ route('themes.edit' , $theme) }}">@lang('word.edit')</a>
-                                @include('backend.parts.modal_delete' , ['model'=>$theme , 'route' => route('themes.destroy' , $theme), 'btn_class' => 'px-2 py-1'])
+                                @if(!in_array($theme['id'], $activatedThemeIds))
+                                    <button class="btn btn-sm btn-success fw-bold px-2 py-1"
+                                        wncms-btn-ajax
+                                        wncms-btn-swal
+                                        data-success-text="@lang('word.deactivated')"
+                                        data-fail-text="@lang('word.retry')"
+                                        data-route="{{ route('themes.activate' , ['themeId' => $theme['id']]) }}"
+                                        data-method="POST" >@lang('word.activate')</button>
+                                    <a class="btn btn-sm btn-dark fw-bold px-2 py-1" href="{{ route('themes.preview' , ['themeId' => $theme['id']]) }}">@lang('word.preview')</a>
+                                @else
+                                    <button class="btn btn-sm btn-danger fw-bold px-2 py-1"
+                                        wncms-btn-ajax
+                                        wncms-btn-swal
+                                        data-confirm-text="@lang('word.are_you_sure_to_deactivate_theme', ['theme_name' => $theme['name']])"
+                                        data-success-text="@lang('word.activated')"
+                                        data-fail-text="@lang('word.retry')"
+                                        data-route="{{ route('themes.deactivate' , ['themeId' => $theme['id']]) }}"
+                                        data-method="POST" >@lang('word.deactivate')</button>
+
+                                @endif
                             </td>
-                            <td>{{ $theme->id }}</td>
-                            <td>@include('common.table_status', ['model' => $theme])</td>
-                            <td>{{ $theme->name }}</td>
+                            <td>{{ $theme['id'] }}</td>
+                            <td>@include('common.table_is_active', ['model' => $theme, 'active_column' => 'isValid'])</td>
+                            {{-- <td>@include('common.table_status', ['model' => $theme])</td> --}}
+                            <td>{{ $theme['name'] }}</td>
                             @if(request()->show_detail)
-                            <td class="mw-300px text-truncate text-hover-info" title="{{ $theme->description }}">{{ $theme->description }}</td>
+                            <td class="mw-300px text-truncate text-hover-info" title="{{ $theme['description'] ?? '' }}">{{ $theme['description'] ?? '' }}</td>
                             @endif
 
-                            <td>@include('common.table_url', ['url' => $theme->demo_url])</td>
+                            <td>@include('common.table_url', ['url' => $theme['demo_url'] ?? ''])</td>
                             @if(request()->show_detail)
-                            <td>{{ $theme->author }}</td>
-                            <td>{{ $theme->version }}</td>
-                            <td>{{ $theme->created_at }}</td>
-                            <td>{{ $theme->updated_at }}</td>
+                            <td>{{ $theme['author'] ?? '' }}</td>
+                            <td>{{ $theme['version'] ?? '' }}</td>
+                            <td>{{ $theme['created_at'] ?? '' }}</td>
+                            <td>{{ $theme['updated_at'] ?? '' }}</td>
                             @endif
                             
                         <tr>
