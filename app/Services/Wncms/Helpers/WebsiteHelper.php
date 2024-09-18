@@ -116,20 +116,22 @@ class WebsiteHelper
             $cacheKey = wncms()->cache()->createKey($this->cacheKeyPrefix, __FUNCTION__, $shouldAuth, wncms()->getAllArgs(__METHOD__, func_get_args()));
             // wncms()->cache()->clear($cacheKey, $this->cacheTags);
     
-            return wncms()->cache()->tags($this->cacheTags)->remember($cacheKey, $this->cacheTime, function () use ($domain) {
-    
+            $website = wncms()->cache()->tags($this->cacheTags)->remember($cacheKey, $this->cacheTime, function () use ($domain) {
+
                 $q = Website::query();
                 $q->where('domain', $domain);
                 $q->orWhereRelation('domain_aliases', 'domain', $domain);
                 $q->with('media');
-    
-                return $q->first();
-    
+
+                // return null placeholder to avoid null value not being cached
+                return $q->first() ?? false;
             });
+
+            return $website ? $website : null;
+
         }catch(\Exception $e){
             logger()->error($e);
         }
-
     }
 
     /**
