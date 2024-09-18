@@ -1,22 +1,22 @@
 # Wncms
 
-## Project Introduction
-Demo: [demo.wncms.cc](https://demo.wncms.cc)
+## プロジェクト紹介
+デモ: [demo.wncms.cc](https://demo.wncms.cc)
 
-## Changelog
+## 更新履歴
 
-### v4.5.0 (In Development)
+### v4.5.0 (開発中)
 
 ### v4.4.0 2024-09-18
-- Added an update notification function to the backend.
-- Updated model creation functions to ensure compatibility with custom models and controllers.
-- Fixed model pagination to accurately display the item count on the last page within the limit.
-- Added an option in the settings to disable core updates.
-- Included a demo URL in `README.md`.
-- Updated error pages.
-- Added translations.
-- Introduced a command to update settings.
-- Added a Theme Controller.
+- バックエンドに更新通知機能を追加しました。
+- モデル作成関数を更新し、カスタムモデルおよびコントローラーとの互換性を確保しました。
+- モデルのページネーションを修正し、最後のページのアイテム数を正確に表示するようにしました。
+- コアアップデートを無効にするオプションを設定に追加しました。
+- `README.md` にデモURLを追加しました。
+- エラーページを更新しました。
+- 翻訳を追加しました。
+- 設定を更新するコマンドを導入しました。
+- テーマコントローラーを追加しました。
 
 ### v4.3.0 2024-09-14
 - Tested new installation process

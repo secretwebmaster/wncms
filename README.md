@@ -5,14 +5,18 @@ Demo: [demo.wncms.cc](https://demo.wncms.cc)
 
 ## 更新日誌
 
-### v4.4.0 (開發中)
-- Update craete model functions. Add compatibility to custom model and controllers
-- Fix model pagination to handle correct item count on the last page within limi
-- Add setting option to disable core update
-- Update eroor pages
-- Add translations
-- Add Command to update setting
-- Add Theme controller
+### v4.5.0 (開發中)
+
+### v4.4.0 2024-09-18
+- 添加了後端的更新通知功能。
+- 更新了模型創建函數，以確保與自定義模型和控制器的兼容性。
+- 修正了模型分頁，以準確顯示最後一頁的項目數量。
+- 在設置中添加了禁用核心更新的選項。
+- 在 `README.md` 中包含了演示 URL。
+- 更新了錯誤頁面。
+- 添加了翻譯。
+- 引入了更新設置的命令。
+- 添加了主題控制器。
 
 ### v4.3.0 2024-09-14
 - 測試新的安裝過程
