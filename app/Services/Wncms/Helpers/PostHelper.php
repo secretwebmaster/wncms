@@ -5,7 +5,7 @@ namespace App\Services\Wncms\Helpers;
 
 use App\Models\Post;
 use App\Models\Tag;
-use App\Models\Website;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class PostHelper
 {
@@ -142,7 +142,8 @@ class PostHelper
         array|string|int|null $select = [],
         array $withs = [],
         bool $excludedChildrenTags = false,
-        bool $isRandom = false
+        bool $isRandom = false,
+        string $pageName = 'page'
     )
     {
         //handle categpry
@@ -164,12 +165,23 @@ class PostHelper
             $cacheTime = gss('enable_cache') ? gss('data_cache_time') : 0;
         }
 
-        //wncms()->cache()->clear($cacheKey, $cacheTags);
+        // wncms()->cache()->clear($cacheKey, $cacheTags);
 
-        return wncms()->cache()->tags($cacheTags)->remember($cacheKey, $cacheTime, function () use ($tags, $tagType, $keywords, $count, $pageSize, $order, $sequence, $status, $wheres, $websiteId, $excludedPostIds, $excludedTagIds, $ids, $select, $withs, $offset, $excludedChildrenTags, $isRandom) {
+        return wncms()->cache()->tags($cacheTags)->remember($cacheKey, $cacheTime, function () use ($tags, $tagType, $keywords, $count, $pageSize, $order, $sequence, $status, $wheres, $websiteId, $excludedPostIds, $excludedTagIds, $ids, $select, $withs, $offset, $excludedChildrenTags, $isRandom, $pageName) {
 
             $website = wncms()->website()->get($websiteId, false);
-            if(empty($website)) return collect([]);
+            if(empty($website)){
+                if($pageSize){
+                    // return empty LengthAwarePaginator
+                    return new LengthAwarePaginator([], 0, $pageSize, 0, [
+                        'path' => request()->url(),
+                        'pageName' => $pageName,
+                    ]);
+
+                }else{
+                    return collect([]);
+                }
+            }
 
             $q = $website->posts();
 
@@ -250,7 +262,7 @@ class PostHelper
             $q->with('media', function ($subq) {
                 $subq->where('collection_name', 'post_thumbnail');
             });
-
+            
             $q->with(['comments', 'tags']);
 
             $q->withCount('comments');

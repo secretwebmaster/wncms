@@ -1,6 +1,4 @@
-# Wncms
-
-## Project Introduction
+# Wncms Introduction
 Demo: [demo.wncms.cc](https://demo.wncms.cc)
 
 ## Changelog

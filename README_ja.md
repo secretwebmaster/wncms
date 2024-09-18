@@ -1,6 +1,4 @@
-# Wncms
-
-## プロジェクト紹介
+# Wncms 紹介
 デモ: [demo.wncms.cc](https://demo.wncms.cc)
 
 ## 更新履歴

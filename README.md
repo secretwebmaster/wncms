@@ -1,6 +1,4 @@
-# Wncms
-
-## 項目介紹
+# Wncms 項目介紹
 Demo: [demo.wncms.cc](https://demo.wncms.cc)
 
 ## 更新日誌

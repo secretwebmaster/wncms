@@ -1,6 +1,4 @@
-# Wncms
-
-## 项目介绍
+# Wncms 项目介绍
 演示: [demo.wncms.cc](https://demo.wncms.cc)
 
 ## 更新日志
