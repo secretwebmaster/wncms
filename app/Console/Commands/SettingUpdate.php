@@ -27,7 +27,8 @@ class SettingUpdate extends Command
     {
         $key = $this->argument('key');
         $value = $this->argument('value');
+        $oldValue = gss($key);
         uss($key, $value);
-        $this->info("Setting $key has been updated to " . gss($key));
+        $this->info("Setting $key has been updated from '\e[33m$oldValue\e[0m' -> '\e[33m" . gss($key) . "\e[0m'");
     }
 }
