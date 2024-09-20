@@ -31,6 +31,7 @@ class WebsiteController extends Controller
                 ->orWhere('site_name', 'like', "%$request->keyword%");
             });
         }
+
         $q->orderBy('id', 'desc');
 
         $websites = $q->paginate($request->page_size ?? 50);
@@ -137,6 +138,84 @@ class WebsiteController extends Controller
 
     public function update(Request $request, Website $website)
     {
+        $request->validate([
+            'site_name' => 'required|string|max:255',
+            'theme' => 'nullable|string|max:100',
+            'meta_verification' => 'nullable|string|max:255',
+            'site_slogan' => 'nullable|string|max:255',
+            'site_seo_description' => 'nullable|string|max:255',
+            'site_seo_keywords' => 'nullable|string|max:255',
+            'head_code' => 'nullable|string|max:255',
+            'body_code' => 'nullable|string|max:255',
+            'analytics' => 'nullable|string|max:255',
+            'enabled_page_cache' => 'nullable|boolean',
+            'enabled_data_cache' => 'nullable|boolean',
+            'remark' => 'nullable|string|max:255',
+        ], [
+            'required' => __('word.field_required', ['field' => ':attribute']),
+            'max' => __('word.field_max', ['field' => ':attribute', 'max' => ':max']),
+        ], [
+            'site_name' => __('word.site_name'),
+            'theme' => __('word.theme'),
+            'meta_verification' => __('word.meta_verification'),
+            'site_slogan' => __('word.site_slogan'),
+            'site_seo_description' => __('word.site_seo_description'),
+            'site_seo_keywords' => __('word.site_seo_keywords'),
+            'head_code' => __('word.head_code'),
+            'body_code' => __('word.body_code'),
+            'analytics' => __('word.analytics'),
+            'remark' => __('word.remark'),
+        ]);
+
+        //debug to list all posssible combinations of validation rules error message
+        $rules = [
+            'site_name' => 'required|string|max:255',
+            'theme' => 'nullable|string|max:100',
+            'meta_verification' => 'nullable|string|max:255',
+            'site_slogan' => 'nullable|string|max:255',
+            'site_seo_description' => 'nullable|string|max:255',
+            'site_seo_keywords' => 'nullable|string|max:255',
+            'head_code' => 'nullable|string|max:255',
+            'body_code' => 'nullable|string|max:255',
+            'analytics' => 'nullable|string|max:255',
+            'enabled_page_cache' => 'nullable|boolean',
+            'enabled_data_cache' => 'nullable|boolean',
+            'remark' => 'nullable|string|max:255',
+        ];
+        
+        $messages = [
+            'required' => __('word.field_required', ['field' => ':attribute']),
+            'max' => __('word.field_max', ['field' => ':attribute', 'max' => ':max']),
+        ];
+        
+        $customMessages = [
+            'site_name' => __('word.site_name'),
+            'theme' => __('word.theme'),
+            'meta_verification' => __('word.meta_verification'),
+            'site_slogan' => __('word.site_slogan'),
+            'site_seo_description' => __('word.site_seo_description'),
+            'site_seo_keywords' => __('word.site_seo_keywords'),
+            'head_code' => __('word.head_code'),
+            'body_code' => __('word.body_code'),
+            'analytics' => __('word.analytics'),
+            'remark' => __('word.remark'),
+        ];
+        
+        $allMessages = [];
+        
+        foreach ($rules as $field => $rule) {
+            // Add required messages
+            if (strpos($rule, 'required') !== false) {
+                $allMessages["{$field}.required"] = str_replace(':attribute', __('word.' . $field), $messages['required']);
+            }
+        
+            // Add max messages
+            if (preg_match('/max:(\d+)/', $rule, $matches)) {
+                $max = $matches[1];
+                $allMessages["{$field}.max"] = str_replace([':attribute', ':max'], [__('word.' . $field), $max], $messages['max']);
+            }
+        }
+        
         // dd($request->all());
         foreach(['site_logo', 'site_logo_white', 'site_favicon'] as $key){
             if($request->{$key . '_remove'}  == 1){
@@ -168,8 +247,6 @@ class WebsiteController extends Controller
                 }
             };
         }
-
-
 
         $website->update([
             'site_name' => $request->site_name,
@@ -212,7 +289,7 @@ class WebsiteController extends Controller
         
         return redirect()->route('websites.edit' , $website)->with([
             'status' => 'success',
-            'message' => 'successfully_updated'
+            'message' => __('word.successfully_updated')
         ]);
     }
 

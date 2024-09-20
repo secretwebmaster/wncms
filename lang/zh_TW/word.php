@@ -1861,6 +1861,9 @@ $words = [
 
     //! 4.5.0
     'model_upload' => '上傳:model_name',
+    'field_required' => ':field 為必填項目',
+    'field_max' => ':field 長度最大爲 :max 個字元',
+    'site_seo_description' => '網站SEO描述',
 ];
 
 if(file_exists(__DIR__ . "/custom.php")){

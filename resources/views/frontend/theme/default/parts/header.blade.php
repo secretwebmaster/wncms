@@ -1,3 +1,4 @@
+{{-- Language swither --}}
 <style>
     .language-switcher-wrapper {
 
@@ -40,3 +41,6 @@
         @endforeach
     </ul>
 </div>
+
+{{-- Logo --}}
+<div><img src="{{ $website->site_logo }}" alt="LOGO" class="logo"></div>

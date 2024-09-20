@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('backend.parts.message')
+
 <div class="card">
     <form class="form" method="POST" action="{{ route('websites.update' , $website) }}" enctype="multipart/form-data">
         @csrf
@@ -86,8 +88,9 @@
 
                 {{-- site_seo_escription --}}
                 <div class="row mb-1">
-                    <label class="col-lg-3 col-form-label fw-bold fs-6">@lang('word.seo_description')</label>
+                    <label class="col-lg-3 col-form-label fw-bold fs-6">@lang('word.site_seo_description')</label>
                     <div class="col-lg-9 fv-row">
+
                         <input type="text" name="site_seo_description" class="form-control form-control-sm" value="{{ $website->site_seo_description ?? old('site_seo_description') }}"/>
                     </div>
                 </div>
@@ -96,7 +99,7 @@
                 <div class="row mb-1">
                     <label class="col-lg-3 col-form-label fw-bold fs-6">@lang('word.site_seo_keywords')</label>
                     <div class="col-lg-9 fv-row">
-                        <input type="text" name="site_site_seo_keywords" class="form-control form-control-sm" value="{{ $website->site_site_seo_keywords ?? old('site_site_seo_keywords') }}"/>
+                        <input type="text" name="site_seo_keywords" class="form-control form-control-sm" value="{{ $website->site_seo_keywords ?? old('site_seo_keywords') }}"/>
                     </div>
                 </div>
 
