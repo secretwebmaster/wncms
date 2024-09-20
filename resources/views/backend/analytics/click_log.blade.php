@@ -56,7 +56,7 @@
         </div>
         
         <div class="card-body p-0">
-            <div class="table-responsive border border-2 border-dark rounded">
+            <div class="table-responsive">
                 <table class="table table-hover table-sm align-middle text-nowrap mb-0" id="kt_ecommerce_report_sales_table">
                     <thead class="table-dark">
                         <tr class="fw-bold gs-0">

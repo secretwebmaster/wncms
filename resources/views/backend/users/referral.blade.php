@@ -45,7 +45,7 @@
                 <div class="border border-2 border-dark rounded">
 
                     <div class="table-responsive">
-                        <table class="table table-hover align-middle text-nowrap mb-0 border border-2 border-dark rounded">
+                        <table class="table table-hover align-middle text-nowrap mb-0">
                             <thead class="table-dark">
                                 <tr class="text-start fw-bold gs-0">
 

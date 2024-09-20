@@ -87,7 +87,7 @@
     <div class="card card-flush rounded overflow-hidden">
         <div class="card-body p-0">
             <div class="table-responsive">
-                <table class="table table-hover table-bordered align-middle text-nowrap mb-0 border border-2 border-dark rounded">
+                <table class="table table-hover table-bordered align-middle text-nowrap mb-0">
 
                     {{-- thead --}}
                     <thead class="table-dark">

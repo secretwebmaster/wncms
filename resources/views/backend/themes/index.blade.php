@@ -71,7 +71,7 @@
     <div class="card card-flush rounded overflow-hidden">
         <div class="card-body p-0">
             <div class="table-responsive">
-                <table class="table table-sm table-hover align-middle text-nowrap mb-0 table-bordered border border-2 border-dark rounded">
+                <table class="table table-sm table-hover align-middle text-nowrap mb-0 table-bordered">
                     <thead class="table-dark">
                         <tr class="text-start fw-bold gs-0">
                             <th class="w-10px pe-2">

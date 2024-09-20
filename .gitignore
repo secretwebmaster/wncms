@@ -40,3 +40,6 @@ resources/views/frontend/theme
 config/theme
 !config/theme/default/
 !config/theme/starter/
+
+#dev
+.code-workspace
