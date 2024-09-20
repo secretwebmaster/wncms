@@ -1858,6 +1858,9 @@ $words = [
     'theme_activated_successfully' => '主題啟用成功',
     'are_you_sure_to_deactivate_theme' => '確定停用主題 :theme_name?',
     'theme_deactivated_successfully' => '主題停用成功',
+
+    //! 4.5.0
+    'model_upload' => '上傳:model_name',
 ];
 
 if(file_exists(__DIR__ . "/custom.php")){

@@ -2,23 +2,23 @@
 
 namespace App\Models;
 
+use App\Services\Wncms\Models\WncmsModel;
 use App\Traits\WnModelTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Wncms\Tags\HasTags;
-use Wncms\Translatable\Traits\HasTranslations;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Str;
+use Wncms\Translatable\Traits\HasTranslations;
 
-class Post extends Model implements HasMedia
+class Post extends WncmsModel implements HasMedia
 {
     use HasFactory;
     use HasTags;
     use InteractsWithMedia;
-    use HasTranslations;
     use SoftDeletes;
+    // use HasTranslations;
     use WnModelTrait;
 
     protected $guarded = [];
@@ -31,7 +31,6 @@ class Post extends Model implements HasMedia
     protected $removeViewsOnDelete = true;
 
     protected $translatable = ['title','excerpt','keywords','content','label'];
-
 
     public const ICONS = [
         'fontaweseom' => 'fa-solid fa-pencil'
@@ -71,7 +70,6 @@ class Post extends Model implements HasMedia
         'admin',
     ];
     
-
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('post_thumbnail')->singleFile();
@@ -120,7 +118,7 @@ class Post extends Model implements HasMedia
         return !empty($this->excerpt) ? str()->limit($this->excerpt, $limit, '..') : str()->limit(str_replace("&nbsp;", '', strip_tags($this->content)), $limit, '..') ;
     }
 
-    //Should add Model name before tag attributes
+    //! tag function. Will soon be deprecated
     public function getPostCategoriesAttribute()
     {
         return $this->tags->where('type','post_category');
@@ -158,34 +156,38 @@ class Post extends Model implements HasMedia
         return $fakeViewTotal;
     }
 
-
-    //! function
-    public function getTags($type = 'post_tag'){
+    public function getTags($type = 'post_tag')
+    {
         return $this->tags->where('type', $type);
     }
 
-    public function getFirstTag($type = 'post_tag'){
+    public function getFirstTag($type = 'post_tag')
+    {
         return $this->tags->where('type', $type)->first();
     }
 
-    public function getFirstTagName($type = 'post_tag'){
+    public function getFirstTagName($type = 'post_tag')
+    {
         return $this->tags->where('type', $type)->first()?->name;
     }
 
     //% Depracated soon
-    public function getFirstCategory(){
+    public function getFirstCategory()
+    {
         return $this->getFirstTag('post_category');
         // return $this->tags->where('type', 'post_category')->first();
     }
 
     //TODO:: Eagar loading
-    public function getPrevious(){
+    public function getPrevious()
+    {
         $website = wnWebsite()->getCurrent();
         if(!$website) return;
         return $this->where('id', '<', $this->id)->whereRelation('websites', 'websites.id', $website->id )->orderBy('id','desc')->first();
     }
  
-    public function getNext(){
+    public function getNext()
+    {
         $website = wnWebsite()->getCurrent();
         if(!$website) return;
         return $this->where('id', '>', $this->id)->whereRelation('websites', 'websites.id', $website->id )->orderBy('id','asc')->first();
@@ -444,12 +446,14 @@ class Post extends Model implements HasMedia
         return $this;
     }
 
+    // public function getAttribute($key)
+    // {
+    //     dd("getAttribute from Post Model");
+    // }
     
     //! Static
     public static function getTagClassName(): string
     {
         return Tag::class;
     }
-
-
 }

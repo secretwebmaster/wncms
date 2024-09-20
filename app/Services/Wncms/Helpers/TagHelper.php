@@ -217,9 +217,10 @@ class TagHelper
         $cacheKey = wncms()->cache()->createKey($this->cacheKeyPrefix, $method, $shouldAuth, wncms()->getAllArgs(__METHOD__, func_get_args()));
         $cacheTags = ['tags'];
         $cacheTime = gss('enable_cache') ? gss('data_cache_time') : 0;
-        // wncms()->cache()->clear($cacheKey, $cacheTags);
+        //wncms()->cache()->clear($cacheKey, $cacheTags);
 
         return wncms()->cache()->tags($cacheTags)->remember($cacheKey, $cacheTime, function () use ($tagIds) {
+
             // info('no cache from TagHelper getTypes()');
             $q = Tag::query();
 
@@ -227,7 +228,7 @@ class TagHelper
                 $q->whereIn('id', $tagIds);
             }
 
-            $tagTypes = $q->distinct()->pluck('type')->toArray();;
+            $tagTypes = $q->distinct()->pluck('type')->toArray();
 
             return $tagTypes;
         });

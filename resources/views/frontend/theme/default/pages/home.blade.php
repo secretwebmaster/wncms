@@ -50,7 +50,7 @@
                 <th>@lang('word.tag')</th>
             </thead>
             <tbody>
-                @php $posts = $wncms->post()->getList(pageSize:5,count:24,sequence:'asc'); @endphp
+                @php $posts = $wncms->post()->getList(pageSize:5,count:24,sequence:'asc', pageName: 'post-page'); @endphp
                 @foreach($posts as $post)
                     <tr>
                         <td>{{ $post->id }}</td>

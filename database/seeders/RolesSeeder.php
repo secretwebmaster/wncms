@@ -122,6 +122,12 @@ class RolesSeeder extends Seeder
             'theme_activate',
             'theme_deactivate',
             'theme_preview',
+
+            'plugin_index',
+            'plugin_upload',
+            'plugin_activate',
+            'plugin_deactivate',
+            'plugin_delete',
         ];
         
     }

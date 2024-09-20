@@ -22,8 +22,14 @@ class PostController extends Controller
     {
         $post = wncms()->post()->getBySlug($slug);
         if (!$post) return redirect()->route('frontend.pages.blog');
-        // record view can now be toggle in theme option and call dynamically in template
+
+        // TODO: record view can now be toggle in theme option and call dynamically in template
         // RecordViews::dispatch($post->id);
+
+        // post event
+        event('frontend.model.single', $post);
+        event('frontend.post.single', $post);
+
         return wncms_view('frontend.theme.' . $this->theme . '.posts.single', [
             'post' => $post,
         ]);

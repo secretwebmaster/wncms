@@ -19,6 +19,12 @@
     }
 </style>
 @endpush
+
+{{-- @dd(
+     $post->title,
+     $post->getAttribute('title'),
+) --}}
+
 @section('content')
     <a class="nav-link" href="{{ route('frontend.pages.blog') }}">< @lang('word.blog')</a>
     <h2>{{ wncms_model_word('post', 'single') }}</h2>

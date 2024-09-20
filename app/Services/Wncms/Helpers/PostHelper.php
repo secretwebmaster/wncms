@@ -235,11 +235,13 @@ class PostHelper
                 //TODO set searchable item in system setting and allow override in theme option
                 $q->where(function($subq) use($keywords){
                     foreach ($keywords as $keyword) {
-                        // $q->orWhere('title','like',"%$keyword%");
-                        $subq->orWhereRaw("JSON_EXTRACT(title, '$.*') LIKE '%$keyword%'");
-
+                        $subq->orWhere('title','like',"%$keyword%");
+                        // $subq->orWhereRaw("JSON_EXTRACT(title, '$.*') LIKE '%$keyword%'");
+                        
+                        // TODO: optimzie performance
                         if(gto('search_post_content')){
-                            $subq->orWhereRaw("JSON_EXTRACT(content, '$.*') LIKE '%$keyword%'");
+                            $subq->orWhere('content','like',"%$keyword%");
+                            // $subq->orWhereRaw("JSON_EXTRACT(content, '$.*') LIKE '%$keyword%'");
                         }
                     }
                 });
@@ -299,13 +301,14 @@ class PostHelper
             }
     
             if($pageSize){
-                $posts = $q->paginate($pageSize);
+                $posts = $q->paginate(perPage: $pageSize, columns: ['*'], pageName: $pageName);
 
                 if($count){
                     $posts = wncms()->paginateWithLimit(
                         collection:  $posts,
                         pageSize: $pageSize, 
                         limit: $count,
+                        pageName: $pageName,
                     );
                 }
             }else{

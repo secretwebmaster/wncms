@@ -4,6 +4,9 @@ Demo: [demo.wncms.cc](https://demo.wncms.cc)
 ## 更新日誌
 
 ### v4.5.0 (開發中)
+- Fix paginated url is cached with locale
+- Add plugin system
+- Improve PostHelper performance
 
 ### v4.4.0 2024-09-18
 - 添加了後端的更新通知功能。

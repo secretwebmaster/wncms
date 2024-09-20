@@ -140,7 +140,8 @@ class CacheHelper
         }
 
         //pages
-        $cacheKey .= request()->page;
+        // $cacheKey .= request()->page;
+        $cacheKey .= json_encode(request()->all());
 
         return md5($cacheKey);
     }

@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\ModelController;
 use App\Http\Controllers\Backend\PageController;
 use App\Http\Controllers\Backend\PermissionController;
+use App\Http\Controllers\Backend\PluginController;
 use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\RecordController;
 use App\Http\Controllers\Backend\RoleController;
@@ -167,7 +168,15 @@ Route::prefix('panel')->middleware(['auth'])->group(function () {
     Route::post('permissions/bulk_assign_roles', [PermissionController::class, 'bulk_assign_roles'])->middleware('can:permission_edit')->name('permissions.bulk_assign_roles');
     Route::post('permissions/bulk_remove_roles', [PermissionController::class, 'bulk_remove_roles'])->middleware('can:permission_edit')->name('permissions.bulk_remove_roles');
 
-    
+
+    //plugin
+    Route::get('plugins', [PluginController::class, 'index'])->middleware('can:plugin_index')->name('plugins.index');
+    Route::post('plugins/upload', [PluginController::class, 'upload'])->middleware('can:plugin_upload')->name('plugins.upload');
+    Route::post('plugins/activate/{pluginId}', [PluginController::class, 'activate'])->middleware('can:plugin_activate')->name('plugins.activate');
+    Route::post('plugins/deactivate/{pluginId}', [PluginController::class, 'deactivate'])->middleware('can:plugin_deactivate')->name('plugins.deactivate');
+    Route::post('plugins/delete/{pluginId}', [PluginController::class, 'delete'])->middleware('can:plugin_delete')->name('plugins.delete');
+
+
     //post
     Route::get('posts/restore/{id}', [PostController::class, 'restore'])->name('posts.restore');
     Route::get('posts', [PostController::class, 'index'])->middleware('can:post_index')->name('posts.index');

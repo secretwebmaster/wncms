@@ -60,7 +60,7 @@ class PostController extends Controller
             $q->where('slug', 'like', "%$request->keyword%")
                 ->orWhere('id', $request->keyword)
                 ->orWhere('slug', $request->keyword)
-                ->orWhereRaw("JSON_EXTRACT(title, '$.*') LIKE '%$request->keyword%'");
+                ->orWhere("title", 'like', "%$request->keyword%");
         }
 
         if ($request->category) {
