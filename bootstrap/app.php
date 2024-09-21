@@ -24,7 +24,23 @@ return Application::configure(basePath: dirname(__DIR__))
             'full_page_cache'      => \App\Http\Middleware\FullPageCache::class,
         ]);
     })
-    ->withExceptions(function (Exceptions $exceptions) {      
+    ->withExceptions(function (Exceptions $exceptions) {
+
+        // avoid infinite loop
+        if(url()->previous() == url()->current()){
+            return;
+        }
+
+        $exceptions->render(function (Illuminate\Database\QueryException $e) {
+            logger()->error($e);
+
+            if($e->getCode() == '42S02'){
+                return back()->withErrors([
+                    'message' => $e->getMessage(),
+                ]);
+            }
+        });
+
         // $exceptions->render(function (MethodNotAllowedHttpException $e) {
         //     logger()->error($e);
         //     return response()->view('errors.405');

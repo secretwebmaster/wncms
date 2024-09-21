@@ -7,9 +7,9 @@
 
 @include('backend.parts.message')
 
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-4">
-            <div class="card border border-1 border-dark">
+    <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-6 col-xl-4">
+            <div class="card">
                 <div class="card-header border-0 cursor-pointer px-3 px-md-9 bg-dark">
                     <div class="card-title m-0">
                         <h3 class="fw-bolder m-0 text-gray-100">@lang('word.model_create', ['model_name' => __('word.role')])</h3>

@@ -7,8 +7,8 @@
 @include('backend.parts.message')
 
 
-<div class="row justify-content-center">
-    <div class="col-12 col-md-8">
+<div class="row justify-content-center align-items-center h-100">
+    <div class="col-12 col-md-6 col-xl-4">
         <div class="card shadow-sm">
             <div class="card-header border-0 cursor-pointer px-3 px-md-9">
                 <div class="card-title m-0">

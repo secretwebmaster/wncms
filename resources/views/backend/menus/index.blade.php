@@ -44,7 +44,7 @@
                                     <label class="form-label">@lang('word.select_options')</label>
                                     <div class="form-check form-check-solid form-check-custom form-switch fv-row">
                                         <input type="hidden" name="create_page_if_not_exists" value="0">
-                                        <input class="form-check-input w-40px h-25px border border-1 border-secondary" type="checkbox" name="create_page_if_not_exists" value="1">
+                                        <input class="form-check-input w-35px h-20px border border-1 border-secondary" type="checkbox" name="create_page_if_not_exists" value="1">
                                         <label class="form-check-label" for="create_page_if_not_exists">@lang('word.create_page_if_not_exists')</label>
                                     </div>
                                     

@@ -84,7 +84,7 @@
                                                 <div class="col-lg-8 d-flex align-items-center">
                                                     <div class="form-check form-check-solid form-check-custom form-switch fv-row">
                                                         <input type="hidden" name="settings[{{ $tab_content['name'] }}]" value="0">
-                                                        <input class="form-check-input w-40px h-25px border border-1 border-secondary" type="checkbox" name="settings[{{ $tab_content['name'] }}]" value="1" {{ $settings[($tab_content['name'])] ?? '' ? 'checked' : '' }} />
+                                                        <input class="form-check-input w-35px h-20px border border-1 border-secondary" type="checkbox" name="settings[{{ $tab_content['name'] }}]" value="1" {{ $settings[($tab_content['name'])] ?? '' ? 'checked' : '' }} />
                                                         <label class="form-check-label" for="check_beta_functions"></label>
                                                     </div>
                                                     @if(trans()->has('word.'. $tab_content['name'] .'_description'))<div class="text-muted p-1">@lang('word.'. $tab_content['name'] .'_description')</div>@endif
