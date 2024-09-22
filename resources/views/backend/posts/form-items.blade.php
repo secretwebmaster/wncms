@@ -13,7 +13,7 @@
 
                 {{-- title --}}
                 <div class="form-item mb-3">
-                    <label class="form-label required fw-bold fs-6">@lang('word.title') @dd($post->translatable)</label>
+                    <label class="form-label required fw-bold fs-6" for="title">@lang('word.title')</label>
                     <input type="text" name="title" class="form-control form-control-sm" value="{{ old('title', $post->title) }}" required />
                 </div>
 
@@ -430,5 +430,20 @@
 <script>
     window.addEventListener('DOMContentLoaded', (event) => {
         $(".wncms-submit").prop('disabled', false);
+
+        const translatableFields = @json($post->getTranslatable());
+        console.log('teast');
+        console.log(translatableFields);
+
+        translatableFields.forEach(field => {
+            const label = document.querySelector(`label[for="${field}"]`);
+            const input = document.querySelector(`input[name="${field}"]`);
+
+            if (label && input) {
+                const flagIcon = document.createElement("i");
+                flagIcon.className = "fa-solid fa-language text-primary fa-lg ms-1";
+                label.appendChild(flagIcon);
+            }
+        });
     });
 </script>

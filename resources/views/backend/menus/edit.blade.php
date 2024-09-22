@@ -6,6 +6,7 @@
 
 
 @section('content')
+
 @include('backend.parts.message')
 
 <div class="row">

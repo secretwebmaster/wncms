@@ -51,9 +51,9 @@
                 'model_prefix' => 'tags',
             ])
 
-            <a href="{{ route('tags.create', ['type' => request()->type]) }}" class="btn btn-sm me-1 btn-info fw-bold mb-1">@lang('word.create_current_tag_type')</a>
-            <a href="{{ route('tags.bulk_create') }}" class="btn btn-sm me-1 btn-info fw-bold mb-1">@lang('word.bulk_create_tag')</a>
-            <a href="{{ route('tags.keywords.index') }}" class="btn btn-sm me-1 btn-dark fw-bold mb-1">@lang('word.bind_keywords')</a>
+            <a href="{{ route('tags.create', ['type' => request()->type]) }}" class="btn btn-sm btn-info fw-bold mb-1">@lang('word.create_current_tag_type')</a>
+            <a href="{{ route('tags.bulk_create') }}" class="btn btn-sm btn-info fw-bold mb-1">@lang('word.bulk_create_tag')</a>
+            <a href="{{ route('tags.keywords.index') }}" class="btn btn-sm btn-dark fw-bold mb-1">@lang('word.bind_keywords')</a>
        
             {{-- Bulk sync parent --}}
             <button type="button" class="btn btn-sm btn-primary fw-bold mb-1" data-bs-toggle="modal" data-bs-target="#modal_bulk_sync_tag_parent">@lang('word.bulk_sync_tag_parent')</button>

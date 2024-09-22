@@ -1,10 +1,11 @@
 @extends('layouts.backend')
-@push('head_css')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"/>
-@endpush
+{{-- @push('head_css')
+<link rel="stylesheet" href="{{ asset('wncms/css/pickr.min.css') }}">
+@endpush --}}
 @section('content')
 
 @include('backend.parts.message')
+
 <div class="card">
     <div class="card-header border-0 cursor-pointer px-3 px-md-9">
         <div class="card-title m-0">
@@ -16,7 +17,6 @@
         <form class="form" method="POST" action="{{ route('tags.store') }}" enctype="multipart/form-data">
             @csrf
             <div class="card-body border-top p-3 p-md-9">
-
                 @include('backend.tags.form-items')
             </div>
 
@@ -28,7 +28,6 @@
         </form>
     </div>
 </div>
-
 
 @endsection
 

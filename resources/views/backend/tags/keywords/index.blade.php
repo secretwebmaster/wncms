@@ -51,8 +51,8 @@
             ])
 
 
-            <a href="{{ route('tags.bulk_create') }}" class="btn btn-sm me-1 btn-info fw-bold">@lang('word.bulk_create_tag')</a>
-            <a href="{{ route('tags.index') }}" class="btn btn-sm me-1 btn-dark fw-bold">@lang('word.back')</a>
+            <a href="{{ route('tags.bulk_create') }}" class="btn btn-sm btn-info fw-bold mb-1">@lang('word.bulk_create_tag')</a>
+            <a href="{{ route('tags.index') }}" class="btn btn-sm btn-dark fw-bold mb-1">@lang('word.back')</a>
         </div>
     </div>
 

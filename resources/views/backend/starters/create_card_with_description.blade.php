@@ -1,11 +1,11 @@
 @extends('layouts.backend')
 @push('head_css')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"/>
+<link rel="stylesheet" href="{{ asset('wncms/css/pickr.min.css') }}">
 @endpush
 
 @section('content')
-@include('backend.parts.message')
 
+@include('backend.parts.message')
 
 <div class="row justify-content-center align-items-center h-100">
     <div class="col-12 col-md-6 col-xl-4">

@@ -117,7 +117,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
         <script src="{{ asset('wncms/plugins/global/plugins.bundle.js?v=' . $wncms->getVersion('js')) }}"></script>
         <script src="{{ asset('wncms/js/scripts.bundle.js?v=' . $wncms->getVersion('js')) }}"></script>
-        <script src="{{ asset('wncms/js/custom/widgets.js?v=' . $wncms->getVersion('js')) }}"></script>
+        <script src="{{ asset('wncms/js/widgets.js?v=' . $wncms->getVersion('js')) }}"></script>
         <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
         <script src="{{ asset('wncms/js/main.js?v=' . $wncms->getVersion('js')) }}"></script>
         <script src="{{ asset('wncms/js/lazysizes.min.js') }}"></script>

@@ -92,7 +92,6 @@
     </div>
 </div>
 
-
 @endsection
 
 @push('foot_js')

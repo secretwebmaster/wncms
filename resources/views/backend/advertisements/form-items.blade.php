@@ -1,3 +1,7 @@
+@push('head_css')
+<link rel="stylesheet" href="{{ asset('wncms/css/pickr.min.css') }}">
+@endpush
+
 <div class="card-body border-top p-3 p-md-9">
     {{-- website --}}
     <div class="row mb-3">

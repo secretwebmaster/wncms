@@ -15,14 +15,8 @@
     <label class="col-lg-3 col-form-label fw-bold fs-6">@lang('word.parent_tag')</label>
     <div class="col-lg-9 fv-row">
         <select name="parent_id" class="form-select form-select-sm">
+            {{-- load options from js --}}
             <option value="">@lang('word.do_not_have')</option>
-            {{-- 更新為由JS載入 --}}
-            {{-- @foreach($parents as $parent)
-            <option value="{{ $parent->id }}">{{ $parent->name }}</option>
-            @foreach($parent->children as $child)
-            <option value="{{ $child->id }}">{{ $child->name }}</option>
-            @endforeach
-            @endforeach --}}
         </select>
     </div>
 </div>

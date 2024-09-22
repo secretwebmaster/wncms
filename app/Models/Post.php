@@ -18,7 +18,7 @@ class Post extends WncmsModel implements HasMedia
     use HasTags;
     use InteractsWithMedia;
     use SoftDeletes;
-    // use HasTranslations;
+    use HasTranslations;
     use WnModelTrait;
 
     protected $guarded = [];

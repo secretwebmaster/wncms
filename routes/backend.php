@@ -253,7 +253,7 @@ Route::prefix('panel')->middleware(['auth'])->group(function () {
     Route::post('tags/bulk_store', [TagController::class, 'bulk_store'])->middleware('can:tag_bulk_create')->name('tags.bulk_store');
     Route::post('tags/import_csv', [TagController::class, 'import_csv'])->middleware('can:tag_import_csv')->name('tags.import_csv');
     Route::get('tags/keywords', [TagController::class, 'show_keyword_index'])->middleware('can:tag_keyword_index')->name('tags.keywords.index');
-    Route::post('tags/{tag}/keywords/update', [TagController::class, 'update_keyword'])->middleware('can:tag_keyword_update')->name('tags.keywords.update');
+    Route::post('tags/{tag}/keywords/update', [TagController::class, 'update_keyword'])->middleware('can:tag_keyword_edit')->name('tags.keywords.update');
     Route::get('tags/create', [TagController::class, 'create'])->middleware('can:tag_create')->name('tags.create');
     Route::get('tags/{tag}/edit', [TagController::class, 'edit'])->middleware('can:tag_edit')->name('tags.edit');
     Route::get('tags/{tag}', [TagController::class, 'show'])->middleware('can:tag_show')->name('tags.show');

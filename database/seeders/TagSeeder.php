@@ -14,13 +14,27 @@ class TagSeeder extends Seeder
      */
     public function run()
     {
-        //創建分類
-        $names = [
-            '未分類'
+        $nameGroups = [
+            [
+                'default' => 'Uncategorized',
+                'zh_TW' => '未分類',
+                'zh_CN' => '未分类',
+                'en' => 'Uncategorized',
+                'ja' => '未分類',
+            ]
         ];
 
-        foreach ($names as $name) {
-            Tag::findOrCreate($name, 'post_category');
+        foreach ($nameGroups as $nameGroup) {
+            $tag = Tag::findOrCreate(($nameGroup[config('app.locale')] ?? $nameGroup['default']), 'post_category');
+            foreach ($nameGroup as $locale => $value) {
+
+                if ($locale === 'default') {
+                    continue;
+                }
+                
+                // Set the translation for the tag
+                $tag->setTranslation('name', $locale, $value);
+            }
         }
     }
 }

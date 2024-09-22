@@ -80,7 +80,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="{{ asset('wncms/plugins/global/plugins.bundle.js?v='). $wncms->getVersion('js') }}"></script>
         <script src="{{ asset('wncms/js/scripts.bundle.js?v=') . $wncms->getVersion('js') }}"></script>
-        <script src="{{ asset('wncms/js/custom/widgets.js?v=') . $wncms->getVersion('js') }}"></script>
+        <script src="{{ asset('wncms/js/widgets.js?v=') . $wncms->getVersion('js') }}"></script>
         <script src="{{ asset('wncms/js/wncms.js?v=') . $wncms->getVersion('js') }}"></script>
         {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/formvalidation/0.6.2-dev/js/formValidation.min.js"></script> --}}
         {{-- <script src="{{ asset('wncms/js/custom/authentication/sign-in/general.js?v=') . $wncms->getVersion('js') }}"></script> --}}

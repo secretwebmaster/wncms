@@ -10,12 +10,18 @@ class TagController extends Controller
 {
     public function index(Request $request)
     {
+        $locale = $request->locale ?? app()->getLocale();
         // info($request->all());
         $tags = Tag::where('type', $request->type)
             ->whereNull('parent_id')
             ->with('children', 'children.children')
             ->orderBy('order_column', 'desc')
-            ->get();
+            ->with('translations')
+            ->get()
+            ->map(function ($tag) use($locale){
+                $tag->name = $tag->getTranslation('name', $locale);
+                return $tag;
+            });
 
         return $tags;
     }

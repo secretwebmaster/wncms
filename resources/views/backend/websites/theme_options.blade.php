@@ -1,7 +1,7 @@
 @extends('layouts.backend')
 
 @push('head_css')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"/>
+<link rel="stylesheet" href="{{ asset('wncms/css/pickr.min.css') }}">
 <style>
     .nav-link.active{
         font-weight: bold
@@ -123,7 +123,6 @@
 </div>
 
 @endsection
-
 
 @push('foot_js')
     @include('common.js.tinymce')

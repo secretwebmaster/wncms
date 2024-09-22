@@ -185,7 +185,7 @@ class TagHelper
         $cacheKey = wncms()->cache()->createKey($this->cacheKeyPrefix, $method, $shouldAuth, wncms()->getAllArgs(__METHOD__, func_get_args()));
         $cacheTags = ['tags'];
         $cacheTime = gss('enable_cache') ? gss('data_cache_time') : 0;
-        // wncms()->cache()->clear($cacheKey, $cacheTags);
+        //wncms()->cache()->clear($cacheKey, $cacheTags);
 
         return wncms()->cache()->tags($cacheTags)->remember($cacheKey, $cacheTime, function () use ($tagType, $count, $columnName, $keyName, $tagIds) {
             // info('no cache from TagHelper getArray()');
@@ -203,9 +203,25 @@ class TagHelper
                 $q->whereIn('id', $tagIds);
             }
 
-            $tagArray = $q->pluck($columnName, $keyName)->toArray();
+            $array = [];
 
-            return $tagArray;
+            $q->get()->map(function($tag) use($columnName, $keyName, &$array) {
+                // If $keyName is null, use the array's current count as the index
+                if ($keyName) {
+                    $array[$tag->{$keyName}] = $tag->{$columnName};
+                } else {
+                    $array[] = $tag->{$columnName}; // Automatically assigns an integer index
+                }
+            });
+            
+            return $array;
+
+            // return $q->get()->map(function($tag) use($columnName, $keyName){
+            //     return [$keyName => $tag->{$columnName}];
+            // });
+
+            // $tagArray = $q->pluck($columnName, $keyName)->toArray();
+            // return $tagArray;
         });
     }
 

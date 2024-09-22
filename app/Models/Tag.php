@@ -48,16 +48,6 @@ class Tag extends WncmsTag implements HasMedia
         return $this->hasMany(TagKeyword::class);
     }
 
-    public function children()
-    {
-        return $this->hasMany(Tag::class, 'parent_id');
-    }
-
-    public function parent()
-    {
-        return $this->belongsTo(Tag::class, 'parent_id');
-    }
-
     /**
      * ----------------------------------------------------------------------------------------------------
      * ! Attributes Accessor

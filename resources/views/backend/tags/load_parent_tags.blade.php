@@ -1,3 +1,4 @@
+{{-- @dd($tag) --}}
 <script>
     $(document).ready(function () {
 
@@ -19,7 +20,7 @@
         function get_parent_tags(type){
             $.ajax({
                 headers:{'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                url:"{{ route('api.v1.tags.index') }}",
+                url:"{{ route('api.v1.tags.index', ['locale' => app()->getLocale()]) }}",
                 data:{
                     type:type,
                 },
@@ -44,7 +45,7 @@
         function populateSelectWithTags(tags, prefix = '') {
             $.each(tags, function (key, value) {
                 var id = value.id;
-                var name = prefix + value.name.{{ LaravelLocalization::getCurrentLocale() }};
+                var name = prefix + value.name;
 
                 // Check if the current tag's parent ID matches the current option's ID
                 var isSelected = (current_tag.parent_id == id || "{{ request()->parent_id }}" == id) ? 'selected' : '';
@@ -58,6 +59,5 @@
                 }
             });
         }
-
     });
 </script>
