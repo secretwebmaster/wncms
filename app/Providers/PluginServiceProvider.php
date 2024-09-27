@@ -25,12 +25,14 @@ class PluginServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $activePlugins = $this->getActivePlugins();
+        if(wncms_is_installed()){
+            $activePlugins = $this->getActivePlugins();
 
-        foreach ($activePlugins as $plugin) {
-            $this->loadPluginRoutes($plugin);
-            $this->loadPluginEvent($plugin);
-            $this->loadPluginFunction($plugin);
+            foreach ($activePlugins as $plugin) {
+                $this->loadPluginRoutes($plugin);
+                $this->loadPluginEvent($plugin);
+                $this->loadPluginFunction($plugin);
+            }
         }
     }
 

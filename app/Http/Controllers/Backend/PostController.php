@@ -163,9 +163,9 @@ class PostController extends Controller
             'order' => $request->order,
             'password' => $request->password,
             'price' => $request->price,
-            'is_pinned' => $request->is_pinned,
-            'is_recommended' => $request->is_recommended,
-            'is_dmca' => $request->is_dmca,
+            'is_pinned' => $request->is_pinned ?? false,
+            'is_recommended' => $request->is_recommended ?? false,
+            'is_dmca' => $request->is_dmca ?? false,
             'published_at' => $request->published_at ? Carbon::parse($request->published_at) : Carbon::now(),
             'expired_at' => $request->expired_at ? Carbon::parse($request->expired_at) : null,
         ]);
@@ -289,9 +289,9 @@ class PostController extends Controller
             'order' => $request->order,
             'password' => $request->password,
             'price' => $request->price,
-            'is_pinned' => $request->is_pinned,
-            'is_recommended' => $request->is_recommended,
-            'is_dmca' => $request->is_dmca,
+            'is_pinned' => $request->is_pinned ?? false,
+            'is_recommended' => $request->is_recommended ?? false,
+            'is_dmca' => $request->is_dmca ?? false,
             'published_at' => $request->published_at ? Carbon::parse($request->published_at) : Carbon::now(),
             'expired_at' => $request->expired_at ? Carbon::parse($request->expired_at) : null,
         ]);
@@ -462,7 +462,6 @@ class PostController extends Controller
                 ]);
             }
 
-
             //receive checked ids
             $posts = Post::whereIn('id', $request->model_ids)->get();
             if ($posts->isEmpty()) {
@@ -474,7 +473,6 @@ class PostController extends Controller
             }
 
             //get action
-
             if (empty($formDataArray['action']) || !in_array($formDataArray['action'], ['sync', 'attach', 'detach'])) {
                 return response()->json([
                     'status' => 'fail',
@@ -485,9 +483,9 @@ class PostController extends Controller
 
             $post_categories = collect(json_decode($formDataArray['post_categories'], true))->pluck('name')->toArray();
             // info($post_categories);
+
             $post_tags = collect(json_decode($formDataArray['post_tags'], true))->pluck('name')->toArray();
             // info($post_tags);
-
 
             foreach ($posts as $post) {
                 if (($formDataArray['action'] == 'sync')) {
@@ -518,7 +516,7 @@ class PostController extends Controller
                 }
             }
 
-            wnCache()->flush(['posts', 'tags']);
+            wncms()->cache()->flush(['posts', 'tags']);
 
             return response()->json([
                 'status' => 'success',
@@ -526,6 +524,7 @@ class PostController extends Controller
                 'message' => __('word.successfully_updated_all'),
                 'reload' => true,
             ]);
+            
         } catch (\Exception $e) {
             logger()->error($e);
             return response()->json([
@@ -539,16 +538,8 @@ class PostController extends Controller
 
     public function generate_demo_posts(Request $request)
     {
-
         $website = wncms()->website()->get();
-       // Validate the request data
-        //    $request->validate([
-        //         'number' => 'required|integer|min:1',
-        //         'tags' => 'required|array',
-        //         'category' => 'required|string',
-        //     ]);
 
-        // Get number from request
         $count = $request->count ?? 10;
 
         // Get tags from request

@@ -168,6 +168,10 @@ if (!function_exists('wncms_get_fontawesome_class')) {
 if (!function_exists('wncms_is_installed')) {
     function wncms_is_installed()
     {
+        if (app()->environment('testing')) {
+            return false;
+        }
+
         $filename = storage_path("installed");
         return file_exists($filename);
     }

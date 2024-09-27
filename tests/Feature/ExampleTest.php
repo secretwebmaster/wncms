@@ -2,20 +2,16 @@
 
 namespace Tests\Feature;
 
-// use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic test example.
-     */
-    public function test_the_application_returns_a_successful_response(): void
+    use RefreshDatabase;
+
+    // test if environment is testing
+    public function test_environment_is_testing()
     {
-        $response = $this->get('/');
-
-        dd($response);
-
-        $response->assertStatus(200);
+        $this->assertEquals('testing', $this->app->environment());
     }
 }

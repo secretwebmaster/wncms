@@ -7,6 +7,8 @@ Demo: [demo.wncms.cc](https://demo.wncms.cc)
 - Fix paginated url is cached with locale
 - Add plugin system
 - Improve PostHelper performance
+- Update Tests.
+- Add LOCALIZATION_HIDE_DEFAULT_LOCALE env variable
 
 ### v4.4.0 2024-09-18
 - 添加了後端的更新通知功能。
