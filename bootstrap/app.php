@@ -12,16 +12,8 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->alias([
-            'localize'                => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRoutes::class,
-            'localizationRedirect'    => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter::class,
-            'localeSessionRedirect'   => \Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect::class,
-            'localeCookieRedirect'    => \Mcamara\LaravelLocalization\Middleware\LocaleCookieRedirect::class,
-            'localeViewPath'          => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class,
-
-            'is_installed'      => \App\Http\Middleware\IsInstalled::class,
-            'has_website'      => \App\Http\Middleware\HasWebsite::class,
-            'full_page_cache'      => \App\Http\Middleware\FullPageCache::class,
+        $middleware->validateCsrfTokens(except: [
+            'install/*',
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

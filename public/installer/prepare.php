@@ -7,7 +7,6 @@ if (file_exists(__DIR__ . '/../../.env') && file_exists(__DIR__ . '/../../vendor
 
 session_start();
 
-// Generate a random token and store it in the session
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
@@ -18,23 +17,31 @@ $translations = [
     'en' => [
         'title' => 'Server Preparation in Progress',
         'message' => 'The server is preparing for the installation. This may take a few moments, depending on the number of Composer packages being installed.',
-        'warning' => 'Please do not close this window or navigate away.'
+        'warning' => 'Please do not close this window or navigate away.',
+        'alert-suggestions' => [
+            'fix_file_permission_for_composer_json' => 'Please fix file permission of composer.json file to make it editable.',
+        ], 
     ],
     'zh_TW' => [
         'title' => '伺服器準備中',
         'message' => '伺服器正在準備安裝。根據 Composer 套件的數量，這可能需要一些時間。',
-        'warning' => '請不要關閉此窗口或離開此頁面。'
+        'warning' => '請不要關閉此窗口或離開此頁面。',
+        'alert-suggestions' => [
+            'fix_file_permission_for_composer_json' => '請修復 composer.json 文件的文件權限以使其可編輯。',
+        ], 
     ],
     'zh_CN' => [
         'title' => '服务器准备中',
         'message' => '服务器正在准备安装。根据 Composer 包的数量，这可能需要一些时间。',
-        'warning' => '请不要关闭此窗口或离开此页面。'
+        'warning' => '请不要关闭此窗口或离开此页面。',
+        'alert-suggestions' => [
+            'fix_file_permission_for_composer_json' => '请修复 composer.json 文件的文件权限以使其可编辑。',
+        ], 
     ],
 ];
 
 require('language.php');
 
-// Prepare the translation data for JavaScript
 $translationsJson = json_encode($translations);
 
 ?>
@@ -71,29 +78,28 @@ $translationsJson = json_encode($translations);
             <div id="progress-bar"></div>
         </div>
 
-        <div id="alert-message"></div>
-        <div id="alert-suggestion"></div>
+        <div id="alert-message" data-key=""></div>
+        <div id="alert-suggestion" data-key=""></div>
     </div>
 
     <script>
-        const csrfToken = '<?php echo $csrfToken; ?>'; // Pass the CSRF token to JavaScript
-        const translations = <?php echo $translationsJson; ?>; // Pass the translations to JavaScript
+        const csrfToken = '<?php echo $csrfToken; ?>';
+        const translations = <?php echo $translationsJson; ?>;
         let progressBar = document.getElementById('progress-bar');
         let interval;
         
         function simulateProgress() {
             let width = 0;
-            const maxWidth = 99; // Set to 95% so it never reaches 100% normally
-            const incrementFactor = 0.05; // Larger increments initially
+            const maxWidth = 99;
+            const incrementFactor = 0.05;
 
             interval = setInterval(() => {
                 if (width >= maxWidth) {
                     clearInterval(interval);
                 } else {
-                    // Calculate the progress incrementally with a diminishing increase
                     let increment = Math.min(maxWidth - width, incrementFactor * (1 - (width / maxWidth)) + Math.random() * 2);
                     width += increment;
-                    if (width > maxWidth) width = maxWidth; // Cap the width at maxWidth
+                    if (width > maxWidth) width = maxWidth;
                     progressBar.style.width = width + '%';
                 }
             }, 200);
@@ -103,6 +109,12 @@ $translationsJson = json_encode($translations);
             document.getElementById('title').textContent = translations[lang].title;
             document.getElementById('message').textContent = translations[lang].message;
             document.getElementById('warning').textContent = translations[lang].warning;
+
+            if (document.getElementById('alert-suggestion').textContent) {
+                console.log(document.getElementById('alert-suggestion').textContent);
+                let suggestion = translations[lang]['alert-suggestions'][document.getElementById('alert-suggestion').getAttribute('data-key')] || document.getElementById('alert-suggestion').textContent;
+                document.getElementById('alert-suggestion').textContent = suggestion;
+            }
         }
 
         simulateProgress();
@@ -111,7 +123,7 @@ $translationsJson = json_encode($translations);
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-CSRF-Token': csrfToken // Send the CSRF token in the request header
+                    'X-CSRF-Token': csrfToken
                 }
             })
             .then(response => response.json())
@@ -122,19 +134,24 @@ $translationsJson = json_encode($translations);
                     progressBar.style.width = '100%';
                     location.href = '/install';
                 } else {
+
+                    currentLang = '<?php echo $currentLang; ?>';
+
                     console.error('Error:', data.message);
                     document.getElementById('alert-message').textContent = data.message;
+                    document.getElementById('alert-message').setAttribute('data-key', data.message);
                     document.getElementById('alert-message').style.display = 'block';
                     document.getElementById('progress-bar').style.backgroundColor = "red";
                     clearInterval(interval);
 
                     if(data.suggestion) {
-                        document.getElementById('alert-suggestion').textContent = data.suggestion;
+                        let suggestion = translations[currentLang]['alert-suggestions'][data.suggestion] || data.suggestion;
+                        document.getElementById('alert-suggestion').textContent = suggestion;
+                        document.getElementById('alert-suggestion').setAttribute('data-key', data.suggestion);
                         document.getElementById('alert-suggestion').style.display = 'block';
                     }
                 }
 
-                // Log the output if it is defined
                 if (data.output) {
                     console.log('Output:', data.output);
                 }

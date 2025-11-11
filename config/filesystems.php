@@ -39,7 +39,7 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
             'throw' => false,
         ],
@@ -58,12 +58,23 @@ return [
         'media' => [
             'driver' => 'local',
             'root'   => public_path('media'),
-            'url'    => env('APP_URL').'/media',
+            'url'    => env('APP_URL') . '/media',
         ],
-        
-        'views' => [
+
+        'themes' => [
             'driver' => 'local',
-            'root'   => resource_path('views'),
+            'root'   => public_path('themes'),
+            'url'    => env('APP_URL') . '/themes',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
+        'plugins' => [
+            'driver' => 'local',
+            'root'   => public_path('plugins'),
+            'url'    => env('APP_URL') . '/plugins',
+            'visibility' => 'public',
+            'throw' => false,
         ],
     ],
 

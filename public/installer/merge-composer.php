@@ -108,7 +108,7 @@ try {
 
     switch ($errorCode) {
         case 1001:
-            $response['suggestion'] = 'Please fix file permission of composer.json file to make it editable.';
+            $response['suggestion'] = 'fix_file_permission_for_composer_json';
             break;
     }
 
