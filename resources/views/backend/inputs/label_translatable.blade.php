@@ -1,1 +1,0 @@
-<label class="form-label required fw-bold fs-6">@lang('word.title')</label>
