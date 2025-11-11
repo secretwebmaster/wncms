@@ -11,20 +11,22 @@ class {{ class }} extends Controller
     public function index(Request $request)
     {
         $q = {{ model }}::query();
+
+        $q->orderBy('id', 'desc');
         
         ${{ modelVariable }}s = $q->paginate($request->page_size ?? 100);
 
-        return view('backend.custom.{{ modelVariable }}s.index', [
+        return view('backend.{{ modelVariable }}s.index', [
             'page_title' => wncms_model_word('{{ modelVariable }}', 'management'),
             '{{ modelVariable }}s' => ${{ modelVariable }}s,
         ]);
     }
 
-    public function create({{ model }} ${{ modelVariable }} = null)
+    public function create(?{{ model }} ${{ modelVariable }})
     {
         ${{ modelVariable }} ??= new {{ model }};
 
-        return view('backend.custom.{{ modelVariable }}s.create', [
+        return view('backend.{{ modelVariable }}s.create', [
             'page_title' => wncms_model_word('{{ modelVariable }}', 'management'),
             '{{ modelVariable }}' => ${{ modelVariable }},
         ]);
@@ -41,13 +43,13 @@ class {{ class }} extends Controller
         wncms()->cache()->flush(['{{ modelVariable }}s']);
 
         return redirect()->route('{{ modelVariable }}s.edit', [
-            '{{ modelVariable }}' => ${{ modelVariable }},
-        ])->withMessage(__('word.successfully_created'));
+            'id' => ${{ modelVariable }},
+        ])->withMessage(__('wncms::word.successfully_created'));
     }
 
     public function edit({{ model }} ${{ modelVariable }})
     {
-        return view('backend.custom.{{ modelVariable }}s.edit', [
+        return view('backend.{{ modelVariable }}s.edit', [
             'page_title' => wncms_model_word('{{ modelVariable }}', 'management'),
             '{{ modelVariable }}' => ${{ modelVariable }},
         ]);
@@ -64,14 +66,14 @@ class {{ class }} extends Controller
         wncms()->cache()->flush(['{{ modelVariable }}s']);
         
         return redirect()->route('{{ modelVariable }}s.edit', [
-            '{{ modelVariable }}' => ${{ modelVariable }},
-        ])->withMessage(__('word.successfully_updated'));
+            'id' => ${{ modelVariable }},
+        ])->withMessage(__('wncms::word.successfully_updated'));
     }
 
     public function destroy({{ model }} ${{ modelVariable }})
     {
         ${{ modelVariable }}->delete();
-        return redirect()->route('{{ modelVariable }}s.index')->withMessage(__('word.successfully_deleted'));
+        return redirect()->route('{{ modelVariable }}s.index')->withMessage(__('wncms::word.successfully_deleted'));
     }
 
     public function bulk_delete(Request $request)
@@ -87,10 +89,10 @@ class {{ class }} extends Controller
         if($request->ajax()){
             return response()->json([
                 'status' => 'success',
-                'message' => __('word.successfully_deleted_count', ['count' => $count]),
+                'message' => __('wncms::word.successfully_deleted_count', ['count' => $count]),
             ]);
         }
 
-        return redirect()->route('{{ modelVariable }}s.index')->withMessage(__('word.successfully_deleted_count', ['count' => $count]));
+        return redirect()->route('{{ modelVariable }}s.index')->withMessage(__('wncms::word.successfully_deleted_count', ['count' => $count]));
     }
 }

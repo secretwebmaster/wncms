@@ -1,17 +1,17 @@
 @extends('frontend.theme.default.layouts.app')
 
 @section('content')
-    <a class="nav-link" href="{{ route('frontend.pages.home') }}">< @lang('word.home')</a>
-    <h2>@lang('word.post_list')</h2>
+    <a class="nav-link" href="{{ route('frontend.pages.home') }}">< @lang('wncms::word.home')</a>
+    <h2>@lang('wncms::word.post_list')</h2>
     <table>
         <thead>
-            <th>@lang('word.id')</th>
-            <th>@lang('word.title')</th>
-            <th>@lang('word.category')</th>
-            <th>@lang('word.tag')</th>
+            <th>@lang('wncms::word.id')</th>
+            <th>@lang('wncms::word.title')</th>
+            <th>@lang('wncms::word.category')</th>
+            <th>@lang('wncms::word.tag')</th>
         </thead>
         <tbody>
-            @foreach($wncms->post()->getList(pageSize:10) as $post)
+            @foreach($posts = $wncms->post()->getList(['page_size' => 10]) as $post)
                 <tr>
                     <td>{{ $post->id }}</td>
                     <td><a href="{{ $post->singleUrl }}">{{ $post->title }}</a></td>
@@ -32,5 +32,5 @@
         </tbody>
     </table>
 
-    {!! $wncms->post()->getList(pageSize:10)->links() !!}
+    {!! $posts->links() !!}
 @endsection
