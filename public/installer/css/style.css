@@ -1179,6 +1179,15 @@ input[type=text] {
   width: 100%;
 }
 
+.form-check-item{
+  display:flex;
+  align-items: center;
+}
+
+.form-check-item .form-check-input{
+  margin-right: 3px;
+}
+
 .has-error {
   color: #ff0000;
 }
@@ -1552,5 +1561,3 @@ svg:not(:root) {
   bottom: 12px;
   right: 0;
 }
-
-/*# sourceMappingURL=style.css.map */
