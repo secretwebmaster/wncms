@@ -10,7 +10,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "secretwebmaster/wncms-core": "^6.0.0-alpha1"
+        "secretwebmaster/wncms-core": "dev-main"
     },
     "autoload": {
         "psr-4": {
@@ -60,6 +60,6 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true
 }
