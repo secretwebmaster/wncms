@@ -1,3 +1,4 @@
+# Laravel core
 *.log
 .DS_Store
 .env
@@ -22,3 +23,12 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
+# Core assets
+/public/theme/*
+/public/wncms
+/config/theme/*
+/resources/views/*
+/stubs/*
+/lang/*
+!/lang/.gitignore
