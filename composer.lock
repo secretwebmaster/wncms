@@ -3438,12 +3438,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/secretwebmaster/wncms-core.git",
-                "reference": "47a039bdcd458d63c52c7826437445d5d0140a04"
+                "reference": "1a03e12b8c2b363ef2fe6381684f1c796a1db7c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/secretwebmaster/wncms-core/zipball/47a039bdcd458d63c52c7826437445d5d0140a04",
-                "reference": "47a039bdcd458d63c52c7826437445d5d0140a04",
+                "url": "https://api.github.com/repos/secretwebmaster/wncms-core/zipball/1a03e12b8c2b363ef2fe6381684f1c796a1db7c5",
+                "reference": "1a03e12b8c2b363ef2fe6381684f1c796a1db7c5",
                 "shasum": ""
             },
             "require": {
@@ -3473,6 +3473,7 @@
             "extra": {
                 "laravel": {
                     "providers": [
+                        "Wncms\\Tags\\TagsServiceProvider",
                         "Wncms\\Providers\\WncmsServiceProvider",
                         "Wncms\\Providers\\EventServiceProvider",
                         "Wncms\\Providers\\HelpersProvider",
@@ -3518,7 +3519,7 @@
                 "issues": "https://github.com/secretwebmaster/wncms-core/issues",
                 "source": "https://github.com/secretwebmaster/wncms-core"
             },
-            "time": "2025-11-16T03:50:05+00:00"
+            "time": "2025-11-16T06:24:08+00:00"
         },
         {
             "name": "secretwebmaster/wncms-tags",
