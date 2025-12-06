@@ -32,3 +32,11 @@ Thumbs.db
 /stubs/*
 /lang/*
 !/lang/.gitignore
+
+# Projects
+.well-known
+.well-known/acme-challenge/*
+/public/themes/*
+/public/plugins/*
+/public/.user.ini
+Test.php

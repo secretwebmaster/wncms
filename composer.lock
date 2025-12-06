@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d4787daac496c91bf38370b64f13d9b9",
+    "content-hash": "86fbe91937e8350b8aee5949e16d0dd4",
     "packages": [
         {
             "name": "brick/math",
@@ -650,31 +650,31 @@
         },
         {
             "name": "fruitcake/php-cors",
-            "version": "v1.3.0",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fruitcake/php-cors.git",
-                "reference": "3d158f36e7875e2f040f37bc0573956240a5a38b"
+                "reference": "38aaa6c3fd4c157ffe2a4d10aa8b9b16ba8de379"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fruitcake/php-cors/zipball/3d158f36e7875e2f040f37bc0573956240a5a38b",
-                "reference": "3d158f36e7875e2f040f37bc0573956240a5a38b",
+                "url": "https://api.github.com/repos/fruitcake/php-cors/zipball/38aaa6c3fd4c157ffe2a4d10aa8b9b16ba8de379",
+                "reference": "38aaa6c3fd4c157ffe2a4d10aa8b9b16ba8de379",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.4|^8.0",
-                "symfony/http-foundation": "^4.4|^5.4|^6|^7"
+                "php": "^8.1",
+                "symfony/http-foundation": "^5.4|^6.4|^7.3|^8"
             },
             "require-dev": {
-                "phpstan/phpstan": "^1.4",
+                "phpstan/phpstan": "^2",
                 "phpunit/phpunit": "^9",
-                "squizlabs/php_codesniffer": "^3.5"
+                "squizlabs/php_codesniffer": "^4"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.2-dev"
+                    "dev-master": "1.3-dev"
                 }
             },
             "autoload": {
@@ -705,7 +705,7 @@
             ],
             "support": {
                 "issues": "https://github.com/fruitcake/php-cors/issues",
-                "source": "https://github.com/fruitcake/php-cors/tree/v1.3.0"
+                "source": "https://github.com/fruitcake/php-cors/tree/v1.4.0"
             },
             "funding": [
                 {
@@ -717,7 +717,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-10-12T05:21:21+00:00"
+            "time": "2025-12-03T09:33:47+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -3442,16 +3442,16 @@
         },
         {
             "name": "secretwebmaster/wncms-core",
-            "version": "v6.0.8",
+            "version": "v6.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/secretwebmaster/wncms-core.git",
-                "reference": "2df4d7a5b8e6dc597afb156604d7eda92059ef9d"
+                "reference": "6feb105a581b00ff7bcc69dc72e0d689f34655e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/secretwebmaster/wncms-core/zipball/2df4d7a5b8e6dc597afb156604d7eda92059ef9d",
-                "reference": "2df4d7a5b8e6dc597afb156604d7eda92059ef9d",
+                "url": "https://api.github.com/repos/secretwebmaster/wncms-core/zipball/6feb105a581b00ff7bcc69dc72e0d689f34655e0",
+                "reference": "6feb105a581b00ff7bcc69dc72e0d689f34655e0",
                 "shasum": ""
             },
             "require": {
@@ -3526,7 +3526,7 @@
                 "issues": "https://github.com/secretwebmaster/wncms-core/issues",
                 "source": "https://github.com/secretwebmaster/wncms-core"
             },
-            "time": "2025-12-03T07:25:56+00:00"
+            "time": "2025-12-06T15:01:45+00:00"
         },
         {
             "name": "secretwebmaster/wncms-tags",
@@ -6826,8 +6826,11 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.2"
+        "php": ">=8.2 <8.4"
     },
     "platform-dev": {},
+    "platform-overrides": {
+        "php": "8.3.999"
+    },
     "plugin-api-version": "2.6.0"
 }

@@ -9,7 +9,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
+        "php": ">=8.2 <8.4",
         "secretwebmaster/wncms-core": "^6.0.0"
     },
     "autoload": {
@@ -49,6 +49,9 @@
         }
     },
     "config": {
+        "platform": {
+            "php": "8.3.999"
+        },
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true,
